@@ -7,25 +7,27 @@ Nuestra página web estará dedicada a **LaLiga EA Sports**, la Primera Divisió
 
 El objetivo del proyecto es crear una página web en la que se muestren los diferentes equipos que participan en la competición y algunos datos relevantes sobre cada uno de ellos.
 
-## Información de los equipos
-
-Para cada equipo se mostrará información como:
-
-* Número de temporadas jugadas en Primera División.
-* Estadio.
-* Número de ligas ganadas o, en caso de no haber ganado ninguna, su mejor posición en la clasificación.
-* Un dato curioso sobre el equipo.
-
 ## Entidades
 
-La **entidad principal** de nuestra página web serán los **equipos de LaLiga**.
+La **entidad principal** de nuestra página web será el **equipo de LaLiga** y sus atributos serán:
 
-Las **entidades secundarias** estarán relacionadas con los jugadores del equipo y se añadirán atributos a las entidades principales (equipos) como:
-
+* Nombre del club
+* Año de fundación
+* Posición en la temporada actual.
 * Temporadas jugadas en Primera División.
 * Estadio.
 * Ligas ganadas o mejor posición histórica en la clasificación.
 * Dato curioso.
+
+La **entidad secundaria** será el jugador del equipo y sus atributos serán:
+
+* Nombre
+* Nacionalidad
+* Edad
+* Posición
+* Partidos jugados
+* Goles
+* Asistencias
 
 ## Objetivo
 

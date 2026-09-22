@@ -1,0 +1,33 @@
+[
+    {
+        "Nombre del Club" : "Club Deportivo Prueba",
+        "Año de Fundación" : 1990,
+        "Posicion en la temporada actual" : 5,
+        "Estadio" : "Estadio de Prueba",
+        "Temporadas jugadas en Primera División" : 10,
+        "Ligas ganadas" : 2,
+        "Dato curioso" : "El club tiene una mascota llamada 'Pruebitas', un pequeño dragón que acompaña al equipo en los partidos.",
+        "Jugadores destacados" : [
+            {
+                "Nombre" : "Juan Pérez",
+                "Nacionalidad" : "Argentina",
+                "Edad" : 28,
+                "Posición" : "Delantero",
+                "Partidos jugados" : 100,
+                "Goles " : 150,
+                "Asistencias" : 50
+            },
+            {
+                "Nombre" : "Carlos López",
+                "Nacionalidad" : "México",
+                "Edad" : 30,
+                "Posición" : "Defensa",
+                "Partidos jugados" : 200,
+                "Goles " : 20,
+                "Asistencias" : 30
+            }
+        ]
+
+
+    }
+]

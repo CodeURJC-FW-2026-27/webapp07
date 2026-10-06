@@ -1,0 +1,141 @@
+/*
+Template Name: Foot Goal
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+/*********************services****************/
+#review_home_l{
+ padding-top:40px;
+ padding-bottom:40px;
+  }
+#review_home_l h5{
+display:inline-block;
+margin-right:10px; 
+ } 
+
+#strategy{
+ padding-top:40px; 
+ padding-bottom:20px;
+ background:#f4f4f4;
+  }
+.clickable
+{
+cursor: pointer;
+}
+.panel-title{
+ font-size:22px;
+ font-weight:bold; 
+  }
+.panel-title i{
+margin-right:5px;
+font-size:18px;
+  }
+.clickable .glyphicon
+{
+background: rgba(0, 0, 0, 0.15);
+display: inline-block;
+padding: 4px 12px;
+border-radius: 4px;
+}
+
+.panel-heading span
+{
+margin-top: -23px;
+font-size: 15px;
+margin-right: -9px;
+}
+a.clickable { color: inherit; }
+a.clickable:hover { text-decoration:none; }
+
+.panel-success{
+ border-color:#eee;
+ border-radius:0;
+  }
+.panel-success>.panel-heading{
+ background: rgb(239, 39, 67); 
+ color:#000;
+ border-color:#eee;
+ padding:20px 30px;
+ border-bottom:none;
+ border-radius:0;
+  }
+.panel-collapsed{
+  background:#fff!important;
+  }
+.panel-body{
+padding-bottom:25px;  
+  }
+  
+#history{
+padding-top:40px;
+padding-bottom:40px;
+ }
+.history_1i span{
+background: rgb(239, 39, 67);
+color: #fff;
+width: 70px;
+height: 70px;
+line-height: 75px;
+text-align: center;
+display: inline-block;
+border-radius: 3px;
+font-size: 30px;
+border-radius:50%; 
+ }
+.history_1i span:hover{
+background:#121d2c;
+ }
+.history_1i{
+background:#f4f4f4;
+padding:30px 15px; 
+ }
+.history_1{
+margin-top:30px; 
+ }
+.history_2{
+background:#f4f4f4;
+margin-top:30px;
+padding-top:40px;
+padding-bottom:40px;
+margin-left:15px;
+margin-right:15px; 
+ }
+.history_2i{
+border-right:1px solid #eee; 
+ }
+/*********************services_end****************/
+
+
+@media screen and (max-width : 767px){
+#history{
+text-align:center; 
+ }
+.history_1i{
+margin-top:10px; 
+ }
+.history_2i{
+margin-top:15px;
+border:none; 
+ }
+#review_home_l{
+text-align:center; 
+ }
+.review_home_1r {
+margin-top:15px; 
+ }
+.panel-body{
+text-align:center; 
+ }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+
+ }
+@media (min-width:992px) and (max-width:1200px) {
+ 
+  }
+@media (min-width:1201px) and (max-width:1352px) {
+
+ }

@@ -1,0 +1,147 @@
+/*
+Template Name: Foot Goal
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+/*********************blog****************/
+#blog{
+padding-top:40px;
+padding-bottom:40px; 
+ }
+.blog1l1ir h5{
+margin-top:10px;
+ }
+.blog1l1i{
+margin-top:15px; 
+ }
+.blog1l2 h6:hover{
+background:rgb(239, 39, 67); 
+color:#fff;
+ }
+.blog1l2 h6{
+padding:10px;
+border-bottom:1px solid #eee; 
+ }
+.blog1l2 h6:hover a{
+color:#fff; 
+ }
+.blog1l3 ul li {
+display: inline-block;
+margin-top: 5px;
+}
+.blog1l3 ul li a {
+padding: 8px 8px 8px 8px;
+display: block;
+background: #f4f4f4;
+}
+.blog1l3 ul li a:hover {
+background:rgb(239, 39, 67); 
+color:#fff; 
+ }
+.blog1ri h6 {
+padding: 7px 10px 5px 10px;
+background: #000;
+color: #fff;
+display: inline-block;
+}
+
+.blod_d1 h6 a i{
+margin-right:5px; 
+ }
+.blod_d1 h6 a {
+margin-left:5px; 
+margin-right:5px;
+ }
+blockquote {
+border-color: rgb(239, 39, 67);
+}
+.blod_d1 ul li{
+display:inline-block;
+margin-right:10px;
+ }
+.blod_d1 ul li a{
+padding: 6px 15px;
+background: #f4f4f4;
+border-radius:30px;
+display:block;
+font-size:16px;
+ }
+.blod_d1 ul li a:hover{
+background:rgb(239, 39, 67);
+color:#fff;
+ }
+.mg50{
+margin-left:50px;
+margin-right:50px;
+ }
+.blod_d2i{
+margin-top:30px; 
+ }
+.blod_d2 h3 span {
+    margin-right: 5px;
+}
+.blod_d3i h5 span{
+color:#FF0000; 
+ }
+.blod_d3i .form-control{
+height:50px;
+border-radius:0;
+margin-top:15px;
+border-color:#eee;
+box-shadow:none;
+ }
+.blod_d3i .form_1{
+height:180px;
+ }
+.blod_d3{
+border:1px solid #eee;
+padding:15px 20px 40px 20px;
+margin-top:30px; 
+ }
+.blod_d2i h6{
+line-height:1.4em; 
+ }
+.team_pg .players_1 {
+margin-top:30px; 
+ }
+/*********************blog_end****************/
+
+
+@media screen and (max-width : 767px){
+.blod_d1 ul li{
+margin-bottom:8px; 
+ }
+.blod_d2i img{
+margin-bottom:15px; 
+ }
+#blog{
+text-align:center; 
+ }
+.blog1l1ir {
+margin-top:10px; 
+ }
+.blog1l2 h6{
+text-align:left;  
+ }
+.blog1r{
+margin-top:15px; 
+ }
+.blog1dt{
+margin-top:15px; 
+ }
+.team_pg {
+margin-top:15px; 
+ }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+
+ }
+@media (min-width:992px) and (max-width:1200px) {
+ 
+  }
+@media (min-width:1201px) and (max-width:1352px) {
+
+ }

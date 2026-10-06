@@ -1,0 +1,61 @@
+/*
+Template Name: Foot Goal
+File: Layout CSS
+Author: TemplatesOnWeb
+Author URI: https://www.templateonweb.com/
+Licence: <a href="https://www.templateonweb.com/license">Website Template Licence</a>
+*/
+/*********************about****************/
+#about{
+padding-top:40px;
+padding-bottom:40px; 
+ }
+#visit {
+background-image: url(../img/2.jpg)!important;
+background-position: center;
+}
+.visit_rr span{
+font-size:70px!important; 
+ }
+#league {
+padding-top: 40px;
+padding-bottom: 40px;
+background:#f4f4f4;
+}
+.league_1{
+text-align:center; 
+ }
+#counting {
+background:#f4f4f4;
+}
+/*********************about_end****************/
+
+
+@media screen and (max-width : 767px){
+#about{
+text-align:center; 
+ }
+.about_1r{
+margin-top:15px; 
+ }
+#league{
+text-align:center; 
+ }
+.league_1i{
+margin-top:10px; 
+ }
+}
+
+@media (min-width:768px) and (max-width:991px) {
+.visit_rr span{
+font-size:50px!important; 
+ }
+ }
+@media (min-width:992px) and (max-width:1200px) {
+ .visit_rr span{
+font-size:50px!important; 
+ }
+  }
+@media (min-width:1201px) and (max-width:1352px) {
+
+ }

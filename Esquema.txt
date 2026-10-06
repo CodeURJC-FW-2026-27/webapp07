@@ -1,0 +1,30 @@
+Página principal: blog.html
+    Hacer el mismo estilo de cuadros con escudo de cada equipo según la clasificación y añadir la info de puntos, partidos jugados, victorias, etc.
+    Además cambiar el fondo de la página en función de si quedara así LaLiga cual ganaría (amarillo), cuales irian a Champions (azul), cuales a Europa League (naranja), ...
+    y cuales descenderían (rojo).
+    Añadir un header bonito que ponga LaLiga y hacer de esta página la principal.
+    Que cada elemento al pinchar lleve al equipo correspondiente.
+    NOTA: ES LA QUE MÁS COMPLICACIÓN TIENE PARA QUE QUEDE BIEN Y NO PAREZCA UNA TABLA DE FOTOS Y YA
+
+Página de club: team.html
+    Mantener estética parecida con info general del equipo, poner el entrenador y 4 jugadores (portero, defensa, medio y delantero) más importantes.
+    Podemos añadir sección de palmarés del club.
+    EXTRA: se podría añadir una "alineación" (ej: 4-3-3) con las imágenes de los jugadores titulares y luego aparte una fila con los suplentes (banquillo).
+           no hace falta luego poner info de todos, antes de la alineación de ponen los importantes y de esos es de los que se saca la info.
+    NOTA: PARECE COMPLICADO PERO SERÍA COPIAR Y PEGAR FORMATO TODO EL RATO Y HACER CAMBIOS
+
+Página de jugador: detail.html o about.html
+    Añadir algo de info de cada juagdor (los datos que están en el README.md)
+    NOTA: SON MUCHOS JUGADORES PERO AL FIN Y AL CABO ES COPIAR Y PEGAR FORMATO E INFO
+
+PROBLEMA:
+    Creo que cada equipo tiene que tener su *.html propio -> Muchos archivos
+    Y para cada jugador del cual saquemos info también necesita su *.html propio -> Muchos más archivos
+
+NOTA FINAL: DADO QUE SERÍAN UNOS 100 ARCHIVOS *.html SI QUEREMOS HACER INFO DE UN JUGADOR DE CADA POSICIÓN + ENTRENADOR, YO ELEGIRÍA UNA "LEYENDA DEL CLUB" QUE ES DEL QUE SE SACA LA INFO.
+            DE ESTA FORMA LUEGO SE PODRÍA SACAR UN ÍNDICE O ALGO COMO "LEYENDAS DE LaLiga" QUE QUEDARÍA GUAY Y ES MENOS REPETITIVO.
+            SOBRE EL ENTRENADOR SE PONE ALGO BREVE EN LA PROPIA PÁGINA DEL EQUIPO.
+
+CONCLUSIÓN: Hay que hacer que la página del blog.html quede bien presentable como una tabla de clasificación de LaLiga pero con formato bonito (no tabla de fotos cutre y ya)
+            Para cada equipo se pondría la info que está en el README.md, info sobre el entrenador, alineación de imágenes y suplentes (si es mucho -> solo titulares) y palmarés
+            Se elige una "Leyenda" del club y de ese el del que se le saca otro *.html con más info (luego se podría hacer lo de "Leyendas de LaLiga")

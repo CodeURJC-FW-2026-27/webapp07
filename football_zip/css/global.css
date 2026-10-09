@@ -685,5 +685,15 @@ padding-right:20px;
 
  }
 
-
-
+.carousel-text-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 250px; /* Ajusta esta altura según lo alto que quieras el carrusel */
+    padding: 20px;
+    font-size: 24px; /* Tamaño grande del texto */
+    font-weight: bold; /* Negrita */
+    background-color: #de6565; /* Color de fondo opcional para que destaque */
+    color: #ffffff; /* Color del texto */
+}

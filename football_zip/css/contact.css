@@ -23,6 +23,25 @@ background:#f4f4f4;
 .profile_5l .form_1{
 height:230px; 
  }
+#imagen::file-selector-button {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-right: 10px;
+  vertical-align: middle;
+  font-weight:bold
+}
+#imagen.form-control {
+padding-top: 12px;
+padding-bottom: 12px;
+}
+.formulary-buttons {
+  text-align: right;
+  margin-top: 30px;
+}
+#cancelar {
+  margin-right: 10px;
+}
 /*********************contact_end****************/
 
 

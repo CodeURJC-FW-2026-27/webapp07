@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <style>
-  .champions{
-	background-color: rgb(111, 102, 236);
-  }
+	.champions {
+		background-color: rgb(111, 102, 236);
+	}
 </style>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -111,7 +112,7 @@
 
 	<section id="center" class="clearfix center_home">
 		<div class="center_home_m clearfix">
-			<div class="carousel slide article-slide" id="article-photo-carousel" aria-label="Imágenes de los equipos">
+			<div class="carousel slide article-slide" id="article-photo-carousel" data-ride="carousel" data-interval="2000" aria-label="Imágenes de los equipos">
 				<!-- Una diapositiva por equipo; imágenes provisionales del proyecto. -->
 				<div class="carousel-inner cont-slider">
 					<div class="item active" data-equipo="FC Barcelona">
@@ -181,7 +182,9 @@
 				<!-- Cinco columnas; las filas crecen automáticamente con nuevos indicadores. -->
 				<ol class="carousel-indicators" aria-label="Seleccionar equipo" style="margin-top: 360px;">
 					<li class="active" data-slide-to="0" data-target="#article-photo-carousel">
-						<img src="img/1.jpg" alt="" loading="lazy">
+						<button type="button" aria-label="Mostrar FC Barcelona" title="FC Barcelona">
+							<img src="img/1.jpg" alt="" loading="lazy">
+						</button>
 					</li>
 					<li data-slide-to="1" data-target="#article-photo-carousel" data-equipo="Atlético de Madrid">
 						<button type="button" aria-label="Mostrar Atlético de Madrid" title="Atlético de Madrid">
@@ -278,17 +281,13 @@
 							<img src="img/20.jpg" alt="" loading="lazy">
 						</button>
 					</li>
-					<li data-slide-to="19" data-target="#article-photo-carousel" data-equipo="Málaga CF">
-						<button type="button" aria-label="Mostrar Málaga CF" title="Málaga CF">
-							<img src="img/20.jpg" alt="" loading="lazy">
-						</button>
-					</li>
 				</ol>
 			</div>
 			<div class="center_home_mi clearfix">
 				<h1>LAS LEYENDAS<br> DE LaLiga </h1>
 				<p>Los mejores jugadores que han pasado por los distintos equipos de LaLiga están aquí.</p>
-				<h5><a class="button" href="contact.html">AÑADE TU LEYENDA AHORA<i class="fa fa-chevron-right"></i></a></h5>
+				<h5><a class="button" href="contact.html">AÑADE TU LEYENDA AHORA<i class="fa fa-chevron-right"></i></a>
+				</h5>
 			</div>
 		</div>
 	</section>
@@ -306,307 +305,715 @@
 			<h5 style="color:rgb(239, 39, 67); grid-column: 8 / 8; grid-row: 1 / 1;">GF</h5>
 			<h5 style="color:rgb(239, 39,_67); grid-column: 9 / 9; grid-row: 1 / 1;">GC</h5>
 			<h5 style="color:rgb(239,_39,_67); grid-column: 10 / 10; grid-row: 1 / 1;">DG</h5>
-			<!-- 1. FC Barcelona -->
-			<a href="barca.html" style="width:100%; height:100%; grid-column: 1 / -1; grid-row: 2 / 2;"><p></p></a>
-			<a href="barca.html" style="grid-column: 1 / 1; grid-row: 2 / 2;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -200px; background-repeat: no-repeat;">
+
+			<a
+				style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 2 / 7; border: 3px solid rgb(18, 52, 117); border-radius: 10px;">
+				<p></p>
 			</a>
-			<a href="barca.html" style="grid-column: 2 / 2; grid-row: 2 / 2;"><h5>1</h5></a>
-			<a href="barca.html" style="grid-column: 3 / 3; grid-row: 2 / 2;"><h5>21</h5></a>
-			<a href="barca.html" style="grid-column: 4 / 4; grid-row: 2 / 2;"><h5>7</h5></a>
-			<a href="barca.html" style="grid-column: 5 / 5; grid-row: 2 / 2;"><h5>7</h5></a>
-			<a href="barca.html" style="grid-column: 6 / 6; grid-row: 2 / 2;"><h5>0</h5></a>
-			<a href="barca.html" style="grid-column: 7 / 7; grid-row: 2 / 2;"><h5>0</h5></a>
-			<a href="barca.html" style="grid-column: 8 / 8; grid-row: 2/ 2;"><h5>31</h5></a>
-			<a href="barca.html" style="grid-column: 9 / 9; grid-row: 2 / 2;"><h5>7</h5></a>
-			<a href="barca.html" style="grid-column: 10 / 10; grid-row: 2 / 2;"><h5>+24</h5></a>
+			<a
+				style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 7 / 7; border: 3px solid rgb(255, 105, 24); border-radius: 10px;">
+				<p></p>
+			</a>
+			<a
+				style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 8 / 8; border: 3px solid rgb(0, 170, 9); border-radius: 10px;">
+				<p></p>
+			</a>
+			<a
+				style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 19 / 22; border: 3px solid rgb(207, 2, 2); border-radius: 10px;">
+				<p></p>
+			</a>
+			<!-- 1. FC Barcelona -->
+			<a href="barca.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 2 / 2;">
+				<p></p>
+			</a>
+			<a href="barca.html" style="grid-column: 1 / 1; grid-row: 2 / 2;"><img src="img/barcelona.png"
+					alt="FC Barcelona" width="50" height="50">
+			</a>
+			<a href="barca.html" style="grid-column: 2 / 2; grid-row: 2 / 2;">
+				<h5>1</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 3 / 3; grid-row: 2 / 2;">
+				<h5>21</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 4 / 4; grid-row: 2 / 2;">
+				<h5>7</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 5 / 5; grid-row: 2 / 2;">
+				<h5>7</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 6 / 6; grid-row: 2 / 2;">
+				<h5>0</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 7 / 7; grid-row: 2 / 2;">
+				<h5>0</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 8 / 8; grid-row: 2/ 2;">
+				<h5>31</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 9 / 9; grid-row: 2 / 2;">
+				<h5>7</h5>
+			</a>
+			<a href="barca.html" style="grid-column: 10 / 10; grid-row: 2 / 2;">
+				<h5>+24</h5>
+			</a>
 
 			<!-- 2. Atlético de Madrid -->
-			<a href="atm.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 3 / 3;"><p></p></a>
-			<a href="atm.html" style="grid-column: 1 / 1; grid-row: 3 / 3;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -100px; background-repeat: no-repeat;">
+			<a href="atm.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 3 / 3; ">
+				<p></p>
 			</a>
-			<a href="atm.html" style="grid-column: 2 / 2; grid-row: 3 / 3;"><h5>2</h5></a>
-			<a href="atm.html" style="grid-column: 3 / 3; grid-row: 3 / 3;"><h5>16</h5></a>
-			<a href="atm.html" style="grid-column: 4 / 4; grid-row: 3 / 3;"><h5>7</h5></a>
-			<a href="atm.html" style="grid-column: 5 / 5; grid-row: 3 / 3;"><h5>5</h5></a>
-			<a href="atm.html" style="grid-column: 6 / 6; grid-row: 3 / 3;"><h5>1</h5></a>
-			<a href="atm.html" style="grid-column: 7 / 7; grid-row: 3 / 3;"><h5>1</h5></a>
-			<a href="atm.html" style="grid-column: 8 / 8; grid-row: 3 / 3;"><h5>16</h5></a>
-			<a href="atm.html" style="grid-column: 9 / 9; grid-row: 3 / 3;"><h5>7</h5></a>
-			<a href="atm.html" style="grid-column: 10 / 10; grid-row: 3 / 3;"><h5>+9</h5></a>
+			<a href="atm.html" style="grid-column: 1 / 1; grid-row: 3 / 3;"><img src="img/atletico-madrid.png"
+					alt="Atlético de Madrid" width="50" height="50">
+			</a>
+			<a href="atm.html" style="grid-column: 2 / 2; grid-row: 3 / 3;">
+				<h5>2</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 3 / 3; grid-row: 3 / 3;">
+				<h5>16</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 4 / 4; grid-row: 3 / 3;">
+				<h5>7</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 5 / 5; grid-row: 3 / 3;">
+				<h5>5</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 6 / 6; grid-row: 3 / 3;">
+				<h5>1</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 7 / 7; grid-row: 3 / 3;">
+				<h5>1</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 8 / 8; grid-row: 3 / 3;">
+				<h5>16</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 9 / 9; grid-row: 3 / 3;">
+				<h5>7</h5>
+			</a>
+			<a href="atm.html" style="grid-column: 10 / 10; grid-row: 3 / 3;">
+				<h5>+9</h5>
+			</a>
 
 			<!-- 3. Real Betis -->
-			<a href="betis.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 4 / 4;"><p></p></a>
-			<a href="betis.html" style="grid-column: 1 / 1; grid-row: 4 / 4;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Real Betis" title="Real Betis" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -250px; background-repeat: no-repeat;">
+			<a href="betis.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 4 / 4;">
+				<p></p>
 			</a>
-			<a href="betis.html" style="grid-column: 2 / 2; grid-row: 4 / 4;"><h5>3</h5></a>
-			<a href="betis.html" style="grid-column: 3 / 3; grid-row: 4 / 4;"><h5>16</h5></a>
-			<a href="betis.html" style="grid-column: 4 / 4; grid-row: 4 / 4;"><h5>7</h5></a>
-			<a href="betis.html" style="grid-column: 5 / 5; grid-row: 4 / 4;"><h5>5</h5></a>
-			<a href="betis.html" style="grid-column: 6 / 6; grid-row: 4 / 4;"><h5>1</h5></a>
-			<a href="betis.html" style="grid-column: 7 / 7; grid-row: 4 / 4;"><h5>1</h5></a>
-			<a href="betis.html" style="grid-column: 8 / 8; grid-row: 4 / 4;"><h5>9</h5></a>
-			<a href="betis.html" style="grid-column: 9 / 9; grid-row: 4 / 4;"><h5>7</h5></a>
-			<a href="betis.html" style="grid-column: 10 / 10; grid-row: 4 / 4;"><h5>+2</h5></a>
+			<a href="betis.html" style="grid-column: 1 / 1; grid-row: 4 / 4;"><img src="img/betis.png" alt="Real Betis"
+					width="50" height="50">
+			</a>
+			<a href="betis.html" style="grid-column: 2 / 2; grid-row: 4 / 4;">
+				<h5>3</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 3 / 3; grid-row: 4 / 4;">
+				<h5>16</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 4 / 4; grid-row: 4 / 4;">
+				<h5>7</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 5 / 5; grid-row: 4 / 4;">
+				<h5>5</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 6 / 6; grid-row: 4 / 4;">
+				<h5>1</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 7 / 7; grid-row: 4 / 4;">
+				<h5>1</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 8 / 8; grid-row: 4 / 4;">
+				<h5>9</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 9 / 9; grid-row: 4 / 4;">
+				<h5>7</h5>
+			</a>
+			<a href="betis.html" style="grid-column: 10 / 10; grid-row: 4 / 4;">
+				<h5>+2</h5>
+			</a>
 
 			<!-- 4. Real Madrid -->
-			<a href="madrid.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 5 / 5;"><p></p></a>
-			<a href="madrid.html" style="grid-column: 1 / 1; grid-row: 5 / 5;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Real Madrid" title="Real Madrid" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -750px; background-repeat: no-repeat;"></a>
-			<a href="madrid.html" style="grid-column: 2 / 2; grid-row: 5 / 5;"><h5>4</h5></a>
-			<a href="madrid.html" style="grid-column: 3 / 3; grid-row: 5 / 5;"><h5>15</h5></a>
-			<a href="madrid.html" style="grid-column: 4 / 4; grid-row: 5 / 5;"><h5>7</h5></a>
-			<a href="madrid.html" style="grid-column: 5 / 5; grid-row: 5 / 5;"><h5>5</h5></a>
-			<a href="madrid.html" style="grid-column: 6 / 6; grid-row: 5 / 5;"><h5>2</h5></a>
-			<a href="madrid.html" style="grid-column: 7 / 7; grid-row: 5 / 5;"><h5>0</h5></a>
-			<a href="madrid.html" style="grid-column: 8 / 8; grid-row: 5 / 5;"><h5>18</h5></a>
-			<a href="madrid.html" style="grid-column: 9 / 9; grid-row: 5 / 5;"><h5>8</h5></a>
-			<a href="madrid.html" style="grid-column: 10 / 10; grid-row: 5 / 5;"><h5>+10</h5></a>
+			<a href="madrid.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 5 / 5;">
+				<p></p>
+			</a>
+			<a href="madrid.html" style="grid-column: 1 / 1; grid-row: 5 / 5;"><img src="img/real-madrid.png"
+					alt="Real Madrid" width="50" height="50"></a>
+			<a href="madrid.html" style="grid-column: 2 / 2; grid-row: 5 / 5;">
+				<h5>4</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 3 / 3; grid-row: 5 / 5;">
+				<h5>15</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 4 / 4; grid-row: 5 / 5;">
+				<h5>7</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 5 / 5; grid-row: 5 / 5;">
+				<h5>5</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 6 / 6; grid-row: 5 / 5;">
+				<h5>2</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 7 / 7; grid-row: 5 / 5;">
+				<h5>0</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 8 / 8; grid-row: 5 / 5;">
+				<h5>18</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 9 / 9; grid-row: 5 / 5;">
+				<h5>8</h5>
+			</a>
+			<a href="madrid.html" style="grid-column: 10 / 10; grid-row: 5 / 5;">
+				<h5>+10</h5>
+			</a>
 
 			<!-- 5. Sevilla FC -->
-			<a href="sevilla.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 6 / 6;"><p></p></a>
-			<a href="sevilla.html" style="grid-column: 1 / 1; grid-row: 6 / 6;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Sevilla FC" title="Sevilla FC" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -850px; background-repeat: no-repeat;"></a>
-			<a href="sevilla.html" style="grid-column: 2 / 2; grid-row: 6 / 6;"><h5>5</h5></a>
-			<a href="sevilla.html" style="grid-column: 3 / 3; grid-row: 6 / 6;"><h5>13</h5></a>
-			<a href="sevilla.html" style="grid-column: 4 / 4; grid-row: 6 / 6;"><h5>7</h5></a>
-			<a href="sevilla.html" style="grid-column: 5 / 5; grid-row: 6 / 6;"><h5>4</h5></a>
-			<a href="sevilla.html" style="grid-column: 6 / 6; grid-row: 6 / 6;"><h5>2</h5></a>
-			<a href="sevilla.html" style="grid-column: 7 / 7; grid-row: 6 / 6;"><h5>1</h5></a>
-			<a href="sevilla.html" style="grid-column: 8 / 8; grid-row: 6 / 6;"><h5>10</h5></a>
-			<a href="sevilla.html" style="grid-column: 9 / 9; grid-row: 6 / 6;"><h5>9</h5></a>
-			<a href="sevilla.html" style="grid-column: 10 / 10; grid-row: 6 / 6;"><h5>+1</h5></a>
+			<a href="sevilla.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 6 / 6;">
+				<p></p>
+			</a>
+			<a href="sevilla.html" style="grid-column: 1 / 1; grid-row: 6 / 6;"><img src="img/sevilla.png"
+					alt="Sevilla FC" width="50" height="50"></a>
+			<a href="sevilla.html" style="grid-column: 2 / 2; grid-row: 6 / 6;">
+				<h5>5</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 3 / 3; grid-row: 6 / 6;">
+				<h5>13</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 4 / 4; grid-row: 6 / 6;">
+				<h5>7</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 5 / 5; grid-row: 6 / 6;">
+				<h5>4</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 6 / 6; grid-row: 6 / 6;">
+				<h5>2</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 7 / 7; grid-row: 6 / 6;">
+				<h5>1</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 8 / 8; grid-row: 6 / 6;">
+				<h5>10</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 9 / 9; grid-row: 6 / 6;">
+				<h5>9</h5>
+			</a>
+			<a href="sevilla.html" style="grid-column: 10 / 10; grid-row: 6 / 6;">
+				<h5>+1</h5>
+			</a>
 
 			<!-- 6. Deportivo Alavés -->
-			<a href="alaves.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 7 / 7;"><p></p></a>
-			<a href="alaves.html" style="grid-column: 1 / 1; grid-row: 7 / 7;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Deportivo Alavés" title="Deportivo Alavés" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -1050px; background-repeat: no-repeat;"></a>
-			<a href="alaves.html" style="grid-column: 2 / 2; grid-row: 7 / 7;"><h5>6</h5></a>
-			<a href="alaves.html" style="grid-column: 3 / 3; grid-row: 7 / 7;"><h5>11</h5></a>
-			<a href="alaves.html" style="grid-column: 4 / 4; grid-row: 7 / 7;"><h5>7</h5></a>
-			<a href="alaves.html" style="grid-column: 5 / 5; grid-row: 7 / 7;"><h5>3</h5></a>
-			<a href="alaves.html" style="grid-column: 6 / 6; grid-row: 7 / 7;"><h5>2</h5></a>
-			<a href="alaves.html" style="grid-column: 7 / 7; grid-row: 7 / 7;"><h5>2</h5></a>
-			<a href="alaves.html" style="grid-column: 8 / 8; grid-row: 7 / 7;"><h5>11</h5></a>
-			<a href="alaves.html" style="grid-column: 9 / 9; grid-row: 7 / 7;"><h5>6</h5></a>
-			<a href="alaves.html" style="grid-column: 10 / 10; grid-row: 7 / 7;"><h5>+5</h5></a>
+			<a href="alaves.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 7 / 7;">
+				<p></p>
+			</a>
+			<a href="alaves.html" style="grid-column: 1 / 1; grid-row: 7 / 7;"><img src="img/alaves.png"
+					alt="Deportivo Alavés" width="50" height="50"></a>
+			<a href="alaves.html" style="grid-column: 2 / 2; grid-row: 7 / 7;">
+				<h5>6</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 3 / 3; grid-row: 7 / 7;">
+				<h5>11</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 4 / 4; grid-row: 7 / 7;">
+				<h5>7</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 5 / 5; grid-row: 7 / 7;">
+				<h5>3</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 6 / 6; grid-row: 7 / 7;">
+				<h5>2</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 7 / 7; grid-row: 7 / 7;">
+				<h5>2</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 8 / 8; grid-row: 7 / 7;">
+				<h5>11</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 9 / 9; grid-row: 7 / 7;">
+				<h5>6</h5>
+			</a>
+			<a href="alaves.html" style="grid-column: 10 / 10; grid-row: 7 / 7;">
+				<h5>+5</h5>
+			</a>
 
 			<!-- 7. RC Deportivo -->
-			<a href="deportivo.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 8 / 8;"><p></p></a>
-			<a href="deportivo.html" style="grid-column: 1 / 1; grid-row: 8 / 8;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="RC Deportivo" title="RC Deportivo" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -1150px; background-repeat: no-repeat;"></a>
-			<a href="deportivo.html" style="grid-column: 2 / 2; grid-row: 8 / 8;"><h5>7</h5></a>
-			<a href="deportivo.html" style="grid-column: 3 / 3; grid-row: 8 / 8;"><h5>10</h5></a>
-			<a href="deportivo.html" style="grid-column: 4 / 4; grid-row: 8 / 8;"><h5>7</h5></a>
-			<a href="deportivo.html" style="grid-column: 5 / 5; grid-row: 8 / 8;"><h5>2</h5></a>
-			<a href="deportivo.html" style="grid-column: 6 / 6; grid-row: 8 / 8;"><h5>1</h5></a>
-			<a href="deportivo.html" style="grid-column: 7 / 7; grid-row: 8 / 8;"><h5>4</h5></a>
-			<a href="deportivo.html" style="grid-column: 8 / 8; grid-row: 8 / 8;"><h5>10</h5></a>
-			<a href="deportivo.html" style="grid-column: 9 / 9; grid-row: 8 / 8;"><h5>8</h5></a>
-			<a href="deportivo.html" style="grid-column: 10 / 10; grid-row: 8 /_8;"><h5>+2</h5></a>
+			<a href="deportivo.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 8 / 8;">
+				<p></p>
+			</a>
+			<a href="deportivo.html" style="grid-column: 1 / 1; grid-row: 8 / 8;"><img src="img/deportivo.png"
+					alt="RC Deportivo" width="50" height="50"></a>
+			<a href="deportivo.html" style="grid-column: 2 / 2; grid-row: 8 / 8;">
+				<h5>7</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 3 / 3; grid-row: 8 / 8;">
+				<h5>10</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 4 / 4; grid-row: 8 / 8;">
+				<h5>7</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 5 / 5; grid-row: 8 / 8;">
+				<h5>2</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 6 / 6; grid-row: 8 / 8;">
+				<h5>1</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 7 / 7; grid-row: 8 / 8;">
+				<h5>4</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 8 / 8; grid-row: 8 / 8;">
+				<h5>10</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 9 / 9; grid-row: 8 / 8;">
+				<h5>8</h5>
+			</a>
+			<a href="deportivo.html" style="grid-column: 10 / 10; grid-row: 8 / 8;">
+				<h5>+2</h5>
+			</a>
 
 			<!-- 8. Real Sociedad -->
-			<a href="sociedad.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 9 / 9;"><p></p></a>
-			<a href="sociedad.html" style="grid-column: 1 / 1; grid-row: 9 / 9;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Real Sociedad" title="Real Sociedad" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -800px; background-repeat: no-repeat;"></a>
-			<a href="sociedad.html" style="grid-column: 2 / 2; grid-row: 9 / 9;"><h5>8</h5></a>
-			<a href="sociedad.html" style="grid-column: 3 / 3; grid-row: 9 / 9;"><h5>10</h5></a>
-			<a href="sociedad.html" style="grid-column: 4 / 4; grid-row: 9 / 9;"><h5>7</h5></a>
-			<a href="sociedad.html" style="grid-column: 5 / 5; grid-row: 9 / 9;"><h5>3</h5></a>
-			<a href="sociedad.html" style="grid-column: 6 / 6; grid-row: 9 / 9;"><h5>3</h5></a>
-			<a href="sociedad.html" style="grid-column: 7 / 7; grid-row: 9 / 9;"><h5>1</h5></a>
-			<a href="sociedad.html" style="grid-column: 8 / 8; grid-row: 9 / 9;"><h5>9</h5></a>
-			<a href="sociedad.html" style="grid-column: 9 / 9; grid-row: 9 / 9;"><h5>13</h5></a>
-			<a href="sociedad.html" style="grid-column: 10 / 10; grid-row: 9 / 9;"><h5>-4</h5></a>
+			<a href="sociedad.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 9 / 9;">
+				<p></p>
+			</a>
+			<a href="sociedad.html" style="grid-column: 1 / 1; grid-row: 9 / 9;"><img src="img/real-sociedad.png"
+					alt="Real Sociedad" width="50" height="50"></a>
+			<a href="sociedad.html" style="grid-column: 2 / 2; grid-row: 9 / 9;">
+				<h5>8</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 3 / 3; grid-row: 9 / 9;">
+				<h5>10</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 4 / 4; grid-row: 9 / 9;">
+				<h5>7</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 5 / 5; grid-row: 9 / 9;">
+				<h5>3</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 6 / 6; grid-row: 9 / 9;">
+				<h5>3</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 7 / 7; grid-row: 9 / 9;">
+				<h5>1</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 8 / 8; grid-row: 9 / 9;">
+				<h5>9</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 9 / 9; grid-row: 9 / 9;">
+				<h5>13</h5>
+			</a>
+			<a href="sociedad.html" style="grid-column: 10 / 10; grid-row: 9 / 9;">
+				<h5>-4</h5>
+			</a>
 
 			<!-- 9. Villarreal CF -->
-			<a href="villarreal.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 10 / 10;"><p></p></a>
-			<a href="villarreal.html" style="grid-column: 1 / 1; grid-row: 10 / 10;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Villarreal CF" title="Villarreal CF" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -1000px; background-repeat: no-repeat;"></a>
-			<a href="villarreal.html" style="grid-column: 2 / 2; grid-row: 10 / 10;"><h5>9</h5></a>
-			<a href="villarreal.html" style="grid-column: 3 / 3; grid-row: 10 / 10;"><h5>8</h5></a>
-			<a href="villarreal.html" style="grid-column: 4 / 4; grid-row: 10 / 10;"><h5>7</h5></a>
-			<a href="villarreal.html" style="grid-column: 5 / 5; grid-row: 10 / 10;"><h5>2</h5></a>
-			<a href="villarreal.html" style="grid-column: 6 / 6; grid-row: 10 / 10;"><h5>3</h5></a>
-			<a href="villarreal.html" style="grid-column: 7 / 7; grid-row: 10 / 10;"><h5>2</h5></a>
-			<a href="villarreal.html" style="grid-column: 8 / 8; grid-row: 10 / 10;"><h5>13</h5></a>
-			<a href="villarreal.html" style="grid-column: 9 / 9; grid-row: 10 / 10;"><h5>12</h5></a>
-			<a href="villarreal.html" style="grid-column: 10 / 10; grid-row: 10 / 10;"><h5>+1</h5></a>
+			<a href="villarreal.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 10 / 10;">
+				<p></p>
+			</a>
+			<a href="villarreal.html" style="grid-column: 1 / 1; grid-row: 10 / 10;"><img src="img/villarreal.png"
+					alt="Villarreal CF" width="50" height="50"></a>
+			<a href="villarreal.html" style="grid-column: 2 / 2; grid-row: 10 / 10;">
+				<h5>9</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 3 / 3; grid-row: 10 / 10;">
+				<h5>8</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 4 / 4; grid-row: 10 / 10;">
+				<h5>7</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 5 / 5; grid-row: 10 / 10;">
+				<h5>2</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 6 / 6; grid-row: 10 / 10;">
+				<h5>3</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 7 / 7; grid-row: 10 / 10;">
+				<h5>2</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 8 / 8; grid-row: 10 / 10;">
+				<h5>13</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 9 / 9; grid-row: 10 / 10;">
+				<h5>12</h5>
+			</a>
+			<a href="villarreal.html" style="grid-column: 10 / 10; grid-row: 10 / 10;">
+				<h5>+1</h5>
+			</a>
 
 			<!-- 10. Athletic Club -->
-			<a href="athletic.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 11 / 11;"><p></p></a>
-			<a href="athletic.html" style="grid-column: 1 / 1; grid-row: 11 / 11;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Athletic Club" title="Athletic Club" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -150px; background-repeat: no-repeat;"></a>
-			<a href="athletic.html" style="grid-column: 2 / 2; grid-row: 11 / 11;"><h5>10</h5></a>
-			<a href="athletic.html" style="grid-column: 3 / 3; grid-row: 11 / 11;"><h5>8</h5></a>
-			<a href="athletic.html" style="grid-column: 4 / 4; grid-row: 11 / 11;"><h5>6</h5></a>
-			<a href="athletic.html" style="grid-column: 5 / 5; grid-row: 11 / 11;"><h5>2</h5></a>
-			<a href="athletic.html" style="grid-column: 6 / 6; grid-row: 11 / 11;"><h5>2</h5></a>
-			<a href="athletic.html" style="grid-column: 7 / 7; grid-row: 11 / 11;"><h5>2</h5></a>
-			<a href="athletic.html" style="grid-column: 8 / 8; grid-row: 11 / 11;"><h5>7</h5></a>
-			<a href="athletic.html" style="grid-column: 9 / 9; grid-row: 11 / 11;"><h5>6</h5></a>
-			<a href="athletic.html" style="grid-column: 10 / 10; grid-row: 11 / 11;"><h5>+1</h5></a>
+			<a href="athletic.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 11 / 11;">
+				<p></p>
+			</a>
+			<a href="athletic.html" style="grid-column: 1 / 1; grid-row: 11 / 11;"><img src="img/athletic.png"
+					alt="Athletic Club" width="50" height="50"></a>
+			<a href="athletic.html" style="grid-column: 2 / 2; grid-row: 11 / 11;">
+				<h5>10</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 3 / 3; grid-row: 11 / 11;">
+				<h5>8</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 4 / 4; grid-row: 11 / 11;">
+				<h5>6</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 5 / 5; grid-row: 11 / 11;">
+				<h5>2</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 6 / 6; grid-row: 11 / 11;">
+				<h5>2</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 7 / 7; grid-row: 11 / 11;">
+				<h5>2</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 8 / 8; grid-row: 11 / 11;">
+				<h5>7</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 9 / 9; grid-row: 11 / 11;">
+				<h5>6</h5>
+			</a>
+			<a href="athletic.html" style="grid-column: 10 / 10; grid-row: 11 / 11;">
+				<h5>+1</h5>
+			</a>
 
 			<!-- 11. Getafe CF -->
-			<a href="getafe.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 12 / 12;"><p></p></a>
-			<a href="getafe.html" style="grid-column: 1 / 1; grid-row: 12 / 12;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Getafe CF" title="Getafe CF" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -450px; background-repeat: no-repeat;"></a>
-			<a href="getafe.html" style="grid-column: 2 / 2; grid-row: 12 / 12;"><h5>11</h5></a>
-			<a href="getafe.html" style="grid-column: 3 / 3; grid-row: 12 / 12;"><h5>8</h5></a>
-			<a href="getafe.html" style="grid-column: 4 / 4; grid-row: 12 / 12;"><h5>7</h5></a>
-			<a href="getafe.html" style="grid-column: 5 / 5; grid-row: 12 / 12;"><h5>2</h5></a>
-			<a href="getafe.html" style="grid-column: 6 / 6; grid-row: 12 / 12;"><h5>3</h5></a>
-			<a href="getafe.html" style="grid-column: 7 / 7; grid-row: 12 / 12;"><h5>2</h5></a>
-			<a href="getafe.html" style="grid-column: 8 / 8; grid-row: 12 / 12;"><h5>4</h5></a>
-			<a href="getafe.html" style="grid-column: 9 / 9; grid-row: 12 / 12;"><h5>7</h5></a>
-			<a href="getafe.html" style="grid-column: 10 / 10; grid-row: 12 / 12;"><h5>-3</h5></a>
+			<a href="getafe.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 12 / 12;">
+				<p></p>
+			</a>
+			<a href="getafe.html" style="grid-column: 1 / 1; grid-row: 12 / 12;"><img src="img/getafe.png"
+					alt="Getafe CF" width="50" height="50"></a>
+			<a href="getafe.html" style="grid-column: 2 / 2; grid-row: 12 / 12;">
+				<h5>11</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 3 / 3; grid-row: 12 / 12;">
+				<h5>8</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 4 / 4; grid-row: 12 / 12;">
+				<h5>7</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 5 / 5; grid-row: 12 / 12;">
+				<h5>2</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 6 / 6; grid-row: 12 / 12;">
+				<h5>3</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 7 / 7; grid-row: 12 / 12;">
+				<h5>2</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 8 / 8; grid-row: 12 / 12;">
+				<h5>4</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 9 / 9; grid-row: 12 / 12;">
+				<h5>7</h5>
+			</a>
+			<a href="getafe.html" style="grid-column: 10 / 10; grid-row: 12 / 12;">
+				<h5>-3</h5>
+			</a>
 
 			<!-- 12. Rayo Vallecano -->
-			<a href="rayo.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 13 / 13;"><p></p></a>
-			<a href="rayo.html" style="grid-column: 1 / 1; grid-row: 13 / 13;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Rayo Vallecano" title="Rayo Vallecano" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -700px; background-repeat: no-repeat;"></a>
-			<a href="rayo.html" style="grid-column: 2 / 2; grid-row: 13 / 13;"><h5>12</h5></a>
-			<a href="rayo.html" style="grid-column: 3 / 3; grid-row: 13 / 13;"><h5>8</h5></a>
-			<a href="rayo.html" style="grid-column: 4 / 4; grid-row: 13 / 13;"><h5>7</h5></a>
-			<a href="rayo.html" style="grid-column: 5 / 5; grid-row: 13 / 13;"><h5>2</h5></a>
-			<a href="rayo.html" style="grid-column: 6 / 6; grid-row: 13 / 13;"><h5>3</h5></a>
-			<a href="rayo.html" style="grid-column: 7 / 7; grid-row: 13 / 13;"><h5>2</h5></a>
-			<a href="rayo.html" style="grid-column: 8 / 8; grid-row: 13 / 13;"><h5>11</h5></a>
-			<a href="rayo.html" style="grid-column: 9 / 9; grid-row: 13 / 13;"><h5>16</h5></a>
-			<a href="rayo.html" style="grid-column: 10 / 10; grid-row: 13 / 13;"><h5>-5</h5></a>
+			<a href="rayo.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 13 / 13;">
+				<p></p>
+			</a>
+			<a href="rayo.html" style="grid-column: 1 / 1; grid-row: 13 / 13;"><img src="img/rayo.png"
+					alt="Rayo Vallecano" width="50" height="50"></a>
+			<a href="rayo.html" style="grid-column: 2 / 2; grid-row: 13 / 13;">
+				<h5>12</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 3 / 3; grid-row: 13 / 13;">
+				<h5>8</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 4 / 4; grid-row: 13 / 13;">
+				<h5>7</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 5 / 5; grid-row: 13 / 13;">
+				<h5>2</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 6 / 6; grid-row: 13 / 13;">
+				<h5>3</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 7 / 7; grid-row: 13 / 13;">
+				<h5>2</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 8 / 8; grid-row: 13 / 13;">
+				<h5>11</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 9 / 9; grid-row: 13 / 13;">
+				<h5>16</h5>
+			</a>
+			<a href="rayo.html" style="grid-column: 10 / 10; grid-row: 13 / 13;">
+				<h5>-5</h5>
+			</a>
 
 			<!-- 13. CA Osasuna -->
-			<a href="osasuna.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 14 / 14;"><p></p></a>
-			<a href="osasuna.html" style="grid-column: 1 / 1; grid-row: 14 / 14;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="CA Osasuna" title="CA Osasuna" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -650px; background-repeat: no-repeat;"></a>
-			<a href="osasuna.html" style="grid-column: 2 / 2; grid-row: 14 / 14;"><h5>13</h5></a>
-			<a href="osasuna.html" style="grid-column: 3 / 3; grid-row: 14 / 14;"><h5>8</h5></a>
-			<a href="osasuna.html" style="grid-column: 4 / 4; grid-row: 14 / 14;"><h5>7</h5></a>
-			<a href="osasuna.html" style="grid-column: 5 / 5; grid-row: 14 / 14;"><h5>2</h5></a>
-			<a href="osasuna.html" style="grid-column: 6 / 6; grid-row: 14 / 14;"><h5>3</h5></a>
-			<a href="osasuna.html" style="grid-column: 7 / 7; grid-row: 14 / 14;"><h5>2</h5></a>
-			<a href="osasuna.html" style="grid-column: 8 / 8; grid-row: 14 / 14;"><h5>6</h5></a>
-			<a href="osasuna.html" style="grid-column: 9 / 9; grid-row: 14 / 14;"><h5>13</h5></a>
-			<a href="osasuna.html" style="grid-column: 10 / 10; grid-row: 14 / 14;"><h5>-7</h5></a>
+			<a href="osasuna.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 14 / 14;">
+				<p></p>
+			</a>
+			<a href="osasuna.html" style="grid-column: 1 / 1; grid-row: 14 / 14;"><img src="img/osasuna.png"
+					alt="CA Osasuna" width="50" height="50"></a>
+			<a href="osasuna.html" style="grid-column: 2 / 2; grid-row: 14 / 14;">
+				<h5>13</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 3 / 3; grid-row: 14 / 14;">
+				<h5>8</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 4 / 4; grid-row: 14 / 14;">
+				<h5>7</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 5 / 5; grid-row: 14 / 14;">
+				<h5>2</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 6 / 6; grid-row: 14 / 14;">
+				<h5>3</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 7 / 7; grid-row: 14 / 14;">
+				<h5>2</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 8 / 8; grid-row: 14 / 14;">
+				<h5>6</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 9 / 9; grid-row: 14 / 14;">
+				<h5>13</h5>
+			</a>
+			<a href="osasuna.html" style="grid-column: 10 / 10; grid-row: 14 / 14;">
+				<h5>-7</h5>
+			</a>
 
 			<!-- 14. Celta -->
-			<a href="celta.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 15 / 15;"><p></p></a>
-			<a href="celta.html" style="grid-column: 1 / 1; grid-row: 15 / 15;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Celta" title="Celta" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -300px; background-repeat: no-repeat;"></a>
-			<a href="celta.html" style="grid-column: 2 / 2; grid-row: 15 / 15;"><h5>14</h5></a>
-			<a href="celta.html" style="grid-column: 3 / 3; grid-row: 15 / 15;"><h5>7</h5></a>
-			<a href="celta.html" style="grid-column: 4 / 4; grid-row: 15 / 15;"><h5>7</h5></a>
-			<a href="celta.html" style="grid-column: 5 / 5; grid-row: 15 / 15;"><h5>1</h5></a>
-			<a href="celta.html" style="grid-column: 6 / 6; grid-row: 15 / 15;"><h5>2</h5></a>
-			<a href="celta.html" style="grid-column: 7 / 7; grid-row: 15 / 15;"><h5>4</h5></a>
-			<a href="celta.html" style="grid-column: 8 / 8; grid-row: 15 / 15;"><h5>8</h5></a>
-			<a href="celta.html" style="grid-column: 9 / 9; grid-row: 15 / 15;"><h5>6</h5></a>
-			<a href="celta.html" style="grid-column: 10 / 10; grid-row: 15 / 15;"><h5>+2</h5></a>
+			<a href="celta.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 15 / 15;">
+				<p></p>
+			</a>
+			<a href="celta.html" style="grid-column: 1 / 1; grid-row: 15 / 15;"><img src="img/celta.png" alt="Celta"
+					width="50" height="50"></a>
+			<a href="celta.html" style="grid-column: 2 / 2; grid-row: 15 / 15;">
+				<h5>14</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 3 / 3; grid-row: 15 / 15;">
+				<h5>7</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 4 / 4; grid-row: 15 / 15;">
+				<h5>7</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 5 / 5; grid-row: 15 / 15;">
+				<h5>1</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 6 / 6; grid-row: 15 / 15;">
+				<h5>2</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 7 / 7; grid-row: 15 / 15;">
+				<h5>4</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 8 / 8; grid-row: 15 / 15;">
+				<h5>8</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 9 / 9; grid-row: 15 / 15;">
+				<h5>6</h5>
+			</a>
+			<a href="celta.html" style="grid-column: 10 / 10; grid-row: 15 / 15;">
+				<h5>+2</h5>
+			</a>
 
-			<!-- 15. RCD Espanyol de Barcelona -->
-			<a href="espanyol.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 16 / 16;"><p></p></a>
-			<a href="espanyol.html" style="grid-column: 1 / 1; grid-row: 16 / 16;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="RCD Espanyol de Barcelona" title="RCD Espanyol de Barcelona" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -400px; background-repeat: no-repeat;"></a>
-			<a href="espanyol.html" style="grid-column: 2 / 2; grid-row: 16 / 16;"><h5>15</h5></a>
-			<a href="espanyol.html" style="grid-column: 4 / 4; grid-row: 16 / 16;"><h5>7</h5></a>
-			<a href="espanyol.html" style="grid-column: 5 / 5; grid-row: 16 / 16;"><h5>2</h5></a>
-			<a href="espanyol.html" style="grid-column: 6 / 6; grid-row: 16 / 16;"><h5>4</h5></a>
-			<a href="espanyol.html" style="grid-column: 7 / 7; grid-row: 16 / 16;"><h5>1</h5></a>
-			<a href="espanyol.html" style="grid-column: 8 / 8; grid-row: 16 / 16;"><h5>10</h5></a>
-			<a href="espanyol.html" style="grid-column: 9 / 9; grid-row: 16 / 16;"><h5>10</h5></a>
-			<a href="espanyol.html" style="grid-column: 10 / 10; grid-row: 16 / 16;"><h5>0</h5></a>
+			<!-- 15. RCD Espanyol -->
+			<a href="espanyol.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 16 / 16;">
+				<p></p>
+			</a>
+			<a href="espanyol.html" style="grid-column: 1 / 1; grid-row: 16 / 16;"><img src="img/espanyol.png"
+					alt="RCD Espanyol" width="50" height="50"></a>
+			<a href="espanyol.html" style="grid-column: 2 / 2; grid-row: 16 / 16;">
+				<h5>15</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 4 / 4; grid-row: 16 / 16;">
+				<h5>7</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 5 / 5; grid-row: 16 / 16;">
+				<h5>2</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 6 / 6; grid-row: 16 / 16;">
+				<h5>4</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 7 / 7; grid-row: 16 / 16;">
+				<h5>1</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 8 / 8; grid-row: 16 / 16;">
+				<h5>10</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 9 / 9; grid-row: 16 / 16;">
+				<h5>10</h5>
+			</a>
+			<a href="espanyol.html" style="grid-column: 10 / 10; grid-row: 16 / 16;">
+				<h5>0</h5>
+			</a>
 
 			<!-- 16. R. Racing Club -->
-			<a href="racing.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 17 / 17;"><p></p></a>
-			<a href="racing.html" style="grid-column: 1 / 1; grid-row: 17 / 17;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="R. Racing Club" title="R. Racing Club" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -1600px; background-repeat: no-repeat;"></a>
-			<a href="racing.html" style="grid-column: 2 / 2; grid-row: 17 / 17;"><h5>16</h5></a>
-			<a href="racing.html" style="grid-column: 3 / 3; grid-row: 17 / 17;"><h5>7</h5></a>
-			<a href="racing.html" style="grid-column: 4 / 4; grid-row: 17 / 17;"><h5>7</h5></a>
-			<a href="racing.html" style="grid-column: 5 / 5; grid-row: 17 / 17;"><h5>2</h5></a>
-			<a href="racing.html" style="grid-column: 6 / 6; grid-row: 17 / 17;"><h5>4</h5></a>
-			<a href="racing.html" style="grid-column: 7 / 7; grid-row: 17 / 17;"><h5>1</h5></a>
-			<a href="racing.html" style="grid-column: 8 / 8; grid-row: 17 / 17;"><h5>11</h5></a>
-			<a href="racing.html" style="grid-column: 9 / 9; grid-row: 17 / 17;"><h5>21</h5></a>
-			<a href="racing.html" style="grid-column: 10 / 10; grid-row: 17 / 17;"><h5>-10</h5></a>
+			<a href="racing.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 17 / 17;">
+				<p></p>
+			</a>
+			<a href="racing.html" style="grid-column: 1 / 1; grid-row: 17 / 17;"><img src="img/racing.png"
+					alt="R. Racing Club" width="50" height="50"></a>
+			<a href="racing.html" style="grid-column: 2 / 2; grid-row: 17 / 17;">
+				<h5>16</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 3 / 3; grid-row: 17 / 17;">
+				<h5>7</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 4 / 4; grid-row: 17 / 17;">
+				<h5>7</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 5 / 5; grid-row: 17 / 17;">
+				<h5>2</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 6 / 6; grid-row: 17 / 17;">
+				<h5>4</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 7 / 7; grid-row: 17 / 17;">
+				<h5>1</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 8 / 8; grid-row: 17 / 17;">
+				<h5>11</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 9 / 9; grid-row: 17 / 17;">
+				<h5>21</h5>
+			</a>
+			<a href="racing.html" style="grid-column: 10 / 10; grid-row: 17 / 17;">
+				<h5>-10</h5>
+			</a>
 
 			<!-- 17. Levante UD -->
-			<a href="levante.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 18 / 18;"><p></p></a>
-			<a href="levante.html" style="grid-column: 1 / 1; grid-row: 18 / 18;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Levante UD" title="Levante UD" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -550px; background-repeat: no-repeat;"></a>
-			<a href="levante.html" style="grid-column: 2 / 2; grid-row: 18 / 18;"><h5>17</h5></a>
-			<a href="levante.html" style="grid-column: 3 / 3; grid-row: 18 / 18;"><h5>5</h5></a>
-			<a href="levante.html" style="grid-column: 4 / 4; grid-row: 18 / 18;"><h5>6</h5></a>
-			<a href="levante.html" style="grid-column: 5 / 5; grid-row: 18 / 18;"><h5>1</h5></a>
-			<a href="levante.html" style="grid-column: 6 / 6; grid-row: 18 / 18;"><h5>3</h5></a>
-			<a href="levante.html" style="grid-column: 7 / 7; grid-row: 18 / 18;"><h5>2</h5></a>
-			<a href="levante.html" style="grid-column: 8 / 8; grid-row: 18 / 18;"><h5>8</h5></a>
-			<a href="levante.html" style="grid-column: 9 / 9; grid-row: 18 / 18;"><h5>12</h5></a>
-			<a href="levante.html" style="grid-column: 10 / 10; grid-row: 18 / 18;"><h5>-4</h5></a>
+			<a href="levante.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 18 / 18;">
+				<p></p>
+			</a>
+			<a href="levante.html" style="grid-column: 1 / 1; grid-row: 18 / 18;"><img src="img/levante.png"
+					alt="Levante UD" width="50" height="50"></a>
+			<a href="levante.html" style="grid-column: 2 / 2; grid-row: 18 / 18;">
+				<h5>17</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 3 / 3; grid-row: 18 / 18;">
+				<h5>5</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 4 / 4; grid-row: 18 / 18;">
+				<h5>6</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 5 / 5; grid-row: 18 / 18;">
+				<h5>1</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 6 / 6; grid-row: 18 / 18;">
+				<h5>3</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 7 / 7; grid-row: 18 / 18;">
+				<h5>2</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 8 / 8; grid-row: 18 / 18;">
+				<h5>8</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 9 / 9; grid-row: 18 / 18;">
+				<h5>12</h5>
+			</a>
+			<a href="levante.html" style="grid-column: 10 / 10; grid-row: 18 / 18;">
+				<h5>-4</h5>
+			</a>
 
 			<!-- 18. Elche CF -->
-			<a href="elche.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 19 / 19;"><p></p></a>
-			<a href="elche.html" style="grid-column: 1 / 1; grid-row: 19 / 19;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Elche CF" title="Elche CF" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -350px; background-repeat: no-repeat;"></a>
-			<a href="elche.html" style="grid-column: 2 / 2; grid-row: 19 / 19;"><h5>18</h5></a>
-			<a href="elche.html" style="grid-column: 3 / 3; grid-row: 19 / 19;"><h5>5</h5></a>
-			<a href="elche.html" style="grid-column: 4 / 4; grid-row: 19 / 19;"><h5>7</h5></a>
-			<a href="elche.html" style="grid-column: 5 / 5; grid-row: 19 / 19;"><h5>1</h5></a>
-			<a href="elche.html" style="grid-column: 6 / 6; grid-row: 19 / 19;"><h5>4</h5></a>
-			<a href="elche.html" style="grid-column: 7 / 7; grid-row: 19 / 19;"><h5>2</h5></a>
-			<a href="elche.html" style="grid-column: 8 / 8; grid-row: 19 / 19;"><h5>11</h5></a>
-			<a href="elche.html" style="grid-column: 9 / 9; grid-row: 19 / 19;"><h5>17</h5></a>
-			<a href="elche.html" style="grid-column: 10 / 10; grid-row: 19 / 19;"><h5>-6</h5></a>
+			<a href="elche.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 19 / 19;">
+				<p></p>
+			</a>
+			<a href="elche.html" style="grid-column: 1 / 1; grid-row: 19 / 19;"><img src="img/elche.png" alt="Elche CF"
+					width="50" height="50"></a>
+			<a href="elche.html" style="grid-column: 2 / 2; grid-row: 19 / 19;">
+				<h5>18</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 3 / 3; grid-row: 19 / 19;">
+				<h5>5</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 4 / 4; grid-row: 19 / 19;">
+				<h5>7</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 5 / 5; grid-row: 19 / 19;">
+				<h5>1</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 6 / 6; grid-row: 19 / 19;">
+				<h5>4</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 7 / 7; grid-row: 19 / 19;">
+				<h5>2</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 8 / 8; grid-row: 19 / 19;">
+				<h5>11</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 9 / 9; grid-row: 19 / 19;">
+				<h5>17</h5>
+			</a>
+			<a href="elche.html" style="grid-column: 10 / 10; grid-row: 19 / 19;">
+				<h5>-6</h5>
+			</a>
 
 			<!-- 19. Valencia CF -->
-			<a href="valencia.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 20 / 20;"><p></p></a>
-			<a href="valencia.html" style="grid-column: 1 / 1; grid-row: 20 / 20;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Valencia CF" title="Valencia CF" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -900px; background-repeat: no-repeat;"></a>
-			<a href="valencia.html" style="grid-column: 2 / 2; grid-row: 20 / 20;"><h5>19</h5></a>
-			<a href="valencia.html" style="grid-column: 3 / 3; grid-row: 20 / 20;"><h5>4</h5></a>
-			<a href="valencia.html" style="grid-column: 4 / 4; grid-row: 20 / 20;"><h5>7</h5></a>
-			<a href="valencia.html" style="grid-column: 5 / 5; grid-row: 20 / 20;"><h5>1</h5></a>
-			<a href="valencia.html" style="grid-column: 6 / 6; grid-row: 20 / 20;"><h5>5</h5></a>
-			<a href="valencia.html" style="grid-column: 7 / 7; grid-row: 20 / 20;"><h5>1</h5></a>
-			<a href="valencia.html" style="grid-column: 8 / 8; grid-row: 20 / 20;"><h5>4</h5></a>
-			<a href="valencia.html" style="grid-column: 9 / 9; grid-row: 20 / 20;"><h5>13</h5></a>
-			<a href="valencia.html" style="grid-column: 10 / 10; grid-row: 20 / 20;"><h5>-9</h5></a>
+			<a href="valencia.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 20 / 20;">
+				<p></p>
+			</a>
+			<a href="valencia.html" style="grid-column: 1 / 1; grid-row: 20 / 20;"><img src="img/valencia.png"
+					alt="Valencia CF" width="50" height="50"></a>
+			<a href="valencia.html" style="grid-column: 2 / 2; grid-row: 20 / 20;">
+				<h5>19</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 3 / 3; grid-row: 20 / 20;">
+				<h5>4</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 4 / 4; grid-row: 20 / 20;">
+				<h5>7</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 5 / 5; grid-row: 20 / 20;">
+				<h5>1</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 6 / 6; grid-row: 20 / 20;">
+				<h5>5</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 7 / 7; grid-row: 20 / 20;">
+				<h5>1</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 8 / 8; grid-row: 20 / 20;">
+				<h5>4</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 9 / 9; grid-row: 20 / 20;">
+				<h5>13</h5>
+			</a>
+			<a href="valencia.html" style="grid-column: 10 / 10; grid-row: 20 / 20;">
+				<h5>-9</h5>
+			</a>
 
 			<!-- 20. Málaga CF -->
-			<a href="malaga.html" style="width:100%; height:100%; grid-column: 1 / 10; grid-row: 21 / 21;"><p></p></a>
-			<a href="malaga.html" style="grid-column: 1 / 1; grid-row: 21 / 21;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2250%22%20height%3D%2250%22%3E%3C%2Fsvg%3E"
-				alt="Málaga CF" title="Málaga CF" width="50" height="50"
-				style="background-image: url('https://assets.laliga.com/assets/sprites/shield-sprite1789559823.png'); background-size: 50px 2950px; background-position: 0 -600px; background-repeat: no-repeat;"></a>
-			<a href="malaga.html" style="grid-column: 2 / 2; grid-row: 21 / 21;"><h5>20</h5></a>
-			<a href="malaga.html" style="grid-column: 3 / 3; grid-row: 21 / 21;"><h5>3</h5></a>
-			<a href="malaga.html" style="grid-column: 4 / 4; grid-row: 21 / 21;"><h5>7</h5></a>
-			<a href="malaga.html" style="grid-column: 5 / 5; grid-row: 21 / 21;"><h5>0</h5></a>
-			<a href="malaga.html" style="grid-column: 6 / 6; grid-row: 21 / 21;"><h5>4</h5></a>
-			<a href="malaga.html" style="grid-column: 7 / 7; grid-row: 21 / 21;"><h5>3</h5></a>
-			<a href="malaga.html" style="grid-column: 8 / 8; grid-row: 21 / 21;"><h5>3</h5></a>
-			<a href="malaga.html" style="grid-column: 9 / 9; grid-row: 21 / 21;"><h5>12</h5></a>
-			<a href="malaga.html" style="grid-column: 10 / 10; grid-row: 21 / 21;"><h5>-9</h5></a>
+			<a href="malaga.html" style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 21 / 21;">
+				<p></p>
+			</a>
+			<a href="malaga.html" style="grid-column: 1 / 1; grid-row: 21 / 21;"><img src="img/malaga.png"
+					alt="Málaga CF" width="50" height="50"></a>
+			<a href="malaga.html" style="grid-column: 2 / 2; grid-row: 21 / 21;">
+				<h5>20</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 3 / 3; grid-row: 21 / 21;">
+				<h5>3</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 4 / 4; grid-row: 21 / 21;">
+				<h5>7</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 5 / 5; grid-row: 21 / 21;">
+				<h5>0</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 6 / 6; grid-row: 21 / 21;">
+				<h5>4</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 7 / 7; grid-row: 21 / 21;">
+				<h5>3</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 8 / 8; grid-row: 21 / 21;">
+				<h5>3</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 9 / 9; grid-row: 21 / 21;">
+				<h5>12</h5>
+			</a>
+			<a href="malaga.html" style="grid-column: 10 / 10; grid-row: 21 / 21;">
+				<h5>-9</h5>
+			</a>
 		</container>
 	</section>
+	<section class="infoColor">
+		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(18, 52, 117);">CHAMPIONS LEAGUE</h5>
+		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(255, 105, 24);">EUROPA LEAGUE</h5>
+		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(0, 170, 9);">CONFERENCE LEAGUE</h5>
+		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(207, 2, 2);">DESCENSO</h5>
+	</section>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 </body>
 
 </html>

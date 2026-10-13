@@ -57,7 +57,7 @@ En este apartado se muestran las capturas de pantalla de las diferentes páginas
 
 **Descripción:** [Añadir una breve descripción de la página de detalle de un equipo].
 
-![Captura del detalle de un equipo](./ruta/a/captura-detalle-equipo.png)
+![Captura del detalle de un equipo](./Readme/rb1.jpeg)
 
 ### 1.4. Página de detalle de un jugador
 

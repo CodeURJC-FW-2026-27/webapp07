@@ -329,3 +329,42 @@
     font-size: 13px;
   }
 }
+
+
+/* Buscador de la cabecera. */
+#header_t .site-search {
+  display: flex;
+  flex: 0 0 265px;
+  width: 265px;
+  max-width: 100%;
+  margin-left: auto;
+}
+
+#header_t .site-search input {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+}
+
+#header_t .site-search button {
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid rgb(239, 39, 67);
+  background: rgb(239, 39, 67);
+  color: #fff;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 767px) {
+  #header_t .site-search {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 320px;
+    margin: 0;
+  }
+}

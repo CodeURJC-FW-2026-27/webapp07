@@ -25,12 +25,6 @@
 }
 
 
-#header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
 #header .drop_3 {
   left: 0 !important;
   right: auto !important;

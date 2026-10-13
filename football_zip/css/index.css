@@ -664,7 +664,9 @@ th {
     width: 14.6%;
   }
 }
-
+	.champions {
+		background-color: rgb(111, 102, 236);
+	}
 /* Carousel de equipos: fondo individual e indicadores en una cuadrícula 5x4. */
 #article-photo-carousel {
   display: grid;

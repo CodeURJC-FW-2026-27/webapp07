@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>La Liga</title>
+    <title>Cristiano Ronaldo</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/global.css" rel="stylesheet">
 	<link href="css/blog.css" rel="stylesheet">
@@ -13,92 +13,79 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-  </head>
+    <link href="css/site-common.css" rel="stylesheet">
+</head>
 <body>
 
-<section id="header_t">
- <div class="container">
-  <div class="row">
-   <div class="header_t1 clearfix">
-    <div class="col-sm-4">
-	 <div class="header_t1l clearfix">
-	   <h2><a class="col" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="200"></a></h2>
-	 </div>
-	</div>
-	<div class="col-sm-4">
-	  <div class="header_t1m clearfix">
-	   <p class="col_2">Official Website For Foot Goal</p>
-	  </div>
-	</div>
-	<div class="col-sm-4">
-	  <div class="header_t1r clearfix">
-	   <div class="input-group clearfix">
-					<input type="text" class="form-control" placeholder="Search...">
-					<span class="input-group-btn">
-						<button class="btn btn-primary" type="button">
-							<i class="fa fa-search"></i></button>
-					</span>
-				 </div>
-	  </div>
-	</div>
-   </div>
+<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+      <div class="site-search" role="search">
+        <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+        <button type="button">Buscar</button>
+      </div>
+    </div>
   </div>
- </div>
-</section>
+</header>
 
 <section id="header" class="clearfix cd-secondary-nav">
-	<nav class="navbar nav_t">
-		<div class="container">
-		    <div class="navbar-header page-scroll">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="col navbar-brand" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="125"></a>
-			</div>
-			<!-- Brand and toggle get grouped for better mobile display -->
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			  	 <ul class="nav navbar-nav">
-				<li><a class="m_tag" href="index.html">Home</a></li>
-				<li><a class="m_tag" href="about.html">About</a></li>
-				<li class="dropdown">
-					<a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Equipos<span
-							class="caret"></span></a>
-					<ul class="dropdown-menu drop_3" role="menu">
-						<li><a href="barca.html">FC BARCELONA</a></li>
-						<li><a href="atm.html">ATLÉTICO DE MADRID</a></li>
-						<li><a href="betis.html">REAL BETIS</a></li>
-						<li><a href="madrid.html">REAL MADRID</a></li>
-						<li><a href="sevilla.html">SEVILLA FC</a></li>
-						<li><a href="alaves.html">DEPORTIVO ALAVÉS</a></li>
-						<li><a href="depor.html">RC DEPORTIVO</a></li>
-						<li><a href="real.html">REAL SOCIEDAD</a></li>
-						<li><a href="villarreal.html">VILLARREAL FC</a></li>
-						<li><a href="athletic.html">ATHLETIC CLUB</a></li>
-						<li><a href="getafe.html">GETAFE CF</a></li>
-						<li><a href="rayo.html">RAYO VALLECANO</a></li>
-						<li><a href="osasuna.html">CA OSASUNA</a></li>
-						<li><a href="celta.html">CELTA</a></li>
-						<li><a href="espanyol.html">RCD ESPANYOL</a></li>
-						<li><a href="racing.html">RACING</a></li>
-						<li><a href="levante.html">LEVANTE</a></li>
-						<li><a href="elche.html">ELCHE CF</a></li>
-						<li><a href="valencia.html">VALENCIA CF</a></li>
-						<li><a href="malaga.html">MÁLAGA CF</a></li>
-					</ul>
-                </li>
-				<li><a class="m_tag" href="contact.html">Contact</a></li>
-			</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container-fluid -->
-	</nav>
-	
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
+            </ul>
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </section>
+<!-- Fin de la cabecera común -->
 
 <section id="center" class="clearfix center_blog">
  <div class="container">
@@ -106,7 +93,7 @@
    <div class="center_blog1 clearfix">
     <div class="col-sm-12">
 	 <h2 class="mgt">Cristiano Ronaldo</h2>
-	 <p>Leyenda del Real Madrid y de la Selección Portuguesa</p>
+	 <p>Leyenda del Real Madrid y de la selección portuguesa</p>
 	</div>
    </div>
    <div class="center_blog2 clearfix">
@@ -129,12 +116,12 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/BalonDeOro.png" class="iw" alt="balon de oro">
+		   <img src="img/BalonDeOro.png" class="iw" alt="Balón de Oro">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
 		  <div class="blog1l1ir clearfix">
-		   <h6 class="col_2 mgt">Balón d'or</h6>
+		   <h6 class="col_2 mgt">Balón de Oro</h6>
 		   <h5>x5</h5>
 		  </div>
 		 </div>
@@ -168,13 +155,13 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/Champions.png" class="iw" alt="abc">
+		   <img src="img/Champions.png" class="iw" alt="Champions League">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
 		  <div class="blog1l1ir clearfix">
 		   <h6 class="col_2 mgt">Champions League</h6>
-		   <h5>x4</h5>
+		   <h5>x5</h5>
 		  </div>
 		 </div>
 		</div>
@@ -183,7 +170,7 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/LigaEspañola.png" class="iw" alt="abc">
+		   <img src="img/LigaEspañola.png" class="iw" alt="Liga Española">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
@@ -196,7 +183,7 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/PremierLeague.png" class="iw" alt="abc">
+		   <img src="img/PremierLeague.png" class="iw" alt="Premier League">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
@@ -209,7 +196,7 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/NationsLeague.png" class="iw" alt="abc">
+		   <img src="img/NationsLeague.png" class="iw" alt="UEFA Nations League">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
@@ -222,7 +209,7 @@
 		<div class="blog1l1i clearfix">
 		 <div class="col-sm-4 space_left">
 		  <div class="blog1l1il clearfix">
-		   <img src="img/MundialDeClubes.png" class="iw" alt="abc">
+		   <img src="img/MundialDeClubes.png" class="iw" alt="Mundial de Clubes">
 		  </div>
 		 </div>
 		 <div class="col-sm-8 space_left">
@@ -243,35 +230,35 @@
             <!-- Diapositiva 1 -->
             <div class="item" data-slide-number="0">
                 <div class="carousel-text-slide">
-                    979 Goles en su carrera oficial
+                    451 goles oficiales con el Real Madrid (2009–2018)
                 </div>
             </div>
 
             <!-- Diapositiva 2 (Activa) -->
             <div class="item active" data-slide-number="1">
                 <div class="carousel-text-slide">
-                    Máximo goleador histórico de la UEFA Champions League
+                    438 partidos oficiales con el Real Madrid (2009–2018)
                 </div>
             </div>
 
             <!-- Diapositiva 3 -->
             <div class="item" data-slide-number="2">
                 <div class="carousel-text-slide">
-                    Máximo goleador histórico de selecciones nacionales
+                    312 goles en LaLiga con el Real Madrid
                 </div>
             </div>
 
 			<!-- Diapositiva 4 -->
             <div class="item" data-slide-number="3">
                 <div class="carousel-text-slide">
-                    291 asistencias en su carrera oficial
+                    105 goles en Champions con el Real Madrid
                 </div>
             </div>
 
 			<!-- Diapositiva 5 -->
             <div class="item" data-slide-number="4">
                 <div class="carousel-text-slide">
-                    1338 partidos oficiales disputados
+                    140 goles en Champions durante su carrera europea
                 </div>
             </div>
 
@@ -289,43 +276,36 @@
 	<div class="col-sm-9 space_right">
      <div class="blog1dt clearfix">
 		<div class="blod_d1 clearfix">
-		<img src="img/Ronaldo.png" class="iw" alt="abc" height="300">
+		<img src="img/legends/CristianoRonaldo.svg" class="iw" alt="Cristiano Ronaldo" height="300">
 		<h3>¿Quién es Cristiano Ronaldo?</h3>
 		<hr>
-		<p><strong>Cristiano Ronaldo dos Santos Aveiro</strong> es un futbolista y empresario portugués nacido en Funchal, Madeira, el 5 de febrero de 1985. Juega de delantero y su equipo actual es el Al-Nassr F. C. de la Liga Profesional Saudí. Es internacional absoluto con la selección de Portugal desde 2006, de la que es capitán desde 2007 y es su máximo goleador histórico.</p><br>
+		<p><strong>Cristiano Ronaldo dos Santos Aveiro</strong> es un futbolista portugués nacido en Funchal, Madeira, el 5 de febrero de 1985. Delantero de enorme capacidad goleadora, ha construido una carrera marcada por su preparación física, su competitividad y su ambición. Debutó con la selección absoluta de Portugal en agosto de 2003 y se convirtió en una referencia internacional, además de dejar una huella decisiva en varios de los grandes clubes europeos.</p><br>
 		<blockquote>
-		<p class="mgt"><em>"Losh dosh shomosh guaposh"</em></p>
+		<p class="mgt"><em>Máximo goleador histórico del Real Madrid: 451 goles en 438 partidos oficiales entre 2009 y 2018.</em></p>
 		</blockquote>
-		<p>A lo largo de su exitosa carrera, Cristiano Ronaldo se ha consolidado como uno de los mejores futbolistas de la historia. Dio el salto al estrellato europeo en el Manchester United, donde conquistó su primer Balón de Oro y la Liga de Campeones de la UEFA. Posteriormente, fichó por el Real Madrid C. F., convirtiéndose en el máximo goleador histórico del club blanco, ganando múltiples Ligas de Campeones y estableciendo récords legendarios de anotación.</p>
-		<p>Tras su etapa en España, continuó su trayectoria en la Juventus de Turín en Italia, sumando títulos de Serie A a su palmarés, y tuvo un emotivo regreso temporal al Manchester United. Actualmente, compite en el Al-Nassr F. C. de la Liga Profesional Saudí, llevando su talento y capacidad goleadora a nuevas fronteras. A nivel internacional, ha liderado a la selección de Portugal hacia la gloria histórica al ganar la Eurocopa y la Liga de Naciones de la UEFA.</p>
+		<p>Después de formarse en el Sporting de Portugal, dio el salto al Manchester United, donde ganó su primera Champions League en 2008. En 2009 llegó al Real Madrid y comenzó una etapa de nueve temporadas que lo convirtió en el máximo goleador de la historia del club. Sus 451 goles en 438 partidos oficiales incluyen 312 tantos en LaLiga y 105 en la Champions. Durante ese periodo ganó cuatro Copas de Europa y protagonizó algunos de los momentos más recordados por la afición del Santiago Bernabéu.</p>
+		<p>Su trayectoria continuó en la Juventus, con un regreso posterior al Manchester United y una nueva etapa en el Al-Nassr. Con Portugal conquistó la Eurocopa de 2016 y las Nations League de 2019 y 2025. A sus cinco Balones de Oro y cuatro Botas de Oro se suma un récord especialmente representativo de su carrera: 140 goles en la Champions League. Su legado madridista combina títulos, temporadas goleadoras extraordinarias y la capacidad de decidir eliminatorias y finales al máximo nivel.</p>
 		</div>  <br>
 		<br>
 		<div class="blod_d2 clearfix"> 
 		<h3><span class="col_1">|</span> Recomendado</h3>
 		</div><br>
 		<div class="blog1r1 clearfix">
-	   <div class="col-sm-4 space_left">
+<div class="col-sm-6 space_left">
 	    <div class="blog1ri clearfix">
-		  <a href="madrid.html"><img src="img/RealMadrid.png" class="iw" alt="abc"></a>
+		  <a href="madrid.html"><img src="img/clubs/madrid/template-crest.svg" class="iw" alt="Real Madrid"></a>
 		  <h6>Real Madrid</h6>
 		  <hr>
 		</div>
-	   </div> 
-	   <div class="col-sm-4 space_left">
-	    <div class="blog1ri clearfix">
-		  <a href="Messi.html"><img src="img/Messi.png" class="iw" alt="abc"></a>
-		  <h6>Lionel Messi</h6>
-		  <hr>
-		</div>
 	   </div>
-	   <div class="col-sm-4 space_left">
+<div class="col-sm-6 space_left">
 	    <div class="blog1ri clearfix">
-		  <a href="index.html"><img src="img/La_Liga.png" class="iw" alt="abc"></a>
+		  <a href="index.html"><img src="img/La_Liga.png" class="iw" alt="Inicio"></a>
 		  <h6>Inicio</h6>
 		  <hr>
 		</div>
 	   </div>
-	  </div>
+      </div>
 	 </div>
 	</div>
    </div>
@@ -334,41 +314,16 @@
 </section>
 
 
-<section id="footer_bottom">
- <div class="container">
-  <div class="row">
-   <div class="footer_b clearfix">
-	 <div class="col-sm-5 space_left">
-	  <div class="footer_br clearfix">
-	 </div>
-	 </div>
-	 <div class="col-sm-7 space_left">
-	 </div>
-   </div>
+
+
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
   </div>
- </div>
-</section>
-
-<script>
-$(document).ready(function(){
-
-/*****Fixed Menu******/
-var secondaryNav = $('.cd-secondary-nav'),
-   secondaryNavTopPosition = secondaryNav.offset().top;
-	$(window).on('scroll', function(){
-	    var navbar_height = document.querySelector('.navbar').offsetHeight;
-		var top = 30;
-		if($(window).scrollTop() > secondaryNavTopPosition ) {
-			secondaryNav.addClass('is-fixed');	
-			$("body").css("padding-top", navbar_height);
-		} else {
-			secondaryNav.removeClass('is-fixed');
-			$("body").css("padding-top", 0);
-		}
-	});	
-	
-});
-</script>
+</footer>
+<!-- Fin del pie común -->
 
 </body>
  

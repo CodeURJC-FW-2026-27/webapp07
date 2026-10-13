@@ -717,7 +717,7 @@ th {
   background: transparent;
 }
 
-#article-photo-carousel .carousel-indicators button {
+#article-photo-carousel .carousel-indicators a {
   display: block;
   width: 100%;
   height: 100%;
@@ -727,7 +727,7 @@ th {
   cursor: pointer;
 }
 
-#article-photo-carousel .carousel-indicators button:focus-visible {
+#article-photo-carousel .carousel-indicators a:focus-visible {
   outline: 3px solid #fff;
   outline-offset: 2px;
 }
@@ -809,6 +809,13 @@ th {
 
 .infoColor {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+/* Encajar los retratos en los huecos originales sin deformarlos ni cortar la cabeza. */
+#article-photo-carousel .carousel-indicators li img {
+  object-fit: contain;
+  object-position: center;
+  background-color: #fff;
 }

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<style>
+	#campo {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 80%;
+		column-gap: 20px;
+		margin: 20px;
+		margin-top: 50px;
+	}
+	.personaI {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(1, 100%);
+		grid-template-rows: 20px, 50px, 10px;
+		width: 100%;
+		margin: 5px auto;
+	}
+	#entrenadorLeyenda {
+		display: grid;
+		align-content: center;
+		justify-content: center;
+		grid-template-columns: repeat(2, 300px);
+		grid-template-rows: repeat(1, 1fr);
+		column-gap: 100px;
+		width: 100%;
+		margin: 5px auto;
+	}
+	.temporada {
+		display: grid;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(9, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		width: 100%;
+		margin: 5px auto;
+	}
+
+	#infoClub {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: 1fr;
+		column-gap: 15px;
+		width: 100%;
+		margin: 20px;
+	}
+
+	#tActual h4 {
+		text-align: center;
+	}
+
+	.plantilla {
+		width: 100%;
+		align-items: center;
+		align-content: center;
+		justify-content: center;
+		justify-items: center;
+		text-align: center;
+		margin: 10px auto;
+	}
+
+	.alineacion {
+		display: grid;
+		text-align: center;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(14, 50px);
+		grid-template-rows: repeat(13, 50px);
+		margin: 20px auto;
+	}
+
+	.jugador {
+		display: grid;
+		text-align: center;
+		align-items: center;
+		grid-template-columns: 77px;
+		grid-template-rows: 95px 50px 10px;
+	}
+
+	.suplentes {
+		display: grid;
+		text-align: center;
+		align-items: center;
+		justify-items: center;
+		grid-template-columns: repeat(14, 1fr);
+		grid-template-rows: repeat(6, 60px);
+		column-gap: 10px;
+		width: 80%;
+		margin: 20px auto;
+		margin-top: 5px;
+	}
+	body {
+		font-family: 'Mukta', sans-serif;
+		align-items: center;
+	}
+</style>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RC Deportivo de La Coruña</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/global.css" rel="stylesheet">
+	<link href="css/blog.css" rel="stylesheet">
+	<link href="css/index.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+  <link href="css/site-common.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+      <div class="site-search" role="search">
+        <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+        <button type="button">Buscar</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="header" class="clearfix cd-secondary-nav">
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
+            </ul>
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- Fin de la cabecera común -->
+
+	<section id="center" class="clearfix center_blog">
+		<div class="container">
+			<div class="row">
+				<div class="center_blog1 clearfix">
+					<div class="col-sm-12">
+						<h2 class="mgt">RC DEPORTIVO DE LA CORUÑA</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div id="infoClub">
+		<div style="grid-column: 1 / 1; grid-row: 1 / 1;">
+			<h3 class="mgt">Información del club</h3>
+			<p>El Real Club Deportivo nació en 1906 en A Coruña, vinculado a la Sala Calvet, y convirtió Riazor en el escenario de una historia inseparable de la ciudad y del fútbol gallego. El estadio actual abrió en 1944, después del primer ascenso a Primera de 1941. El subcampeonato liguero de 1950 anticipó una trayectoria de ascensos, descensos y resistencia popular. Con Arsenio Iglesias llegó el Superdépor de los años noventa, que conquistó la Copa del Rey de 1995. Javier Irureta condujo al equipo al título de Liga de 1999-2000 y a la Copa de 2002, el recordado Centenariazo. Las semifinales de la Liga de Campeones de 2004 prolongaron aquella proyección europea. Tras años difíciles y un paso por Primera Federación, el Dépor recuperó el fútbol profesional en 2024 y regresó a Primera en 2026. Su identidad blanquiazul combina cantera, orgullo coruñés y una afición profundamente vinculada a Riazor.
+			</p>
+			<ul>
+				<li>Presidente: Juan Carlos Escotet Rodríguez</li>
+				<li>Palmarés:
+					<ul>
+						<li>Liga de Primera División · 1999-2000</li>
+						<li>Copa del Rey · 1995</li>
+						<li>Copa del Rey · 2002</li>
+						<li>Supercopa de España · 1995</li>
+						<li>Supercopa de España · 2000</li>
+						<li>Supercopa de España · 2002</li>
+						<li>Copa España · 1912 (torneo histórico reconocido por el club)</li>
+					</ul>
+				</li>
+				<li>Temporadas del club en LaLiga: 47</li>
+			</ul>
+		</div>
+		<div style="grid-column: 2 / 2; grid-row: 1 / 1;">
+			<div class="about_1r clearfix">
+				<img src="img/clubs/depor/template-crest.svg" class="iw" height="420" alt="Escudo del RC Deportivo de La Coruña">
+			</div>
+		</div>
+	</div>
+	<hr>
+	<section id="tActual">
+		<h4>TEMPORADA ACTUAL:</h4>
+		<container class="temporada">
+			<h5 style="color:rgb(239, 39, 67);grid-column: 1 / 1; grid-row: 1 / 1;">Pos.</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 2 / 2; grid-row: 1 / 1;">Puntos</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 3 / 3; grid-row: 1 / 1;">PJ</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 4 / 4; grid-row: 1 / 1;">V</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 5 / 5; grid-row: 1 / 1;">D</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 6 / 6; grid-row: 1 / 1;">E</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 7 / 7; grid-row: 1 / 1;">GF</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 8 / 8; grid-row: 1 / 1;">GC</h5>
+			<h5 style="color:rgb(239, 39, 67);grid-column: 9 / 9; grid-row: 1 / 1;">DG</h5>
+			<h5 style="grid-column: 1 / 1; grid-row: 2 / 2;">7</h5>
+			<h5 style="grid-column: 2 / 2; grid-row: 2 / 2;">10</h5>
+			<h5 style="grid-column: 3 / 3; grid-row: 2 / 2;">7</h5>
+			<h5 style="grid-column: 4 / 4; grid-row: 2 / 2;">2</h5>
+			<h5 style="grid-column: 5 / 5; grid-row: 2 / 2;">1</h5>
+			<h5 style="grid-column: 6 / 6; grid-row: 2 / 2;">4</h5>
+			<h5 style="grid-column: 7 / 7; grid-row: 2 / 2;">10</h5>
+			<h5 style="grid-column: 8 / 8; grid-row: 2 / 2;">8</h5>
+			<h5 style="grid-column: 9 / 9; grid-row: 2 / 2;">+2</h5>
+		</container>
+	</section>
+	<hr>
+	<section id="entrenadorLeyenda">
+		<div class="personaI" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+			<h4><a href="#">ENTRENADOR</a></h4>
+			<a href="#"><img src="img/clubs/depor/template-coach.svg" class="iw" alt="Antonio Hidalgo" style="width: 200px; height: 200px;"></a>
+			<h5 class="bold"><a href="#">Antonio Hidalgo</a></h5>
+		</div>
+		<div class="personaI" style="grid-column: 2 / 2; grid-row: 1 / 1;">
+			<h4><a href="FranGonzalez.html">LEYENDA</a></h4>
+			<a href="FranGonzalez.html"><img src="img/clubs/depor/template-legend.svg" class="iw" alt="Fran" style="width: 200px; height: 200px;"></a>
+			<h5 class="bold"><a href="FranGonzalez.html">Fran</a></h5>
+		</div>
+	</section>
+	<hr>
+	<section class="plantilla">
+		<h4>PLANTILLA DEL EQUIPO:</h4>
+		<h5>Alineación titular</h5>
+		<container class="alineacion">
+			<container class="jugador" style="grid-column: 7 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-07.svg" class="iw" alt="Pierre-Emerick Aubameyang" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Pierre-Emerick Aubameyang</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 1 / span 2; grid-row: 2 / span 3">
+				<img src="img/clubs/depor/template-player-10.svg" class="iw" alt="Yeremay Hernández">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Yeremay Hernández</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 13 / span 2; grid-row: 2 / span 3">
+				<img src="img/clubs/depor/template-player-11.svg" class="iw" alt="David Mella">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">David Mella</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 7 / span 2; grid-row: 5 / span 3">
+				<img src="img/clubs/depor/template-player-21.svg" class="iw" alt="Mario Soriano">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Mario Soriano</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 3 / span 2; grid-row: 6 / span 3">
+				<img src="img/clubs/depor/template-player-06.svg" class="iw" alt="Marc Casadó">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Marc Casadó</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 11 / span 2; grid-row: 6 / span 3">
+				<img src="img/clubs/depor/template-player-16.svg" class="iw" alt="Lorenzo Amatucci">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Lorenzo Amatucci</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 1 / span 2; grid-row: 9 / span 3">
+				<img src="img/clubs/depor/template-player-12.svg" class="iw" alt="Giacomo Quagliata">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Giacomo Quagliata</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 5 / span 2; grid-row: 9 / span 3">
+				<img src="img/clubs/depor/template-player-04.svg" class="iw" alt="Lucas Noubi">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Lucas Noubi</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 9 / span 2; grid-row: 9 / span 3">
+				<img src="img/clubs/depor/template-player-20.svg" class="iw" alt="José María Giménez">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">José María Giménez</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 13 / span 2; grid-row: 9 / span 3">
+				<img src="img/clubs/depor/template-player-23.svg" class="iw" alt="Ximo Navarro">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Ximo Navarro</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 7 / span 2; grid-row: 12 / span 3">
+				<img src="img/clubs/depor/template-player-13.svg" class="iw" alt="Leo Román">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Leo Román</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">POR</h5>
+			</container>
+		</container>
+		<br>
+		<h5>Suplentes</h5>
+		<container class="suplentes">
+			<container class="jugador" style="grid-column: 1 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-01.svg" class="iw" alt="Germán Parreño" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Germán Parreño</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">POR</h5>
+			</container>
+			<container class="jugador" style="grid-column: 3 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-02.svg" class="iw" alt="Adrià Altimira" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Adrià Altimira</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 5 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-03.svg" class="iw" alt="Arnau Comas" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Arnau Comas</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 7 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-05.svg" class="iw" alt="Dani Barcia" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Dani Barcia</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 9 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-08.svg" class="iw" alt="Diego Villares" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Diego Villares</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 11 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-09.svg" class="iw" alt="Zakaria Eddahchouri" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Zakaria Eddahchouri</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 13 / span 2; grid-row: 1 / span 3;">
+				<img src="img/clubs/depor/template-player-14.svg" class="iw" alt="Riki Rodríguez" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Riki Rodríguez</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 1 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-15.svg" class="iw" alt="Miguel Loureiro" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Miguel Loureiro</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 3 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-17.svg" class="iw" alt="Angeliño" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Angeliño</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 5 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-18.svg" class="iw" alt="Jonathan Asp Jensen" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Jonathan Asp Jensen</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">MC</h5>
+			</container>
+			<container class="jugador" style="grid-column: 7 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-19.svg" class="iw" alt="Luismi Cruz" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Luismi Cruz</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 9 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-22.svg" class="iw" alt="Bright Ede" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Bright Ede</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEF</h5>
+			</container>
+			<container class="jugador" style="grid-column: 11 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-24.svg" class="iw" alt="Adama Traoré" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Adama Traoré</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">DEL</h5>
+			</container>
+			<container class="jugador" style="grid-column: 13 / span 2; grid-row: 4 / span 3;">
+				<img src="img/clubs/depor/template-player-25.svg" class="iw" alt="Álvaro Ferllo" style="grid-column: 1 / 1; grid-row: 1 / 1;">
+				<h5 class="bold" style="grid-column: 1 / 1; grid-row: 2 / 2;">Álvaro Ferllo</h5>
+				<h5 style="color:rgb(239, 39, 67); grid-column: 1 / 1; grid-row: 3 / 3;">POR</h5>
+			</container>
+		</container>
+	</section>
+	<hr>
+	<h4 style="text-align: center;">CAMPO:</h4>
+	<br>
+	<section id="campo">
+		<iframe src="https://maps.google.com/maps?q=ABANCA-RIAZOR%2C%20A%20Coru%C3%B1a&amp;output=embed" width="100%" height="450" style="border:0; grid-column: 1 / 1;" allowfullscreen="" loading="lazy"></iframe>
+		<img src="img/clubs/depor/template-stadium.svg" class="iw" alt="ABANCA-RIAZOR" style="width: 100%; height: 450px; grid-column: 2 / 2;">
+	</section>
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
+  </div>
+</footer>
+<!-- Fin del pie común -->
+
+</body>
+
+</html>

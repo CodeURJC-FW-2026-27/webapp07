@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de leyenda | LaLiga</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/global.css" rel="stylesheet">
+  <link href="css/formulario-leyenda.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+  <script src="js/jquery-2.1.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <link href="css/site-common.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Cabecera común -->
+  <header id="header_t" class="site-heading" lang="es">
+    <div class="container">
+      <div class="site-brand">
+        <a href="index.html" aria-label="Ir al inicio">
+          <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+        </a>
+        <div class="site-intro">
+          <p class="site-title">LaLiga: equipos y leyendas</p>
+          <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+        </div>
+        <div class="site-search" role="search">
+          <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
+          <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+          <button type="button">Buscar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="header" class="clearfix cd-secondary-nav">
+    <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+      <div class="container">
+        <div class="navbar-header">
+          <span class="navbar-brand site-menu-label">Menú</span>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#site-navigation"
+            aria-controls="site-navigation">
+            <span class="sr-only">Abrir o cerrar el menú</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="site-navigation">
+          <ul class="nav navbar-nav">
+            <li><a class="m_tag" href="index.html">Inicio</a></li>
+            <li class="dropdown">
+              <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+                aria-haspopup="true">Equipos <span class="caret"></span></a>
+              <ul class="dropdown-menu drop_3">
+                <li><a href="barca.html">FC Barcelona</a></li>
+                <li><a href="atm.html">Atlético de Madrid</a></li>
+                <li><a href="betis.html">Real Betis</a></li>
+                <li><a href="madrid.html">Real Madrid</a></li>
+                <li><a href="sevilla.html">Sevilla FC</a></li>
+                <li><a href="alaves.html">Deportivo Alavés</a></li>
+                <li><a href="depor.html">RC Deportivo</a></li>
+                <li><a href="real.html">Real Sociedad</a></li>
+                <li><a href="villarreal.html">Villarreal CF</a></li>
+                <li><a href="athletic.html">Athletic Club</a></li>
+                <li><a href="getafe.html">Getafe CF</a></li>
+                <li><a href="rayo.html">Rayo Vallecano</a></li>
+                <li><a href="osasuna.html">CA Osasuna</a></li>
+                <li><a href="celta.html">RC Celta</a></li>
+                <li><a href="espanyol.html">RCD Espanyol</a></li>
+                <li><a href="racing.html">Racing de Santander</a></li>
+                <li><a href="levante.html">Levante UD</a></li>
+                <li><a href="elche.html">Elche CF</a></li>
+                <li><a href="valencia.html">Valencia CF</a></li>
+                <li><a href="malaga.html">Málaga CF</a></li>
+              </ul>
+            </li>
+            <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Fin de la cabecera común -->
+
+  <section id="center" class="clearfix center_blog">
+    <div class="container">
+      <div class="row">
+        <div class="center_blog1 clearfix">
+          <div class="col-sm-12">
+            <h2 class="mgt">Formulario de leyenda</h2>
+            <p>Prepara la ficha de un jugador que haya dejado huella.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formulario-leyenda">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p>Completa los datos de la leyenda. Los campos con * son obligatorios.</p>
+
+          <form id="nueva-leyenda" role="form">
+            <div class="form-group">
+              <label for="nombre">Nombre *</label>
+              <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+
+            <div class="form-group">
+              <label for="equipo">Equipo *</label>
+              <select class="form-control" id="equipo" name="equipo" required>
+                <option value="">Selecciona un equipo</option>
+                <option value="barca">FC Barcelona</option>
+                <option value="atm">Atlético de Madrid</option>
+                <option value="betis">Real Betis</option>
+                <option value="madrid">Real Madrid</option>
+                <option value="sevilla">Sevilla FC</option>
+                <option value="alaves">Deportivo Alavés</option>
+                <option value="depor">RC Deportivo</option>
+                <option value="real">Real Sociedad</option>
+                <option value="villarreal">Villarreal CF</option>
+                <option value="athletic">Athletic Club</option>
+                <option value="getafe">Getafe CF</option>
+                <option value="rayo">Rayo Vallecano</option>
+                <option value="osasuna">CA Osasuna</option>
+                <option value="celta">RC Celta</option>
+                <option value="espanyol">RCD Espanyol</option>
+                <option value="racing">Racing de Santander</option>
+                <option value="levante">Levante UD</option>
+                <option value="elche">Elche CF</option>
+                <option value="valencia">Valencia CF</option>
+                <option value="malaga">Málaga CF</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="imagen">Foto de la leyenda *</label>
+              <input type="file" id="imagen" name="imagen" required>
+            </div>
+
+            <div class="form-group">
+              <label for="biografia">Biografía *</label>
+              <textarea class="form-control" id="biografia" name="biografia" rows="5"
+                placeholder="Cuenta quién es, su trayectoria y por qué es una leyenda del club." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="frase">Frase o texto destacado</label>
+              <input type="text" class="form-control" id="frase" name="frase">
+            </div>
+
+            <div class="form-group">
+              <label for="palmares">Palmarés (un logro por línea)</label>
+              <textarea class="form-control" id="palmares" name="palmares" rows="3"
+                placeholder="Ej.: 2 Copas del Rey, 2015 y 2018."></textarea>
+                <div class="form-group">
+                  <label for="imagen_palmares">Foto del título o trofeo</label>
+                  <input multiple type="file" id="imagen_palmares" name="imagen_palmares" accept="image/*">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="estadisticas">Estadísticas (un dato por línea)</label>
+              <textarea class="form-control" id="estadisticas" name="estadisticas" rows="3"
+                placeholder="Ej.: 350 partidos oficiales con su equipo."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="crear-leyenda" disabled>Crear leyenda</button>
+            <button type="reset" class="btn btn-default">Limpiar</button>
+            <a href="index.html" class="btn btn-default">Volver al inicio</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie común -->
+  <footer id="site-footer" lang="es">
+    <div class="container">
+      <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+      <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
+    </div>
+  </footer>
+  <!-- Fin del pie común -->
+
+</body>
+
+</html>

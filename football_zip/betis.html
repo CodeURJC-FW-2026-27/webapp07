@@ -99,7 +99,7 @@
 		font-family: 'Mukta', sans-serif;
 		align-items: center;
 	}
-</style>>
+</style>
 
 <head>
 	<meta charset="utf-8">
@@ -115,93 +115,79 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+  <link href="css/site-common.css" rel="stylesheet">
 </head>
 
 <body>
-	<section id="header_t">
-		<div class="container">
-			<div class="row">
-				<div class="header_t1 clearfix">
-					<div class="col-sm-4">
-						<div class="header_t1l clearfix">
-							<h2><a class="col" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="200"></a></h2>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1m clearfix">
-							<p class="col_2">Official Website For Foot Goal</p>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1r clearfix">
-							<div class="input-group clearfix">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+      <div class="site-search" role="search">
+        <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+        <button type="button">Buscar</button>
+      </div>
+    </div>
+  </div>
+</header>
 
-	<section id="header" class="clearfix cd-secondary-nav">
-		<nav class="navbar nav_t">
-			<div class="container">
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="col navbar-brand" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="125"></a>
-				</div>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a class="m_tag" href="index.html">Home</a></li>
-						<li><a class="m_tag" href="about.html">About</a></li>
-						<li class="dropdown">
-							<a class="m_tag" href="#" data-toggle="dropdown" role="button"
-								aria-expanded="false">Equipos<span class="caret"></span></a>
-							<ul class="dropdown-menu drop_3" role="menu">
-								<li><a href="barca.html">FC BARCELONA</a></li>
-								<li><a href="atm.html">ATLÉTICO DE MADRID</a></li>
-								<li><a href="betis.html">REAL BETIS</a></li>
-								<li><a href="madrid.html">REAL MADRID</a></li>
-								<li><a href="sevilla.html">SEVILLA FC</a></li>
-								<li><a href="alaves.html">DEPORTIVO ALAVÉS</a></li>
-								<li><a href="depor.html">RC DEPORTIVO</a></li>
-								<li><a href="real.html">REAL SOCIEDAD</a></li>
-								<li><a href="villarreal.html">VILLARREAL FC</a></li>
-								<li><a href="athletic.html">ATHLETIC CLUB</a></li>
-								<li><a href="getafe.html">GETAFE CF</a></li>
-								<li><a href="rayo.html">RAYO VALLECANO</a></li>
-								<li><a href="osasuna.html">CA OSASUNA</a></li>
-								<li><a href="celta.html">CELTA</a></li>
-								<li><a href="espanyol.html">RCD ESPANYOL</a></li>
-								<li><a href="racing.html">RACING</a></li>
-								<li><a href="levante.html">LEVANTE</a></li>
-								<li><a href="elche.html">ELCHE CF</a></li>
-								<li><a href="valencia.html">VALENCIA CF</a></li>
-								<li><a href="malaga.html">MÁLAGA CF</a></li>
-							</ul>
-						</li>
-						<li><a class="m_tag" href="contact.html">Contact</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-	</section>
+<section id="header" class="clearfix cd-secondary-nav">
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
+            </ul>
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- Fin de la cabecera común -->
 
 	<section id="center" class="clearfix center_blog">
 		<div class="container">
@@ -233,7 +219,7 @@
 		</div>
 		<div style="grid-column: 2 / 2; grid-row: 1 / 1;">
 			<div class="about_1r clearfix">
-				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWV5vpbgOts88qT61VV9FyQwJhbB9xdj7XAnsyyXkDww&s=10" class="iw" height="420" alt="abc">
+				<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKIAAACUCAMAAAAnDwKZAAABRFBMVEX+/v7///8AiDWjIDXPigDw3MMAhjDOhgDMgQAAhS3PgwDYoUS5kR8Ajjownlo5kj7T6Nv68+IAfRTu9vGv1772+/i42MJtqnlPmFoAdQAAhScAgB6KwpwmkUcTkkP+/fcdizyeza5BkUrTkQBHlVNdo2uIuZKqMT316NGuQSvNhRT79uvju3vSkzPnx47Ulirt1a3iu4Xi8ejZpmTw3LresGP68/SdABmeACHcq1WzSjutOzufEDfEcDjRjxqnjh2Nki7pzZ3ju5DnxqDIdQDw3M3rztPbsrfOmZ6+aXWxQVOmJQDDeYPy3+K2VmPRlHHUmFO4VSrGdie5V0q2Uzi9ZCfNgyvLhXe+YzymJEdyqWrb48mUv41GomWz0KnD0rC6r2NpmklbjzODljhxlDmckio3iil2vpG8uXjIqFVvhhTLmBYm4Y+5AAARg0lEQVR4nM2b/UPbyNHHd4XwyjIEBCa0QBA+X4qKhGUSmcMBTHyXNsn1cu1xJE3ujrZ54Wif/P+/P7PvK1tvNva1mwR71rL08cx8Z2dlgpAeuHgg9gezw9jBCI0Y6nFuoxRRcEqqPOO3QMyGRSbpfxsxx4s8looh35g5l2IrgUUyHTVQtjHjgXRYTW5x0dSlJ/jUc0dkM+oFaSCMTC9qkzkuZcwfUYIKEoQmTLL5IVbKRawz7r/rRVWkkXHp/w0vYn0RA1EZ2bmIxoy5Iab9oOAmX9XmiahQMo8cqYsFxhwRzWTkpFOtGbNH1M8V3V1PqioqGjXw1IaJeydA7+uvvwkx0lFHkxrYMORUGrIQEI0bI58reOYcevpUqpYaZy8yUI4xQoGm92MQ9Yg96EUhFtXHKKrYKLa5Bs4wRnIR3y0Xk2fEtm3iBKYXUZGBCwx9sAmZepgC0WGIblA5tmqqzJBkOjTTjcVGg9ik0cgPNDJjm2/kB1rBTzvCxLEPg1CdTsU2z8DZBk4bEkkCFnhRKQ1lGMj3kuTItQfDZNHz+TV0eqvWrrohp0YRpvVhkESNuO2yXCTtuB8tevqEI+lX0cjKxekVHUTxgAAeJbQZpT1odHiBnFrRI1E2SSf2ZNB3gYkQ145j4IsHNsMlJPLUKeW1UNrAWQZKGZmBngzR7wwonx1H3yRBF+SSBMk3vZh61ImTFCIaM3DKQGkDjyFOF+iw54DHBlES0rctAiJ1nR92+5Tc7uiMmji244FGqYesgcYNr+HaJI4CMckR+fWSHkTdOZIf32wWcgz5NGXcUdFe0KOEiXqX9CI7T9ihyumIOpkp7yIjS9GinFfE9IOoAcKwSd/Tk8KLWBS0pE1VHvc7tFDOcnWphAhhBM0C4cAg1F4UTukSUYJ4KlRdXVJG6rLl2SiH12N4tAZ21buPj48p4p/gUZ4CRaJUkkHHzwgnThso1xAHGgt/yUhiWvhiWlr6PqP78/MXL79d+Oovbfvg5KuFb7978fzVMT0ygEMaVNy20w+li4zrlBsGjbEs5pHJdwZwSdeOgqBByDcYH7+ieCcnCwsLfwTEfXg8OTn59uXzV/CGhg0VPOiDz91eKC9kJhsuNlSOYl1D87yoP2AAPiQ9SK5gAHE+fvE9o2NDIrJxsvDy+TFkBHVfQtu0ni/PjpCCLTCQyk31qOpSJqL0vw/dv0ubfxy0if3X7xcU4Agig/ybzRAxeNx2hvIqk+16VblUUSjJxcARV8UeLMk/nC0s5CIuLJxdgvPYnjA4hPITqipuPJQYWjEpbJ176qdIXoT7BNpWNn18aNvnC4WI7w5s8jU/Ay1AXTzxML1Ynots+NB2RaxlPf7uB9s+OC1CPIMj7B9fsAuFMXvjNF6ULkPV2giQM2HOOH55cnpg229MxNewnFwZhE/ggMuzr16wd4L7IUFSpds0UI6hFY2VWIoUjXACqwXrsb4DmbwFJ72+unoikK5olZZ+3b+6unoDJrz41XP6hoiQRjiWPWWGcuyIhMYjLH0sEBF+zoR8yVYO8pqL5jVFbP/ICS95F/6WGX+Gd8CS2fAm17RRF8XPMkV7AwLFA7/iKbf/xtZYZxyR+/RtmxkC/ntYa6DsMHFPkYvKTcVelJkBuQg1+DtRDU854zkjeUKh3jD4Mz5/KSvkc6ii0JmplJELiJlzaukzjRG5lAWaHd1x7EH3lZLEj9Rb7SvurNNn9ut3fP7czMuFk5fHkWvbAZ54IHXtVNkpHCEkY/x3VbFZqN8IrrPX7SfiFap2WTVhav+v0Fz2U25DVY3KclHvHlKmq/O3wkOnry9VoQGuS1kXX5PLt+L5H8/f/gDEZAqxmLkoWp3iNZod7Eewo2rb7QNRa86u7IOr0/13+6e0yNiXT/bfwfPzwcGpcOgVaxqJPcTV6kzKSHc65XWR/wv7DtOCUOs7SDtycH5+/oz3rweX5+eXNMwiQReesWlnKJcGFbqUgcYMY67SAmgOP+JyPeNOlDchRocQyz7FtQdDWVw1yazbCBlo+qaAIbAu5+zqQEOx7Yweb3ioWX3vh6WfPDt6aS8WKTqFjTt05Tg/3T89PTfweBk3MA/enu7vP7mEmTjBhb6atHRXGEl3CD334aAt+OzDfqebJIvBIrwS9WObc7bbBwdtEne7XkmzUK2NqCAXpN8NnlQ3wpzBUdcLfXWsHwbDx8SRvhwkY2GYZxuhGjbYIcgdaGMo9s4+G+JtQSfmrw+605RDI6YSqWobYYwQOkDbHXSYEPwg6R5FvV4UDZPE4zMRu4vXMf0wV0UrtyuD7gVJg627/O6JywZh90iYMxPec4x2DmkDFxo5cilsI7TnYc8UD6k3u5+fOexLoSM6eg2ank4vAbbw8bTFxri8QjTyrPqAiPrdBiij0VmUt8B8L0h6sevY9EaOH07VOdytjVD1gH+YoOG68dFYl+UPewPHpfe7pxOJQaPOoPI0Wy7IXF204XdiZxCNAdJT+EkfMjURBcTs+CYykKpA1XWc8lVEnEbiyw8hP7YY4dB2eE2cdMgEVM7jeOHi5KPvuJGog6v3dh+wsXuvtS4vFRw6dmfy0wbmdtvwXth7BhXDUcNVI2+Orssd0SDh1d16jY/61vUj6YswBqmT0tMZU4Q4ZGiE1GwjMKb3z+OGHEtqNHLmgHCoTrW6W7Ms+GvVatb27Yaab9CvicpOp6fovekE47QXdQ5BZpG+J8dPK2L8pKZ+llO//gJWx7Y7OnfWd/Ysa7O1s9O6rlt7qzohe26ceN4/5VtXvlSn+8ev8nT/FDNhEhO6XpprrZYLvQxl7IjcWn9Yt9io/U6l1upyjc9t79DvM5yO7hzgxQe1WpM+efR7y9KI9LhIOJmO+j31SnONT1lr9+XngX4+EeFVskmVLaghtiPyvxSx4bCbyOurYjQBcYc9A8QWPDwS0V5sO90KiLRTbtAKMFYYpaI5Nmyd+H68FLHrDFg5bG7tiQHz/EmNP7m3yX3pd8ihV8WLXoO0u2Od72gbAZohvI6MIHLVasTwby4Xc2uNKoQOa/RJfUte2hmmEVEWogfqT7BqIySW0YwZmqGMJV7sit92wc1tS4+a+ROKkJANePznUi/CSjroYr3GIqOAC1yln4i4oINCL27tNPi3ewiv39ZqD+7zXLR4Lq6xXLy/WbO2WvzkbfKveyWI4Op2VymkuI2geycnCjeKvFh7T4hUcwsQaalWisYgFxa5zXr9ep1dp+ss7VmFgeZKyWxqMiYhv10SFQbaunH7OA8R/d6qMcSdev0eR/QGgw+FiB6LcgZgOtAi3Jj50Y1+VzMR04HeW3IWRV4/2rRqy02NiBTi+q1VuydEHbkfTcSRQG/9ckjrIdJBxaZh0OpBNXOzm+/FDwN1H64JYa1vZ3mxRV/Z4kd1yMVKPuLKktser4eaLAMRJqE+Pt3NQ1z+RB7LVNzYoXLJQpReZI3vwZJGRCOBBkK7aJeYgchOEdnkZi/Pix/JkTo6Sy6ACKfYqdFcZNr0Dz5/ob0oarJApIQFPszxolivmR8zEPee5iFurPI1mnnxYX3r4YZowZVexrwIhCU7bTxOKMaR7T7d44ii4CvEC9aFser66KFV2201m03a6dzeLu80aSnYgYnNOquL3IsN+1O2FynhYsUNTioX6fCPINa7tQwvriwR9VUZu06NLiU8c606K1b1GjzWobcVLuuTp5leBMK4MMp5geYPPtNMNqLakrQ4oliaWUcrJmCdvJUbJlj6n5peZJOA+AB8WEaYiShWQ/qFk3uzXOJFWKNrdNtC8/bBLjylx1B7q0ZbW+XFjxleXPlcopQ8RJ2fKHLJzfW4XC70joAWnV2xRtdarXv3V3e2rb0mTLRgh/AHsfL7cVYu/lrFhybrWKDpA6wz//JGEa2nbl7RAQVvyDX6Vq7RtOhkKPrnioRZijbuNqCOTY58nFa0qIs8pVr1orq4wZMmNEu36FS9vlOqlLxA6zaXaubIIdGoFz/pW9ePHkKgd3DG6rJ6bdUetPhZFsnS6ALoZe4Cpgg0puuM3M/oNfozUWv0FshlOQuRvfIFD/QRubHSgYYeux1UIyxSNBLrjCv8qBB3L9xFcSiXSxYibXbFGu0/dj8tG4i8g63qw5w2wrgBRmsP96PRL5J2tlxULmKzXwxcs19kDeTEUUbpoiM2YNKXEGv2ay+66/5p4Hh5iEgo+tF1fWuTyQV33IsHGpHtRiv7MLeNkDscEesO23MZ26u+E5lyabWaO7tW7bbZggHrzS08XLM1mpUcQv79wNi7ZO+XSxFx8WD3AAzERQLbaPom2rjWttfW1rbhta01+sRiT7aB8CGPc8dpmJtU79CJKyplhDUVaf0gegq6VzAQQQARe6W1VlO7Z71Y0yf1NSEWQOoaiKCUavVw1ItZiFIufJ0h7n/EXoHejQgcvk7fX/lCDLo008cva/zJdZNvesIe9OgK0foynpAwr+gIsrSu1X6G3tOJxGZ/QwwmF0SfUbls6Nt3Q/p/NxQidA4TKCUPUd/3Ng6AedpT7CrEsC8rOh9c0XDg/TWuaLGEBgf0N1Ik4sqEnUOatTAXZU9xsyIRcRA7Pf2lCnTflnW9ubn5ELpaWoXE+4KY/eKiQFyJ3cmVUlHR4vsBYjM/MkScsJVR3NhgUqpvbW3VQeA72oex06ffonLE6XxY0kbIxokf4Q+hx92ViLg7cNTvI68ub2+JscfuI7P3LcZOgx3BECEPD6vuUzJZSwKN5H0K2M8IRJw4TkP0E492/iDGzqr8aP6QfwbEEYGw8k6qzIvpNkIa/Kodl1zsSkQa60EHjw1+Mq9HnIbPjdXdOiWcSikFbYQMdGotpPXxoi4RcQgtBumG44C+13Fc+jsbEnHFnkIpI6wVAs1jDfWxpY5t/t8ScftDz6w/9Lvox7FrX7xfF58Rr75fcttT5mGVNkIcxVsgppmeImptrzwFSNIfdoOQfavvJd1OTADwg/XlutRbsDS9UiYpOvKn+F5BrNHW8sqnpc+u68b9x3Q0Bo5rL9182LNqFJF9Qtrb3DHKqDzQWHqR9WbuY+lFdmNm78PHp5/ll2T20sdPrMLXpBdpbzP1mpITaIWj12g9h9m6K2LdUvcxm34YBEnghf6mvMHLEIGQTNl9FSHKNiIbkWuGr9AaUX4FhTdGEINDupOaKWJ2G6HrDjsY/Mhug5YhsjXwrtVmDFGteaorSwefM7LvFSoggg/vqJTKitZh5zGH2kP3rmlE9nIKEbQc32VdRjm5aKak0UaI8ih+4i7VTLEXNwKbreJ3QtSs44imgdOBlutM1NouQvz5zlFGE7cRSHmR/gXGpd18ROs9dLCLd/ZhlqKR2rKoFmJE0UZPcbOXi7gycGewphisxYE2bqKYXqU9xXIO4ocl176jUjhZFmJOG4HNQIs0gJ7iYjkT8cPAbczEhyVFR4tFC8X4KfvwDETawc4yyqhaoPFIoNnj0IY+fAzxPfhwFlFGhW1E/hqNdAJgFmvwYxoRlDKjVS+/dOtOBxcjcs1cLJuINXrPYWZRrthGaA0ZRUfJiGrGRASlHE71HwpKWMsVPVa65Segv+d9oxF/gWozQ6VM3UaM9BQ228+wmeBwRtVmjLVQ0fzTmEUHpabw0JZ3eILBDDsHfalsRLPTyZcLJ6X3mtleATrYGdfDO7URSP9gvVnDx4u2czhTH1ZWdGYbkX6R7RWSgdOeg5ZHEau3ESjt4iH9v/szq9iabJzQLDqGoVqzVBuRMrqsx54xYZFccOHGYFze8NCZvQ9N1gqBzmwjTAP7cyCcmaKRWM5/G0TDY0j/MeUyVhcNY36juOgUtREjxuzJxhFNRZtXHwm0oZRU1OeGiEsGKmwjTGN+o0zRMtew4T0jF7Uxe7ICxAnaiHnKJafoaBkro0rR+a0QsxRtFh3TzpD3/EZZLlZaXebCWaxoPY2QqdsiY26IM2kjfrPVpaDo/C8pGpmK1jk3pugMec92/D94mNlGW3L0UgAAAABJRU5ErkJggg==" class="iw" height="420" alt="abc">
 			</div>
 		</div>
 	</div>
@@ -269,9 +255,9 @@
 			<h5 class="bold"><a href="#">Manuel Pellegrini</a></h5>
 		</div>
 		<div class="personaI" style="grid-column: 2 / 2; grid-row: 1 / 1;">
-			<h4><a href="#">LEYENDA</a></h4>
-			<a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGtV_nPg0qMD9rK7cZzsLY19iBwFgUTk1B9irL2YPQjQ&s=10" class="iw" alt="abc" style="width: 200px; height: 200px;"></a>
-			<h5 class="bold"><a href="#">Joaquín Sánchez</a></h5>
+			<h4><a href="Joaquin.html">LEYENDA</a></h4>
+			<a href="Joaquin.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGtV_nPg0qMD9rK7cZzsLY19iBwFgUTk1B9irL2YPQjQ&s=10" class="iw" alt="abc" style="width: 200px; height: 200px;"></a>
+			<h5 class="bold"><a href="Joaquin.html">Joaquín Sánchez</a></h5>
 		</div>
 	</section>
 	<hr>
@@ -417,6 +403,15 @@
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3171.409255226949!2d-5.986582616437319!3d37.35649210013943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd126e7f03d8309f%3A0x5c813182e6db9555!2sEstadio%20Benito%20Villamar%C3%ADn!5e0!3m2!1ses!2ses!4v1791453765247!5m2!1ses!2ses" width="100%" height="450" style="border:0; grid-column: 1 / 1;" allowfullscreen="" loading="lazy"></iframe>
 		<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Estadio_Benito_Villamar%C3%ADn_2018001.jpg?utm_source=es.wikipedia.org&utm_campaign=index&utm_content=original" class="iw" alt="abc" style="width: 100%; height: 450px; grid-column: 2 / 2;">
 	</section>
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
+  </div>
+</footer>
+<!-- Fin del pie común -->
+
 </body>
 
 </html>

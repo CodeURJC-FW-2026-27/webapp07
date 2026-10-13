@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,92 +13,79 @@
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-  </head>
+    <link href="css/site-common.css" rel="stylesheet">
+</head>
 <body>
 
-<section id="header_t">
- <div class="container">
-  <div class="row">
-   <div class="header_t1 clearfix">
-    <div class="col-sm-4">
-     <div class="header_t1l clearfix">
-       <h2><a class="col" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="200"></a></h2>
-     </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="header_t1m clearfix">
-       <p class="col_2">Official Website For Foot Goal</p>
+<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+      <div class="site-search" role="search">
+        <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
+        <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+        <button type="button">Buscar</button>
       </div>
     </div>
-    <div class="col-sm-4">
-      <div class="header_t1r clearfix">
-       <div class="input-group clearfix">
-                    <input type="text" class="form-control" placeholder="Search...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button">
-                            <i class="fa fa-search"></i></button>
-                    </span>
-                 </div>
-      </div>
-    </div>
-   </div>
   </div>
- </div>
-</section>
+</header>
 
 <section id="header" class="clearfix cd-secondary-nav">
-    <nav class="navbar nav_t">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="col navbar-brand" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="125"></a>
-            </div>
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                 <ul class="nav navbar-nav">
-                <li><a class="m_tag" href="index.html">Home</a></li>
-                <li><a class="m_tag" href="about.html">About</a></li>
-                <li class="dropdown">
-                    <a class="m_tag" href="#" data-toggle="dropdown" role="button" aria-expanded="false">Equipos<span
-                            class="caret"></span></a>
-                    <ul class="dropdown-menu drop_3" role="menu">
-                        <li><a href="barca.html">FC BARCELONA</a></li>
-                        <li><a href="atm.html">ATLÉTICO DE MADRID</a></li>
-                        <li><a href="betis.html">REAL BETIS</a></li>
-                        <li><a href="madrid.html">REAL MADRID</a></li>
-                        <li><a href="sevilla.html">SEVILLA FC</a></li>
-                        <li><a href="alaves.html">DEPORTIVO ALAVÉS</a></li>
-                        <li><a href="depor.html">RC DEPORTIVO</a></li>
-                        <li><a href="real.html">REAL SOCIEDAD</a></li>
-                        <li><a href="villarreal.html">VILLARREAL FC</a></li>
-                        <li><a href="athletic.html">ATHLETIC CLUB</a></li>
-                        <li><a href="getafe.html">GETAFE CF</a></li>
-                        <li><a href="rayo.html">RAYO VALLECANO</a></li>
-                        <li><a href="osasuna.html">CA OSASUNA</a></li>
-                        <li><a href="celta.html">CELTA</a></li>
-                        <li><a href="espanyol.html">RCD ESPANYOL</a></li>
-                        <li><a href="racing.html">RACING</a></li>
-                        <li><a href="levante.html">LEVANTE</a></li>
-                        <li><a href="elche.html">ELCHE CF</a></li>
-                        <li><a href="valencia.html">VALENCIA CF</a></li>
-                        <li><a href="malaga.html">MÁLAGA CF</a></li>
-                    </ul>
-                </li>
-                <li><a class="m_tag" href="contact.html">Contact</a></li>
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
             </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </section>
+<!-- Fin de la cabecera común -->
 
 <section id="center" class="clearfix center_blog">
  <div class="container">
@@ -215,14 +202,14 @@
         <h3><span class="col_1">|</span> Recomendado</h3>
         </div><br>
         <div class="blog1r1 clearfix">
-       <div class="col-sm-4 space_left">
+<div class="col-sm-6 space_left">
         <div class="blog1ri clearfix">
           <a href="betis.html"><img src="img/betis.png" class="iw" alt="Real Betis" style="height: 150px; object-fit: contain;"></a>
           <h6>Real Betis</h6>
           <hr>
         </div>
-       </div> 
-       <div class="col-sm-4 space_left">
+       </div>
+<div class="col-sm-6 space_left">
         <div class="blog1ri clearfix">
           <a href="index.html"><img src="img/La_Liga.png" class="iw" alt="La Liga" style="height: 150px; object-fit: contain;"></a>
           <h6>Inicio</h6>
@@ -238,41 +225,16 @@
 </section>
 
 
-<section id="footer_bottom">
- <div class="container">
-  <div class="row">
-   <div class="footer_b clearfix">
-     <div class="col-sm-5 space_left">
-      <div class="footer_br clearfix">
-     </div>
-     </div>
-     <div class="col-sm-7 space_left">
-     </div>
-   </div>
+
+
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
   </div>
- </div>
-</section>
-
-<script>
-$(document).ready(function(){
-
-/*****Fixed Menu******/
-var secondaryNav = $('.cd-secondary-nav'),
-   secondaryNavTopPosition = secondaryNav.offset().top;
-    $(window).on('scroll', function(){
-        var navbar_height = document.querySelector('.navbar').offsetHeight;
-        var top = 30;
-        if($(window).scrollTop() > secondaryNavTopPosition ) {
-            secondaryNav.addClass('is-fixed');  
-            $("body").css("padding-top", navbar_height);
-        } else {
-            secondaryNav.removeClass('is-fixed');
-            $("body").css("padding-top", 0);
-        }
-    }); 
-    
-});
-</script>
+</footer>
+<!-- Fin del pie común -->
 
 </body>
  

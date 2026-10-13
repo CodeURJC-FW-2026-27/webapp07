@@ -99,7 +99,7 @@
 		font-family: 'Mukta', sans-serif;
 		align-items: center;
 	}
-</style>>
+</style>
 
 <head>
 	<meta charset="utf-8">
@@ -115,93 +115,74 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+  <link href="css/site-common.css" rel="stylesheet">
 </head>
 
 <body>
-	<section id="header_t">
-		<div class="container">
-			<div class="row">
-				<div class="header_t1 clearfix">
-					<div class="col-sm-4">
-						<div class="header_t1l clearfix">
-							<h2><a class="col" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="200"></a></h2>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1m clearfix">
-							<p class="col_2">Official Website For Foot Goal</p>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1r clearfix">
-							<div class="input-group clearfix">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+    </div>
+  </div>
+</header>
 
-	<section id="header" class="clearfix cd-secondary-nav">
-		<nav class="navbar nav_t">
-			<div class="container">
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="col navbar-brand" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo" width="125"></a>
-				</div>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a class="m_tag" href="index.html">Home</a></li>
-						<li><a class="m_tag" href="about.html">About</a></li>
-						<li class="dropdown">
-							<a class="m_tag" href="#" data-toggle="dropdown" role="button"
-								aria-expanded="false">Equipos<span class="caret"></span></a>
-							<ul class="dropdown-menu drop_3" role="menu">
-								<li><a href="barca.html">FC BARCELONA</a></li>
-								<li><a href="atm.html">ATLÉTICO DE MADRID</a></li>
-								<li><a href="betis.html">REAL BETIS</a></li>
-								<li><a href="madrid.html">REAL MADRID</a></li>
-								<li><a href="sevilla.html">SEVILLA FC</a></li>
-								<li><a href="alaves.html">DEPORTIVO ALAVÉS</a></li>
-								<li><a href="depor.html">RC DEPORTIVO</a></li>
-								<li><a href="real.html">REAL SOCIEDAD</a></li>
-								<li><a href="villarreal.html">VILLARREAL FC</a></li>
-								<li><a href="athletic.html">ATHLETIC CLUB</a></li>
-								<li><a href="getafe.html">GETAFE CF</a></li>
-								<li><a href="rayo.html">RAYO VALLECANO</a></li>
-								<li><a href="osasuna.html">CA OSASUNA</a></li>
-								<li><a href="celta.html">CELTA</a></li>
-								<li><a href="espanyol.html">RCD ESPANYOL</a></li>
-								<li><a href="racing.html">RACING</a></li>
-								<li><a href="levante.html">LEVANTE</a></li>
-								<li><a href="elche.html">ELCHE CF</a></li>
-								<li><a href="valencia.html">VALENCIA CF</a></li>
-								<li><a href="malaga.html">MÁLAGA CF</a></li>
-							</ul>
-						</li>
-						<li><a class="m_tag" href="contact.html">Contact</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-	</section>
+<section id="header" class="clearfix cd-secondary-nav">
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
+            </ul>
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- Fin de la cabecera común -->
 
 	<section id="center" class="clearfix center_blog">
 		<div class="container">
@@ -269,7 +250,7 @@
 			<h5 class="bold"><a href="#">Beñat San José</a></h5>
 		</div>
 		<div class="personaI" style="grid-column: 2 / 2; grid-row: 1 / 1;">
-			<h4><a href="#">LEYENDA</a></h4>
+			<h4><a href="OscarTrejo.html">LEYENDA</a></h4>
 			<a href="OscarTrejo.html"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStqf5Fzcbm_w3FsAkUn25u58uvW3pRvyb6oWeoh-DtnA&s=10" class="iw" alt="abc" style="width: 200px; height: 200px;"></a>
 			<h5 class="bold"><a href="OscarTrejo.html">Óscar Trejo</a></h5>
 		</div>
@@ -417,6 +398,15 @@
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d759.6913120066181!2d-3.6590253657730254!3d40.391895189499834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4225d8ddb8754b%3A0x7f6a09c7778824d8!2sEstadio%20de%20Vallecas!5e0!3m2!1ses!2ses!4v1791538793154!5m2!1ses!2ses" width="100%" height="450" style="border:0; grid-column: 1 / 1;" allowfullscreen="" loading="lazy"></iframe>
 		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReT1ef6um1rLrrYqPckdZKiduVK_eTmtDVjvI3NPg-GQ&s=10" class="iw" alt="abc" style="width: 100%; height: 450px; grid-column: 2 / 2;">
 	</section>
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
+  </div>
+</footer>
+<!-- Fin del pie común -->
+
 </body>
 
 </html>

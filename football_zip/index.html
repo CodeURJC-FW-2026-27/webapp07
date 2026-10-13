@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <style>
 	.champions {
 		background-color: rgb(111, 102, 236);
@@ -19,96 +19,75 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
+  <link href="css/site-common.css" rel="stylesheet">
 </head>
 
 <body>
 
-	<section id="header_t">
-		<div class="container">
-			<div class="row">
-				<div class="header_t1 clearfix">
-					<div class="col-sm-4">
-						<div class="header_t1l clearfix">
-							<h2><a class="col" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo"
-										width="200"></a></h2>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1m clearfix">
-							<p class="col_2">Official Website For Foot Goal</p>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="header_t1r clearfix">
-							<div class="input-group clearfix">
-								<input type="text" class="form-control" placeholder="Search...">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<i class="fa fa-search"></i></button>
-								</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+	<!-- Cabecera común -->
+<header id="header_t" class="site-heading" lang="es">
+  <div class="container">
+    <div class="site-brand">
+      <a href="index.html" aria-label="Ir al inicio">
+        <img src="img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
+      </a>
+      <div class="site-intro">
+        <p class="site-title">LaLiga: equipos y leyendas</p>
+        <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
+      </div>
+    </div>
+  </div>
+</header>
 
-	<section id="header" class="clearfix cd-secondary-nav">
-		<nav class="navbar nav_t">
-			<div class="container">
-				<div class="navbar-header page-scroll">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="col navbar-brand" href="index.html"><img src="img/LaligaL.png" alt="LaLiga Logo"
-							width="125"></a>
-				</div>
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li><a class="m_tag active_tab" href="index.html">Home</a></li>
-						<li><a class="m_tag" href="about.html">About</a></li>
-						<li class="dropdown">
-							<a class="m_tag" href="#" data-toggle="dropdown" role="button"
-								aria-expanded="false">Equipos<span class="caret"></span></a>
-							<ul class="dropdown-menu drop_3" role="menu">
-								<li><a href="barca.html">FC BARCELONA</a></li>
-								<li><a href="atm.html">ATLÉTICO DE MADRID</a></li>
-								<li><a href="betis.html">REAL BETIS</a></li>
-								<li><a href="madrid.html">REAL MADRID</a></li>
-								<li><a href="sevilla.html">SEVILLA FC</a></li>
-								<li><a href="alaves.html">DEPORTIVO ALAVÉS</a></li>
-								<li><a href="depor.html">RC DEPORTIVO</a></li>
-								<li><a href="real.html">REAL SOCIEDAD</a></li>
-								<li><a href="villarreal.html">VILLARREAL FC</a></li>
-								<li><a href="athletic.html">ATHLETIC CLUB</a></li>
-								<li><a href="getafe.html">GETAFE CF</a></li>
-								<li><a href="rayo.html">RAYO VALLECANO</a></li>
-								<li><a href="osasuna.html">CA OSASUNA</a></li>
-								<li><a href="celta.html">CELTA</a></li>
-								<li><a href="espanyol.html">RCD ESPANYOL</a></li>
-								<li><a href="racing.html">RACING</a></li>
-								<li><a href="levante.html">LEVANTE</a></li>
-								<li><a href="elche.html">ELCHE CF</a></li>
-								<li><a href="valencia.html">VALENCIA CF</a></li>
-								<li><a href="malaga.html">MÁLAGA CF</a></li>
-							</ul>
-						</li>
-						<li><a class="m_tag" href="contact.html">Contact</a></li>
-					</ul>
-				</div>
-				<!-- /.navbar-collapse -->
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
-	</section>
+<section id="header" class="clearfix cd-secondary-nav">
+  <nav class="navbar nav_t" aria-label="Navegación principal" lang="es">
+    <div class="container">
+      <div class="navbar-header">
+        <span class="navbar-brand site-menu-label">Menú</span>
+        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                data-target="#site-navigation" aria-controls="site-navigation">
+          <span class="sr-only">Abrir o cerrar el menú</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="site-navigation">
+        <ul class="nav navbar-nav">
+          <li><a class="m_tag" href="index.html">Inicio</a></li>
+          <li class="dropdown">
+            <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
+               aria-haspopup="true">Equipos <span class="caret"></span></a>
+            <ul class="dropdown-menu drop_3">
+              <li><a href="barca.html">FC Barcelona</a></li>
+              <li><a href="atm.html">Atlético de Madrid</a></li>
+              <li><a href="betis.html">Real Betis</a></li>
+              <li><a href="madrid.html">Real Madrid</a></li>
+              <li><a href="sevilla.html">Sevilla FC</a></li>
+              <li><a href="alaves.html">Deportivo Alavés</a></li>
+              <li><a href="depor.html">RC Deportivo</a></li>
+              <li><a href="real.html">Real Sociedad</a></li>
+              <li><a href="villarreal.html">Villarreal CF</a></li>
+              <li><a href="athletic.html">Athletic Club</a></li>
+              <li><a href="getafe.html">Getafe CF</a></li>
+              <li><a href="rayo.html">Rayo Vallecano</a></li>
+              <li><a href="osasuna.html">CA Osasuna</a></li>
+              <li><a href="celta.html">RC Celta</a></li>
+              <li><a href="espanyol.html">RCD Espanyol</a></li>
+              <li><a href="racing.html">Racing de Santander</a></li>
+              <li><a href="levante.html">Levante UD</a></li>
+              <li><a href="elche.html">Elche CF</a></li>
+              <li><a href="valencia.html">Valencia CF</a></li>
+              <li><a href="malaga.html">Málaga CF</a></li>
+            </ul>
+          </li>
+          <li><a class="m_tag" href="formulario-leyenda.html">Formulario de leyenda</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
+<!-- Fin de la cabecera común -->
 
 	<section id="center" class="clearfix center_home">
 		<div class="center_home_m clearfix">
@@ -116,169 +95,169 @@
 				<!-- Una diapositiva por equipo; imágenes provisionales del proyecto. -->
 				<div class="carousel-inner cont-slider">
 					<div class="item active" data-equipo="FC Barcelona">
-						<img class="iw" src="img/1.jpg" alt="Imagen ilustrativa: FC Barcelona">
+						<img class="iw" src="img/carousel/Messi.jpg" alt="Leo Messi">
 					</div>
 					<div class="item" data-equipo="Atlético de Madrid">
-						<img class="iw" src="img/2.jpg" alt="Imagen ilustrativa: Atlético de Madrid">
+						<img class="iw" src="img/carousel/FernandoTorres.jpg" alt="Fernando Torres">
 					</div>
 					<div class="item" data-equipo="Real Betis">
-						<img class="iw" src="img/3.jpg" alt="Imagen ilustrativa: Real Betis">
+						<img class="iw" src="img/carousel/Joaquin.jpg" alt="Joaquín">
 					</div>
 					<div class="item" data-equipo="Real Madrid">
-						<img class="iw" src="img/4.jpg" alt="Imagen ilustrativa: Real Madrid">
+						<img class="iw" src="img/carousel/CristianoRonaldo.jpg" alt="Cristiano Ronaldo">
 					</div>
 					<div class="item" data-equipo="Sevilla FC">
-						<img class="iw" src="img/5.jpg" alt="Imagen ilustrativa: Sevilla FC">
+						<img class="iw" src="img/carousel/JesusNavas.png" alt="Jesús Navas">
 					</div>
 					<div class="item" data-equipo="Deportivo Alavés">
-						<img class="iw" src="img/6.jpg" alt="Imagen ilustrativa: Deportivo Alavés">
+						<img class="iw" src="img/carousel/ManuGarcia.jpg" alt="Manu García">
 					</div>
 					<div class="item" data-equipo="RC Deportivo">
-						<img class="iw" src="img/7.jpg" alt="Imagen ilustrativa: RC Deportivo">
+						<img class="iw" src="img/carousel/FranGonzalez.jpg" alt="Fran González">
 					</div>
 					<div class="item" data-equipo="Real Sociedad">
-						<img class="iw" src="img/8.jpg" alt="Imagen ilustrativa: Real Sociedad">
+						<img class="iw" src="img/carousel/XabiPrieto.jpg" alt="Xabi Prieto">
 					</div>
 					<div class="item" data-equipo="Villarreal FC">
-						<img class="iw" src="img/9.jpg" alt="Imagen ilustrativa: Villarreal FC">
+						<img class="iw" src="img/carousel/MarcosSenna.jpg" alt="Marcos Senna">
 					</div>
 					<div class="item" data-equipo="Athletic Club">
-						<img class="iw" src="img/10.jpg" alt="Imagen ilustrativa: Athletic Club">
+						<img class="iw" src="img/carousel/TelmoZarra.jpg" alt="Telmo Zarra">
 					</div>
 					<div class="item" data-equipo="Getafe CF">
-						<img class="iw" src="img/11.jpg" alt="Imagen ilustrativa: Getafe CF">
+						<img class="iw" src="img/carousel/ManuDelMoral.jpg" alt="Manu del Moral">
 					</div>
 					<div class="item" data-equipo="Rayo Vallecano">
-						<img class="iw" src="img/12.jpg" alt="Imagen ilustrativa: Rayo Vallecano">
+						<img class="iw" src="img/carousel/OscarTrejo.jpg" alt="Óscar Trejo">
 					</div>
 					<div class="item" data-equipo="CA Osasuna">
-						<img class="iw" src="img/13.jpg" alt="Imagen ilustrativa: CA Osasuna">
+						<img class="iw" src="img/carousel/PatxiPunal.webp" alt="Patxi Puñal">
 					</div>
 					<div class="item" data-equipo="Celta">
-						<img class="iw" src="img/14.jpg" alt="Imagen ilustrativa: Celta">
+						<img class="iw" src="img/carousel/IagoAspas.jpg" alt="Iago Aspas">
 					</div>
 					<div class="item" data-equipo="RCD Espanyol">
-						<img class="iw" src="img/15.jpg" alt="Imagen ilustrativa: RCD Espanyol">
+						<img class="iw" src="img/carousel/RaulTamudo.jpg" alt="Raúl Tamudo">
 					</div>
 					<div class="item" data-equipo="Racing">
-						<img class="iw" src="img/16.jpg" alt="Imagen ilustrativa: Racing">
+						<img class="iw" src="img/carousel/PedroMunitis.jpg" alt="Pedro Munitis">
 					</div>
 					<div class="item" data-equipo="Levante">
-						<img class="iw" src="img/17.jpg" alt="Imagen ilustrativa: Levante">
+						<img class="iw" src="img/carousel/JoseLuisMorales.jpg" alt="José Luis Morales">
 					</div>
 					<div class="item" data-equipo="Elche CF">
-						<img class="iw" src="img/18.jpg" alt="Imagen ilustrativa: Elche CF">
+						<img class="iw" src="img/carousel/Nino.jpg" alt="Nino">
 					</div>
 					<div class="item" data-equipo="Valencia CF">
-						<img class="iw" src="img/19.jpg" alt="Imagen ilustrativa: Valencia CF">
+						<img class="iw" src="img/carousel/MarioKempes.jpg" alt="Mario Kempes">
 					</div>
 					<div class="item" data-equipo="Málaga CF">
-						<img class="iw" src="img/20.jpg" alt="Imagen ilustrativa: Málaga CF">
+						<img class="iw" src="img/carousel/Duda.jpg" alt="Duda">
 					</div>
 					<div class="item" data-equipo="Málaga CF">
-						<img class="iw" src="img/20.jpg" alt="Imagen ilustrativa: Málaga CF">
+						<img class="iw" src="img/carousel/Duda.jpg" alt="Duda">
 					</div>
 				</div>
 				<!-- Cinco columnas; las filas crecen automáticamente con nuevos indicadores. -->
 				<ol class="carousel-indicators" aria-label="Seleccionar equipo" style="margin-top: 360px;">
 					<li class="active" data-slide-to="0" data-target="#article-photo-carousel">
 						<button type="button" aria-label="Mostrar FC Barcelona" title="FC Barcelona">
-							<img src="img/1.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-Messi.jpg" alt="Leo Messi" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="1" data-target="#article-photo-carousel" data-equipo="Atlético de Madrid">
 						<button type="button" aria-label="Mostrar Atlético de Madrid" title="Atlético de Madrid">
-							<img src="img/2.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-FernandoTorres.jpg" alt="Fernando Torres" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="2" data-target="#article-photo-carousel" data-equipo="Real Betis">
 						<button type="button" aria-label="Mostrar Real Betis" title="Real Betis">
-							<img src="img/3.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-Joaquin.jpg" alt="Joaquín" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="3" data-target="#article-photo-carousel" data-equipo="Real Madrid">
 						<button type="button" aria-label="Mostrar Real Madrid" title="Real Madrid">
-							<img src="img/4.jpg" alt="" loading="lazy">
+							<img src="img/clubs/madrid/legend-cristiano-ronaldo.png" alt="Cristiano Ronaldo" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="4" data-target="#article-photo-carousel" data-equipo="Sevilla FC">
 						<button type="button" aria-label="Mostrar Sevilla FC" title="Sevilla FC">
-							<img src="img/5.jpg" alt="" loading="lazy">
+							<img src="img/carousel/JesusNavas.png" alt="Jesús Navas" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="5" data-target="#article-photo-carousel" data-equipo="Deportivo Alavés">
 						<button type="button" aria-label="Mostrar Deportivo Alavés" title="Deportivo Alavés">
-							<img src="img/6.jpg" alt="" loading="lazy">
+							<img src="img/clubs/alaves/legend-manu-garcia.jpg" alt="Manu García" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="6" data-target="#article-photo-carousel" data-equipo="RC Deportivo">
 						<button type="button" aria-label="Mostrar RC Deportivo" title="RC Deportivo">
-							<img src="img/7.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-FranGonzalez.jpg" alt="Fran González" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="7" data-target="#article-photo-carousel" data-equipo="Real Sociedad">
 						<button type="button" aria-label="Mostrar Real Sociedad" title="Real Sociedad">
-							<img src="img/8.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-XabiPrieto.jpg" alt="Xabi Prieto" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="8" data-target="#article-photo-carousel" data-equipo="Villarreal FC">
 						<button type="button" aria-label="Mostrar Villarreal FC" title="Villarreal FC">
-							<img src="img/9.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-MarcosSenna.jpg" alt="Marcos Senna" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="9" data-target="#article-photo-carousel" data-equipo="Athletic Club">
 						<button type="button" aria-label="Mostrar Athletic Club" title="Athletic Club">
-							<img src="img/10.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-TelmoZarra.jpg" alt="Telmo Zarra" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="10" data-target="#article-photo-carousel" data-equipo="Getafe CF">
 						<button type="button" aria-label="Mostrar Getafe CF" title="Getafe CF">
-							<img src="img/11.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-ManuDelMoral.png" alt="Manu del Moral" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="11" data-target="#article-photo-carousel" data-equipo="Rayo Vallecano">
 						<button type="button" aria-label="Mostrar Rayo Vallecano" title="Rayo Vallecano">
-							<img src="img/12.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-OscarTrejo.jpg" alt="Óscar Trejo" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="12" data-target="#article-photo-carousel" data-equipo="CA Osasuna">
 						<button type="button" aria-label="Mostrar CA Osasuna" title="CA Osasuna">
-							<img src="img/13.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-PatxiPunal.jpg" alt="Patxi Puñal" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="13" data-target="#article-photo-carousel" data-equipo="Celta">
 						<button type="button" aria-label="Mostrar Celta" title="Celta">
-							<img src="img/14.jpg" alt="" loading="lazy">
+							<img src="img/clubs/celta/legend-iago-aspas.png" alt="Iago Aspas" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="14" data-target="#article-photo-carousel" data-equipo="RCD Espanyol">
 						<button type="button" aria-label="Mostrar RCD Espanyol" title="RCD Espanyol">
-							<img src="img/15.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-RaulTamudo.jpg" alt="Raúl Tamudo" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="15" data-target="#article-photo-carousel" data-equipo="Racing">
 						<button type="button" aria-label="Mostrar Racing" title="Racing">
-							<img src="img/16.jpg" alt="" loading="lazy">
+							<img src="img/carousel/PedroMunitis.jpg" alt="Pedro Munitis" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="16" data-target="#article-photo-carousel" data-equipo="Levante">
 						<button type="button" aria-label="Mostrar Levante" title="Levante">
-							<img src="img/17.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-JoseLuisMorales.jpg" alt="José Luis Morales" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="17" data-target="#article-photo-carousel" data-equipo="Elche CF">
 						<button type="button" aria-label="Mostrar Elche CF" title="Elche CF">
-							<img src="img/18.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-Nino.jpg" alt="Nino" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="18" data-target="#article-photo-carousel" data-equipo="Valencia CF">
 						<button type="button" aria-label="Mostrar Valencia CF" title="Valencia CF">
-							<img src="img/19.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-MarioKempes.jpg" alt="Mario Kempes" loading="lazy">
 						</button>
 					</li>
 					<li data-slide-to="19" data-target="#article-photo-carousel" data-equipo="Málaga CF">
 						<button type="button" aria-label="Mostrar Málaga CF" title="Málaga CF">
-							<img src="img/20.jpg" alt="" loading="lazy">
+							<img src="img/carousel/portrait-Duda.jpg" alt="Duda" loading="lazy">
 						</button>
 					</li>
 				</ol>
@@ -286,7 +265,7 @@
 			<div class="center_home_mi clearfix">
 				<h1>LAS LEYENDAS<br> DE LaLiga </h1>
 				<p>Los mejores jugadores que han pasado por los distintos equipos de LaLiga están aquí.</p>
-				<h5><a class="button" href="contact.html">AÑADE TU LEYENDA AHORA<i class="fa fa-chevron-right"></i></a>
+				<h5><a class="button" href="formulario-leyenda.html">AÑADE TU LEYENDA AHORA<i class="fa fa-chevron-right"></i></a>
 				</h5>
 			</div>
 		</div>
@@ -303,8 +282,8 @@
 			<h5 style="color:rgb(239, 39, 67); grid-column: 6 / 6; grid-row: 1 / 1;">D</h5>
 			<h5 style="color:rgb(239, 39, 67); grid-column: 7 / 7; grid-row: 1 / 1;">E</h5>
 			<h5 style="color:rgb(239, 39, 67); grid-column: 8 / 8; grid-row: 1 / 1;">GF</h5>
-			<h5 style="color:rgb(239, 39,_67); grid-column: 9 / 9; grid-row: 1 / 1;">GC</h5>
-			<h5 style="color:rgb(239,_39,_67); grid-column: 10 / 10; grid-row: 1 / 1;">DG</h5>
+			<h5 style="color:rgb(239, 39, 67); grid-column: 9 / 9; grid-row: 1 / 1;">GC</h5>
+			<h5 style="color:rgb(239, 39, 67); grid-column: 10 / 10; grid-row: 1 / 1;">DG</h5>
 
 			<a
 				style="width:95%; height:100%; grid-column: 1 / -1; grid-row: 2 / 7; border: 3px solid rgb(18, 52, 117); border-radius: 10px;">
@@ -1004,16 +983,25 @@
 		</container>
 	</section>
 	<section class="infoColor">
-		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(18, 52, 117);">CHAMPIONS LEAGUE</h5>
-		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(255, 105, 24);">EUROPA LEAGUE</h5>
-		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(0, 170, 9);">CONFERENCE LEAGUE</h5>
-		<h5 style="margin-left: 40px; padding-left: 3px; border-left: 4px solid rgb(207, 2, 2);">DESCENSO</h5>
+		<h5 style="padding-left: 3px; border-left: 4px solid rgb(18, 52, 117);">CHAMPIONS LEAGUE</h5>
+		<h5 style="padding-left: 3px; border-left: 4px solid rgb(255, 105, 24);">EUROPA LEAGUE</h5>
+		<h5 style="padding-left: 3px; border-left: 4px solid rgb(0, 170, 9);">CONFERENCE LEAGUE</h5>
+		<h5 style="padding-left: 3px; border-left: 4px solid rgb(207, 2, 2);">DESCENSO</h5>
 	</section>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
+<!-- Pie común -->
+<footer id="site-footer" lang="es">
+  <div class="container">
+    <p>Explora los equipos y las leyendas que han marcado la historia de LaLiga.</p>
+    <p>Un proyecto de Fundamentos de la Web dedicado al fútbol español.</p>
+  </div>
+</footer>
+<!-- Fin del pie común -->
+
 </body>
 
 </html>

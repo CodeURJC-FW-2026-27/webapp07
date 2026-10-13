@@ -812,3 +812,10 @@ th {
   align-items: center;
   justify-content: flex-start;
 }
+
+/* Encajar los retratos en los huecos originales sin deformarlos ni cortar la cabeza. */
+#article-photo-carousel .carousel-indicators li img {
+  object-fit: contain;
+  object-position: center;
+  background-color: #fff;
+}

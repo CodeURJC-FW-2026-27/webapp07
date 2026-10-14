@@ -112,26 +112,26 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 #### Tareas realizadas
 
-- [Describir la primera tarea realizada].
-- [Describir la segunda tarea realizada].
-- [Describir la tercera tarea realizada].
-- [Añadir otras tareas relevantes].
+- Creación de la página de inicio (modificación del carousel original de la plantilla y creación de la tabla de clasificación).
+- Creación de la estructura de la página de equipos (sección de información y "grids" de la plantilla del equipo).
+- Modificación de cabaceras y footers generales.
+- Creación de algunos clubes y leyendas.
 
 #### 5 commits más significativos
 
-1. [Descripción del commit](ENLACE_AL_COMMIT_1)
-2. [Descripción del commit](ENLACE_AL_COMMIT_2)
-3. [Descripción del commit](ENLACE_AL_COMMIT_3)
-4. [Descripción del commit](ENLACE_AL_COMMIT_4)
-5. [Descripción del commit](ENLACE_AL_COMMIT_5)
+1. Creación de la página de equipo([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/905226a2707578b84480355c17e566bebb52c22a))
+2. Modificación de la página de inicio([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/5c0f2b611a15dc25cb53285e6528e0bbed016f6f))
+3. Creación de equipos y leyendas([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/4ac50be7826635a9cc00c688f98585ac41543c8b))
+4. Creación de la tabla de clasificación en inicio([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/e98e5874eb102b8c8cc8f5125c5269c19350fc68))
+5. Header y footer general + últimos equipos y leyendas([ENLACE_AL_COMMIT_5](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/aa7d2d7869c0fae7cb78f5a4ccdf2ebc7da95345))
 
 #### 5 ficheros en los que más ha participado
 
-1. [Nombre del fichero 1](ENLACE_AL_FICHERO_1)
-2. [Nombre del fichero 2](ENLACE_AL_FICHERO_2)
-3. [Nombre del fichero 3](ENLACE_AL_FICHERO_3)
-4. [Nombre del fichero 4](ENLACE_AL_FICHERO_4)
-5. [Nombre del fichero 5](ENLACE_AL_FICHERO_5)
+1. index.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/index.html))
+2. madrid.html([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/madrid.html))
+3. index.css([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/index.css))
+4. equipos.css([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/equipos.css))
+5. formulario-leyenda.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/formulario-leyenda.html))
 
 ---
 

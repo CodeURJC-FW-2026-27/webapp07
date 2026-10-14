@@ -131,26 +131,26 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 #### Tareas realizadas
 
-- [Describir la primera tarea realizada].
-- [Describir la segunda tarea realizada].
-- [Describir la tercera tarea realizada].
-- [Añadir otras tareas relevantes].
+- Modificación y preparación de la cabecera de cada página para que se mantenga la misma estética en todos los archivos de forma que tenga la misma estructura (algunos detalles y funcionalidades que Neyén pulió más adelante).
+- Modificación del archivo about.html haciendo borrado de cosas innecesarias e incluyendo detalles como fotos y huecos para poner el palmarés para crear la plantilla que se va a usar para cada leyenda.
+- Modificación de la plantilla de unos cuantos equipos adecuando cada uno con las fotos de los jugadores, la información relevente y los enlaces a sus respectivas leyendas.
+- Creación de las leyendas de varios clubes rellenando con la información adecuada a cada jugador.
 
 #### 5 commits más significativos
 
-1. [Descripción del commit](ENLACE_AL_COMMIT_1)
-2. [Descripción del commit](ENLACE_AL_COMMIT_2)
-3. [Descripción del commit](ENLACE_AL_COMMIT_3)
-4. [Descripción del commit](ENLACE_AL_COMMIT_4)
-5. [Descripción del commit](ENLACE_AL_COMMIT_5)
+1. Eliminación de elementos irrelevantes en la cabecera([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/3789abf36c1194cfddd9138e3b108913c1323065))
+2. Creación de plantilla del jugador([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/f5b546e5f7394beee3557573fbe37fe1e7722604))
+3. Página de la leyenda pulida con la información de Cristiano Ronaldo([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/459dae56270be606434ff5ccebb87c93db7f8b34))
+4. Creción de varias leyendas de otros equipos([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/90e8d79885b5b8caf2d84be604b3fe1a31a92818))
+5. Inserción de elementos requeridos en cada página([ENLACE_AL_COMMIT_5](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/1ece82427d90ce32d08d1dd444a086571b5ba462))
 
 #### 5 ficheros en los que más ha participado
 
-1. [Nombre del fichero 1](ENLACE_AL_FICHERO_1)
-2. [Nombre del fichero 2](ENLACE_AL_FICHERO_2)
-3. [Nombre del fichero 3](ENLACE_AL_FICHERO_3)
-4. [Nombre del fichero 4](ENLACE_AL_FICHERO_4)
-5. [Nombre del fichero 5](ENLACE_AL_FICHERO_5)
+1. CristianoRonaldo.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/CristianoRonaldo.html))
+2. sevilla.html([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/sevilla.html))
+3. FernandoTorres.html([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/FernandoTorres.html))
+4. Messi.html([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/Messi.html))
+5. Joaquin.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/Joaquin.html))
 
 ---
 

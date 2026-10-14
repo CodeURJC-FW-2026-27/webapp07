@@ -84,26 +84,27 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 #### Tareas realizadas
 
-- [Describir la primera tarea realizada].
-- [Describir la segunda tarea realizada].
-- [Describir la tercera tarea realizada].
-- [Añadir otras tareas relevantes].
+- Creación del diseño y de la estructura del contenido de las páginas de la entidad principal (5 equipos de LaLiga EA Sports).
+- Implementación de las fotos de los jugadores de los equipos asignados, así como la integración de los escudos y las imágenes de los estadios.
+- Reestructuración del contenido eliminando páginas redundantes de la anterior plantilla.
+- Colaboración en el diseño de la interfaz.
+- Implementación de los botones "Editar" y "Borrar" específicos del apartado de leyendas.
 
 #### 5 commits más significativos
 
-1. [Descripción del commit](ENLACE_AL_COMMIT_1)
-2. [Descripción del commit](ENLACE_AL_COMMIT_2)
-3. [Descripción del commit](ENLACE_AL_COMMIT_3)
-4. [Descripción del commit](ENLACE_AL_COMMIT_4)
-5. [Descripción del commit](ENLACE_AL_COMMIT_5)
+1. Creación del Atlético de Madrid, tanto la información como las fotos ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/662911dc6336096a878b42e1a4a41648021d0a11))
+2. Creación del FC Barcelona, tanto la información como las fotos([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/81f1fbe920bfae0d6c177c3086d9857d9841187d))
+3. Creación del Málaga FC, tanto la información como las fotos([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/977b4b61161e43b70bad428036d0615930bc9834))
+4. Creación de los botones "Editar" y "Borrar" de todas las leyendas [(ENLACE_AL_COMMIT_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/b08e13d984879ce9acb6e67723b68c7517d62be9)
+5. Borrado de una de las páginas de la anterior plantilla [(ENLACE_AL_COMMIT_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/98799ab8e2f2a507a8924e15befd1da655dbdb99)
 
 #### 5 ficheros en los que más ha participado
 
-1. [Nombre del fichero 1](ENLACE_AL_FICHERO_1)
-2. [Nombre del fichero 2](ENLACE_AL_FICHERO_2)
-3. [Nombre del fichero 3](ENLACE_AL_FICHERO_3)
-4. [Nombre del fichero 4](ENLACE_AL_FICHERO_4)
-5. [Nombre del fichero 5](ENLACE_AL_FICHERO_5)
+1. atm.html [(ENLACE_AL_FICHERO_1)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/atm.html)
+2. barca.html [(ENLACE_AL_FICHERO_2)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/barca.html)
+3. rayo.html [(ENLACE_AL_FICHERO_3)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/rayo.html)
+4. malaga.html [(ENLACE_AL_FICHERO_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/malaga.html)
+5. betis.html [(ENLACE_AL_FICHERO_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/betis.html)
 
 ---
 

@@ -66,14 +66,6 @@ En este apartado se muestran las capturas de pantalla de las diferentes páginas
 
 ![Captura del formulario de leyenda ](./Readme/formulario.jpeg)
 
-### 1.5. Otras páginas
-
-**Nombre de la página:** [Añadir nombre].
-
-**Descripción:** [Añadir descripción].
-
-![Captura de pantalla](./ruta/a/otra-captura.png)
-
 ---
 
 ## 2. Participación de los miembros del equipo
@@ -131,7 +123,7 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 2. madrid.html([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/madrid.html))
 3. index.css([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/index.css))
 4. equipos.css([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/equipos.css))
-5. formulario-leyenda.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/formulario-leyenda.html))
+5. elche.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/elche.html))
 
 ---
 
@@ -166,23 +158,23 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 #### Tareas realizadas
 
-- [Describir la primera tarea realizada].
-- [Describir la segunda tarea realizada].
-- [Describir la tercera tarea realizada].
-- [Añadir otras tareas relevantes].
+- Realización del estilo, preguntas y diseño de la pagina de formulario.
+- Realización del archivo de informacion README
+- Ajuste, edición y simplificación del css global.
+- Arreglo de estilos, que todo el codigo principal de estilos se encontrara en los css y no en los html.
 
 #### 5 commits más significativos
 
-1. [Descripción del commit](ENLACE_AL_COMMIT_1)
-2. [Descripción del commit](ENLACE_AL_COMMIT_2)
-3. [Descripción del commit](ENLACE_AL_COMMIT_3)
-4. [Descripción del commit](ENLACE_AL_COMMIT_4)
-5. [Descripción del commit](ENLACE_AL_COMMIT_5)
+1. Creación de la página de formulario([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/b7c9fb69e425b51236ef0f2ebd90427a45b2abe6))
+2. Creación del archivo README (Dos commits principales)([ENLACE_AL_COMMIT_2.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/0e0e9eb328b0d7148941bc16c459d2c95480bcfc))([ENLACE_AL_COMMIT_2.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/e62733c057b607e4922c472bb9dd8d4e4c19134a))
+3. Ajuste, edición y simplificación del css global([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/13c32e51b20598c1d13d9208a907f2fbc9f4055a))
+4. Cambios de información en cabecera (Solo pongo dos commits pero hay mas pequeños que tambien cambian)([ENLACE_AL_COMMIT_4.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/2ac36c5b35758bd35996b88670dbeb4b2ceaa696))([ENLACE_AL_COMMIT_4.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/ba2d7202760cdc8222b220f1b520ca1a9cd73bcf))
+5. Cambio de algunos estilos que estaban en el html a un css([ENLACE_AL_COMMIT_5](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/eb2664f2b487dbeb10f04631c3b65f2e19a97b42a))
 
 #### 5 ficheros en los que más ha participado
 
-1. [Nombre del fichero 1](ENLACE_AL_FICHERO_1)
-2. [Nombre del fichero 2](ENLACE_AL_FICHERO_2)
-3. [Nombre del fichero 3](ENLACE_AL_FICHERO_3)
-4. [Nombre del fichero 4](ENLACE_AL_FICHERO_4)
-5. [Nombre del fichero 5](ENLACE_AL_FICHERO_5)
+1. formulario-leyenda.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/formulario-leyenda.html))
+2. formulario.css([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/formulario.css))
+3. README.md([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/README.md))
+4. global.css([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/global.css))
+5. equipos.css([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/equipos.css))

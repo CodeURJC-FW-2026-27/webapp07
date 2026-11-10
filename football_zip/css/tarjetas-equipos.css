@@ -1,0 +1,41 @@
+/* Portada: acabado visual de las tarjetas de equipos. */
+.boardEquipos .equipo {
+  background-color: #fff;
+  border-color: #e1e6ee;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(26, 39, 60, 0.08);
+}
+
+.boardEquipos .equipo img {
+  background: radial-gradient(circle closest-side, #eef2f7 78%, transparent 79%);
+}
+
+.boardEquipos .equipo h3,
+.boardEquipos .equipo h4 {
+  text-align: center;
+}
+
+.boardEquipos .equipo h3 {
+  color: #192638;
+}
+
+.boardEquipos .equipo h4 {
+  color: #586576;
+}
+
+.boardEquipos > a:hover .equipo,
+.boardEquipos > a:focus-visible .equipo {
+  border-color: #b22540;
+  box-shadow: 0 4px 14px rgba(26, 39, 60, 0.12);
+}
+
+.boardEquipos > a:hover .equipo h3,
+.boardEquipos > a:focus-visible .equipo h3 {
+  color: #b22540;
+}
+
+.boardEquipos > a:focus-visible {
+  border-radius: 14px;
+  outline: 2px solid #b22540;
+  outline-offset: 3px;
+}

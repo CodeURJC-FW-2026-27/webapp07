@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formulario de leyenda | LaLiga</title>
+  <title>Formulario de equipo | LaLiga</title>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/global.css" rel="stylesheet">
   <link href="css/formulario.css" rel="stylesheet">
@@ -92,86 +92,104 @@
       <div class="row">
         <div class="center_blog1 clearfix">
           <div class="col-sm-12">
-            <h2 class="mgt">Formulario de leyenda</h2>
-            <p>Prepara la ficha de un jugador que haya dejado huella.</p>
+            <h2 class="mgt">Formulario de equipo</h2>
+            <p>Prepara la ficha de un equipo de LaLiga.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="formulario-leyenda">
+  <section id="formulario-equipo">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
-          <p>Completa los datos de la leyenda. Los campos con * son obligatorios.</p>
+          <p>Completa los datos del equipo. Los campos con * son obligatorios.</p>
 
-          <form id="nueva-leyenda" role="form">
+          <form id="nuevo-equipo" role="form">
             <div class="form-group">
-              <label for="nombre">Nombre *</label>
+              <label for="nombre">Nombre del club *</label>
               <input type="text" class="form-control" id="nombre" name="nombre" required>
             </div>
-
             <div class="form-group">
-              <label for="equipo">Equipo *</label>
-              <select class="form-control" id="equipo" name="equipo" required>
-                <option value="">Selecciona un equipo</option>
-                <option value="barca">FC Barcelona</option>
-                <option value="atm">Atlético de Madrid</option>
-                <option value="betis">Real Betis</option>
-                <option value="madrid">Real Madrid</option>
-                <option value="sevilla">Sevilla FC</option>
-                <option value="alaves">Deportivo Alavés</option>
-                <option value="depor">RC Deportivo</option>
-                <option value="real">Real Sociedad</option>
-                <option value="villarreal">Villarreal CF</option>
-                <option value="athletic">Athletic Club</option>
-                <option value="getafe">Getafe CF</option>
-                <option value="rayo">Rayo Vallecano</option>
-                <option value="osasuna">CA Osasuna</option>
-                <option value="celta">RC Celta</option>
-                <option value="espanyol">RCD Espanyol</option>
-                <option value="racing">Racing de Santander</option>
-                <option value="levante">Levante UD</option>
-                <option value="elche">Elche CF</option>
-                <option value="valencia">Valencia CF</option>
-                <option value="malaga">Málaga CF</option>
-              </select>
+              <label for="fecha">Fecha de fundación *</label>
+              <input type="date" class="form-control" id="fecha" name="fecha" required>
             </div>
-
             <div class="form-group">
-              <label for="imagen">Foto de la leyenda *</label>
+              <label for="imagen">Foto del escudo del club *</label>
               <input type="file" id="imagen" name="imagen" required>
             </div>
-
             <div class="form-group">
-              <label for="biografia">Biografía *</label>
-              <textarea class="form-control" id="biografia" name="biografia" rows="5"
-                placeholder="Cuenta quién es, su trayectoria y por qué es una leyenda del club." required></textarea>
+              <label for="estadio">Estadio *</label>
+              <input type="text" class="form-control" id="estadio" name="estadio" required>
+            </div>
+            <div class="form-group">
+              <label for="posicion">Posición en la temporada actual</label>
+              <select class="form-control" id="posicion" name="posicion">
+                <option value="">Selecciona una posición</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="temporadas">Temporadas jugadas en primera division</label>
+              <input type="number" class="form-control" id="temporadas" name="temporadas">
+            </div>
+            <div class="form-group">
+              <label for="ligas">Ligas ganadas</label>
+              <input type="number" class="form-control" id="ligas" name="ligas">
+            </div>
+            <div class="form-group">
+              <label for="mejor-posicion">Mejor posicion historica</label>
+              <select class="form-control" id="mejor-posicion" name="mejor-posicion">
+                <option value="">Selecciona una posición</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="estadisticas">Dato curioso</label>
+              <textarea class="form-control" id="dato" name="dato" rows="3"
+                placeholder="Ej.: Tiene 15 Champions League."></textarea>
             </div>
 
-            <div class="form-group">
-              <label for="frase">Frase o texto destacado</label>
-              <input type="text" class="form-control" id="frase" name="frase">
-            </div>
-
-            <div class="form-group">
-              <label for="palmares">Palmarés (un logro por línea)</label>
-              <textarea class="form-control" id="palmares" name="palmares" rows="3"
-                placeholder="Ej.: 2 Copas del Rey, 2015 y 2018."></textarea>
-                <div class="form-group">
-                  <label for="imagen_palmares">Fotos de los títulos o trofeos</label>
-                  <input multiple type="file" id="imagen_palmares" name="imagen_palmares" accept="image/*">
-                </div>
-            </div>
-
-            <div class="form-group">
-              <label for="estadisticas">Estadísticas (un dato por línea)</label>
-              <textarea class="form-control" id="estadisticas" name="estadisticas" rows="3"
-                placeholder="Ej.: 350 partidos oficiales con su equipo."></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="crear-leyenda" disabled>Crear leyenda</button>
+            <button type="submit" class="btn btn-primary" id="crear-equipo" disabled>Crear equipo</button>
             <button type="reset" class="btn btn-default">Limpiar</button>
             <a href="index.html" class="btn btn-default">Volver al inicio</a>
           </form>

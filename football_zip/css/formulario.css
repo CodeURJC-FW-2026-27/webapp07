@@ -1,25 +1,21 @@
-/* Estilos básicos del formulario de leyenda. */
-#formulario-leyenda {
+#formulario-equipo {
   padding: 25px 0 40px;
 }
 
-#nueva-leyenda {
+#nuevo-equipo {
   margin-top: 20px;
 }
 
-#nueva-leyenda .form-group {
+#nuevo-equipo .form-group {
   margin-bottom: 20px;
 }
 
-#nueva-leyenda label {
+#nuevo-equipo label {
+  display: block;
   font-size: 18px;
 }
 
-#nueva-leyenda .form-control {
-  font-size: 16px;
-}
-
-#nueva-leyenda .btn {
+#nuevo-equipo .btn {
   margin-top: 10px;
   margin-right: 5px;
   font-size: 16px;

@@ -1,9 +1,15 @@
 #formulario-equipo {
   padding: 25px 0 40px;
+  background-color: #faf9f7;
 }
 
 #nuevo-equipo {
   margin-top: 20px;
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e3e6eb;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(35, 45, 60, 0.06);
 }
 
 #nuevo-equipo .form-group {
@@ -13,10 +19,52 @@
 #nuevo-equipo label {
   display: block;
   font-size: 18px;
+  color: #263449;
+}
+
+#nuevo-equipo .form-control,
+#nuevo-equipo input[type="file"] {
+  background-color: #fdfdfd;
+  border: 1px solid #d5dce5;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+#nuevo-equipo .form-control {
+  height: 40px;
+  font-size: 16px;
+}
+
+#nuevo-equipo textarea.form-control {
+  height: auto;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+#nuevo-equipo input[type="file"] {
+  width: 100%;
+  padding: 10px;
+}
+
+#nuevo-equipo .form-control:focus {
+  border-color: #b22540;
+  box-shadow: 0 0 0 3px rgba(178, 37, 64, 0.12);
 }
 
 #nuevo-equipo .btn {
   margin-top: 10px;
   margin-right: 5px;
+  border-radius: 6px;
   font-size: 16px;
+}
+
+#nuevo-equipo .btn-primary {
+  background-color: #b22540;
+  border-color: #b22540;
+}
+
+#nuevo-equipo .btn-primary:hover,
+#nuevo-equipo .btn-primary:focus {
+  background-color: #962036;
+  border-color: #962036;
 }

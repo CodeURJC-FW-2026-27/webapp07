@@ -5,6 +5,9 @@
 
 #nuevo-equipo {
   margin-top: 20px;
+}
+
+form.well {
   padding: 24px;
   background-color: #fff;
   border: 1px solid #e3e6eb;
@@ -12,59 +15,57 @@
   box-shadow: 0 3px 12px rgba(35, 45, 60, 0.06);
 }
 
-#nuevo-equipo .form-group {
+form.well .form-group {
   margin-bottom: 20px;
 }
 
-#nuevo-equipo label {
+form.well label {
   display: block;
   font-size: 18px;
   color: #263449;
 }
 
-#nuevo-equipo .form-control,
-#nuevo-equipo input[type="file"] {
+form.well .form-control,
+form.well input[type="file"] {
   background-color: #fdfdfd;
   border: 1px solid #d5dce5;
   border-radius: 6px;
   box-shadow: none;
 }
 
-#nuevo-equipo .form-control {
+form.well .form-control {
   height: 40px;
   font-size: 16px;
 }
 
-#nuevo-equipo textarea.form-control {
+form.well textarea.form-control {
   height: auto;
   line-height: 1.6;
   resize: vertical;
 }
 
-#nuevo-equipo input[type="file"] {
+form.well input[type="file"] {
   width: 100%;
   padding: 10px;
 }
 
-#nuevo-equipo .form-control:focus {
+form.well .form-control:focus {
   border-color: #b22540;
   box-shadow: 0 0 0 3px rgba(178, 37, 64, 0.12);
 }
 
-#nuevo-equipo .btn {
+form.well .btn {
   margin-top: 10px;
   margin-right: 5px;
-  border-radius: 6px;
-  font-size: 16px;
 }
 
-#nuevo-equipo .btn-primary {
+form.well .btn-primary {
   background-color: #b22540;
   border-color: #b22540;
 }
 
-#nuevo-equipo .btn-primary:hover,
-#nuevo-equipo .btn-primary:focus {
+form.well .btn-primary:hover,
+form.well .btn-primary:focus {
   background-color: #962036;
   border-color: #962036;
 }

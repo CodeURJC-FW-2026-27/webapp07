@@ -632,7 +632,6 @@ a.socialIcon:hover,
 
 /* ==================== Fichas, personas y alineaciones ==================== */
 #infoClub {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: auto;
   max-width: 1170px;
   margin: 25px auto;
@@ -1010,14 +1009,12 @@ a.socialIcon:hover,
     border: none;
   }
 
-  #infoClub,
   #entrenadorLeyenda,
   #campo {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 25px;
   }
 
-  #infoClub > div,
   #entrenadorLeyenda > div,
   #campo > * {
     grid-column: auto !important;
@@ -1109,4 +1106,15 @@ a.socialIcon:hover,
 }
 
 @media (min-width: 1201px) and (max-width: 1352px) {
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn {
+  font-size: 16px;
+  border-radius: 6px;
 }

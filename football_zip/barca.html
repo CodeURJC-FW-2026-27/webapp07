@@ -10,6 +10,7 @@
 	<link href="css/global.css" rel="stylesheet">
 	<link href="css/blog.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
+	<link href="css/formulario.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
 	<script src="js/jquery-2.1.1.min.js"></script>
@@ -98,8 +99,9 @@
 			</div>
 		</div>
 	</section>
-	<div id="infoClub">
-		<div style="grid-column: 1 / 1; grid-row: 1 / 1;">
+	<div id="infoClub" class="container">
+		<div class="row">
+		<div class="col-sm-6">
 			<h3 class="mgt">Información del club</h3>
 			<p>El Fútbol Club Barcelona, fundado en 1899, es uno de los clubes más laureados, reconocidos y prestigiosos de la historia del fútbol mundial. Con sede en Barcelona y su estadio en el Spotify Camp Nou, el club ha destacado por sus grandes éxitos tanto en competiciones nacionales como internacionales. A lo largo de su historia ha contado con varios de los mejores futbolistas de todos los tiempos y ha construido una identidad inconfundible basada en un estilo de juego vistoso y ofensivo, el talento de su cantera y su célebre lema «Més que un club».
 			</p>
@@ -113,15 +115,16 @@
 				<li>Dato curioso: Su cantera, La Masia, es considerada la mejor del mundo</li>
 			</ul>
 		</div>
-		<div style="grid-column: 2 / 2; grid-row: 1 / 1;">
+		<div class="col-sm-6">
 			<div class="about_1r clearfix">
 				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ozMPABlVRJunGtBXSNmrhefYCv80QEKHPlVQWrqC0A&s=10" class="iw" height="420" alt="abc">
 			</div>
 		</div>
+		</div>
 	</div>
 	<hr>
 
-	<section id="jugadores-anadidos" class="container" aria-labelledby="titulo-jugadores" style="max-width: 1000px;">
+	<section id="jugadores-anadidos" class="container" aria-labelledby="titulo-jugadores">
 		<h3 id="titulo-jugadores">Jugadores añadidos</h3>
 		<p class="help-block">Fichas de demostración con edades y estadísticas de ejemplo.</p>
 
@@ -141,6 +144,10 @@
 							<li><strong>Asistencias:</strong> 15</li>
 						</ul>
 					</div>
+					<div class="panel-footer">
+						<button type="button" class="btn btn-primary">Editar</button>
+						<button type="button" class="btn btn-danger">Borrar</button>
+					</div>
 				</article>
 			</li>
 			<li class="col-sm-6">
@@ -157,6 +164,10 @@
 							<li><strong>Goles:</strong> 4</li>
 							<li><strong>Asistencias:</strong> 10</li>
 						</ul>
+					</div>
+					<div class="panel-footer">
+						<button type="button" class="btn btn-primary">Editar</button>
+						<button type="button" class="btn btn-danger">Borrar</button>
 					</div>
 				</article>
 			</li>
@@ -175,6 +186,10 @@
 							<li><strong>Asistencias:</strong> 12</li>
 						</ul>
 					</div>
+					<div class="panel-footer">
+						<button type="button" class="btn btn-primary">Editar</button>
+						<button type="button" class="btn btn-danger">Borrar</button>
+					</div>
 				</article>
 			</li>
 			<li class="col-sm-6">
@@ -191,6 +206,10 @@
 							<li><strong>Goles:</strong> 2</li>
 							<li><strong>Asistencias:</strong> 1</li>
 						</ul>
+					</div>
+					<div class="panel-footer">
+						<button type="button" class="btn btn-primary">Editar</button>
+						<button type="button" class="btn btn-danger">Borrar</button>
 					</div>
 				</article>
 			</li>
@@ -240,14 +259,14 @@
 				</div>
 			</div>
 
-			<button type="submit" class="btn btn-primary" disabled>Añadir jugador</button>
+			<button type="submit" class="btn btn-primary" disabled>Crear</button>
 		</form>
 	</section>
 
 	<!-- Botones -->
-	<div style="display: flex; justify-content: center; gap: 15px;">	
+	<div class="actions">	
 		<button type="submit" class="btn btn-primary">Editar</button>
-		<a href="index.html"><button type="reset" class="btn btn-primary">Cancelar</button></a>
+		<a href="index.html" class="btn btn-primary">Cancelar</a>
 		<button type="reset" class="btn btn-danger">Borrar</button>
 	</div>
 	<br>

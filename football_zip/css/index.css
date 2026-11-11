@@ -826,15 +826,29 @@ th {
 }
 
 .boardEquipos {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px 10px;
   width: 90%;
   max-width: 1000px;
   margin: 32px auto;
 }
 
+.boardEquipos > p {
+  margin-bottom: 15px;
+}
+
+.boardEquipos > .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -5px;
+}
+
+.boardEquipos > .row > div {
+  display: flex;
+  padding: 0 5px;
+  margin-bottom: 20px;
+}
+
 .equipo {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -860,12 +874,6 @@ th {
 .equipo p {
   margin: 3px 0 0;
   font-size: 16px;
-}
-
-@media (max-width: 700px) {
-  .boardEquipos {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 .title {

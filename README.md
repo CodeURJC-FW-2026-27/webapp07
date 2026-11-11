@@ -44,27 +44,27 @@ En este apartado se muestran las capturas de pantalla de las diferentes páginas
 
 ### 1.1. Página principal
 
-**Descripción:** [La página principal muestra una lista de jugadores que son leyendas de LaLiga. Hay un enlace al formulario para agregar nuevas leyendas. También incluye una tabla de la clasificación actual de los equipos, tanto puntos, como partidos jugados (Está a dia 10/10/2026 que es cuando se realizó la pagina) .].
+**Descripción:** [La página principal muestra doce equipos de LaLiga con su escudo, nombre, posición y puntos. Las tarjetas enlazan a la ficha de equipo de muestra y se distribuyen con Bootstrap en una columna en móvil, dos en tablet y tres en escritorio. Encima del listado, alineado a la derecha, aparece el enlace para crear un equipo.].
 
 ![Captura de la página principal](./Readme/Index.jpeg)
 
 ### 1.2. Página de un equipo
 
-**Descripción:** [La página de equipo reúne la información más importante de un club. Aquí se puede ver una descripción de su historia. También aparecen datos de la temporada actual, el entrenador, la leyenda más representativa y la plantilla de jugadores. Además, muestra la ubicación de su estadio con un mapa e imágenes relacionadas (En este docuemto solo hemos puesto la imagen de la pagina de un equipo pero existe pagina de los 20 equipos de La Liga ).].
+**Descripción:** [La ficha del FC Barcelona muestra la información del club y cuatro tarjetas de jugadores de ejemplo. Cada tarjeta incluye nombre, nacionalidad, edad, posición, partidos jugados, goles y asistencias, junto con los botones Editar y Borrar. Al final del listado aparece el formulario para añadir un jugador con esos siete atributos.].
 
-![Captura de la página de un equipo](./Readme/rm.jpeg)
+![Captura de la ficha del FC Barcelona](./Readme/rm.jpeg)
 
-### 1.3. Página de detalle de la leyenda
+### 1.3. Página de detalle de Cristiano Ronaldo
 
-**Descripción:** [La página de detalle de leyenda se dedica a un jugador en particular. Incluye información sobre su carrera deportiva, una imagen representativa, su lista de títulos, algunos datos importantes y una breve explicación de los logros que lo han convertido en una figura importante en la historia del fútbol. (En este docuemto solo hemos puesto la imagen de la pagina de un jugador leyenda pero existe pagina de la leyenda de cada uno de los equipos de La Liga )].
+**Descripción:** [La página de Cristiano Ronaldo presenta su carrera deportiva, una imagen representativa, su palmarés, estadísticas y una explicación de sus logros. También incluye enlaces al equipo y a la página principal.].
 
-![Captura del detalle de una leyenda](./Readme/Lm.jpeg)
+![Captura del detalle de Cristiano Ronaldo](./Readme/Lm.jpeg)
 
-### 1.4. Página de formulario de leyenda
+### 1.4. Página de formulario de equipo
 
-**Descripción:** [La página de formulario de leyenda permite agregar una nueva leyenda al sitio usando un formulario. El usuario debe completar datos como el nombre del jugador, el equipo al que pertenece, una biografía, una imagen, su palmarés y algunas estadísticas importantes. Cuando llena los campos obligatorios puede dar a tres botones, añadir leyenda (Botón aun no operativo), limpiar que borra los campos del formulario que ha rellenado y cancelar que vuelve a la pagina principal.].
+**Descripción:** [El formulario permite preparar un nuevo equipo. Nombre del club, fecha de fundación, foto del escudo y estadio son obligatorios. También incluye una biografía de siete líneas, temporadas en Primera División, ligas ganadas, mejor posición histórica y un dato curioso. Los botones Guardar y Cancelar completan el formulario.].
 
-![Captura del formulario de leyenda ](./Readme/formulario.jpeg)
+![Captura del formulario de equipo](./Readme/formulario.jpeg)
 
 ---
 

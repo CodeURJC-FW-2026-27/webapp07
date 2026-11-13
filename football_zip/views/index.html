@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>La Liga</title>
+	<link href="/public/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/public/css/global.css" rel="stylesheet">
+	<link href="/public/css/index.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+	<script src="/public/js/jquery-2.1.1.min.js"></script>
+	<script src="/public/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+	{{> header}}
+
+<div class="title">
+	<h1>Equipos de LaLiga</h1>
+	<h3>Consulta los equipos de LaLiga o inscribe un nuevo equipo.</h3>
+</div>
+
+<section class="boardEquipos">
+  {{#equipos}}
+  <p class="text-right"><a href="/formulario-equipo" class="btn btn-primary">Inscibe tu equipo ahora</a></p>
+  {{/equipos}}
+  <div class="row">
+    {{#equipos}}
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <a class="equipo" href="/equipo/{{equipos.id}}">
+        <img src="uploads/{{equipos.img}}" alt="Escudo de FC Barcelona" width="112" height="112">
+        <h3>{{equipos.nombre}}</h3>
+        <p>Posición: {{equipos.posicion}}</p>
+        <p>Puntos: {{equipos.puntos}}</p>
+      </a>
+    </div>
+    {{/equipos}}
+  </div>
+  {{^equipos}}
+  <div style="text-align: center; margin-top: 20px;">
+    <h5>No hay equipos registrados.</h5>
+    <p><a href="/formulario-equipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
+  </div>
+  {{/equipos}}
+</section>	
+
+{{> footer}}
+
+</body>
+
+</html>

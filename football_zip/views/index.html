@@ -24,28 +24,42 @@
 	<h3>Consulta los equipos de LaLiga o inscribe un nuevo equipo.</h3>
 </div>
 
-<section class="boardEquipos">
-  {{#equipos}}
-  <p class="text-right"><a href="/formulario-equipo" class="btn btn-primary">Inscibe tu equipo ahora</a></p>
-  {{/equipos}}
+<section class="boardEquipos" style="margin-top: 20px; text-align: center;">
+  {{#hayEquipos}}
+  <p class="text-right"><a href="/formularioEquipo" class="btn btn-primary">Inscribe tu equipo ahora</a></p>
   <div class="row">
     {{#equipos}}
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <a class="equipo" href="/equipo/{{equipos.id}}">
-        <img src="uploads/{{equipos.img}}" alt="Escudo de FC Barcelona" width="112" height="112">
-        <h3>{{equipos.nombre}}</h3>
-        <p>Posición: {{equipos.posicion}}</p>
-        <p>Puntos: {{equipos.puntos}}</p>
+      <a class="equipo" href="/equipo/{{_id}}">
+        <img src="{{#escudo}}{{escudo}}{{/escudo}}{{^escudo}}/uploads/{{img}}{{/escudo}}" alt="Escudo de {{nombre}}" width="112" height="112">
+        <h3>{{nombre}}</h3>
+        <p>Posición: {{posicion}}</p>
+        <p>Puntos: {{puntos}}</p>
       </a>
     </div>
     {{/equipos}}
   </div>
-  {{^equipos}}
-  <div style="text-align: center; margin-top: 20px;">
+  {{/hayEquipos}}
+  {{^hayEquipos}}
+  <div style="text-align: center; margin: 100px;">
     <h5>No hay equipos registrados.</h5>
-    <p><a href="/formulario-equipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
+    <p><a href="/formularioEquipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
   </div>
-  {{/equipos}}
+  {{/hayEquipos}}
+  {{#hayEquipos}}
+  <div style="text-align: center; margin-top: 20px;">
+    <ul class="pagination">
+      {{#pages}}
+        {{^activa}}
+        <li><a href="/{{numero}}">{{numero}}</a></li>
+        {{/activa}}
+        {{#activa}}
+        <li class="active"><span aria-current="page">{{numero}}</span></li>
+        {{/activa}}
+      {{/pages}}
+    </ul>
+  </div>
+  {{/hayEquipos}}
 </section>	
 
 {{> footer}}

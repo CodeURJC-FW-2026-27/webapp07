@@ -1,7 +1,7 @@
 <header id="header_t" class="site-heading" lang="es">
     <div class="container">
         <div class="site-brand">
-            <a href="index.html" aria-label="Ir al inicio">
+            <a href="/" aria-label="Ir al inicio">
                 <img src="/public/img/LaligaL.png" alt="LaLiga" width="200" class="site-logo">
             </a>
             <div class="site-intro">
@@ -36,13 +36,20 @@
                     <li class="dropdown">
                         <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
                             aria-haspopup="true">Equipos <span class="caret"></span></a>
-                        <ul class="dropdown-menu drop_3">
+                        {{#hayEquipos}}
+                            <ul class="dropdown-menu drop_3">
                             {{#equipos}}
-                            <li><a href="/equipo/{{equipos.id}}">{{equipos.nombre}}</a></li>
+                            <li><a href="/equipo/{{_id}}">{{nombre}}</a></li>
                             {{/equipos}}
                         </ul>
+                        {{/hayEquipos}}
+                        {{^hayEquipos}}
+                            <ul class="dropdown-menu drop_3">
+                                <li style="text-align: center;"><a href="#">No hay equipos registrados</a></li>
+                            </ul>
+                        {{/hayEquipos}}
                     </li>
-                    <li><a class="m_tag" href="/formulario-equipo">Formulario de equipo</a></li>
+                    <li><a class="m_tag" href="/formularioEquipo">Formulario de equipo</a></li>
                 </ul>
             </div>
         </div>

@@ -38,10 +38,14 @@
         <div class="col-md-8">
           <p>Completa los datos del equipo. Los campos con * son obligatorios.</p>
 
-          <form id="nuevo-equipo" class="well" role="form">
+          <form action="/guardarEquipo" method="POST" enctype="multipart/form-data" id="nuevo-equipo">
             <div class="form-group">
               <label for="nombre">Nombre del club *</label>
               <input type="text" class="form-control" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="ciudad">Ciudad *</label>
+              <input type="text" class="form-control" id="ciudad" name="ciudad" required>
             </div>
             <div class="form-group">
               <label for="fecha">Fecha de fundación *</label>
@@ -69,8 +73,8 @@
               <input type="number" class="form-control" id="ligas" name="ligas">
             </div>
             <div class="form-group">
-              <label for="mejor-posicion">Mejor posicion historica</label>
-              <select class="form-control" id="mejor-posicion" name="mejor-posicion">
+              <label for="mejor-posicion">Mejor posicion histórica</label>
+              <select class="form-control" id="mejor-posicion" name="mejorPosicion">
                 <option value="">Selecciona una posición</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -100,9 +104,9 @@
                 placeholder="Ej.: Tiene 15 Champions League."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="crear-equipo" disabled>Guardar</button>
+            <button type="submit" class="btn btn-primary" id="crear-equipo">Guardar</button>
             <button type="reset" class="btn btn-default">Limpiar</button>
-            <a href="index.html" class="btn btn-default">Cancelar</a>
+            <a href="/index/1" class="btn btn-default">Cancelar</a>
           </form>
         </div>
       </div>

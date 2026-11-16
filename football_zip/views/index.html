@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>La Liga</title>
-	<link href="/public/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/public/css/global.css" rel="stylesheet">
-	<link href="/public/css/index.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="/public/css/font-awesome.min.css" />
-	<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
-	<script src="/public/js/jquery-2.1.1.min.js"></script>
-	<script src="/public/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>La Liga</title>
 
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/global.css" rel="stylesheet">
+    <link href="/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
+
+    <script src="/js/jquery-2.1.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
     {{#equipos}}
     <div class="col-xs-12 col-sm-6 col-md-4">
       <a class="equipo" href="/equipo/{{_id}}">
-        <img src="{{#escudo}}{{escudo}}{{/escudo}}{{^escudo}}/uploads/{{img}}{{/escudo}}" alt="Escudo de {{nombre}}" width="112" height="112">
+        <img src="/equipo/{{_id}}/imagen" alt="Escudo de {{nombre}}" width="112" height="112">
         <h3>{{nombre}}</h3>
         <p>Posición: {{posicion}}</p>
         <p>Puntos: {{puntos}}</p>

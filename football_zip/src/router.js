@@ -1,14 +1,13 @@
-import express from "express";
-import mustacheExpress from "mustache-express";
-import multer from "multer";
-import { MongoClient } from "mongodb";
+import express from 'express';
+import multer from 'multer';
+import fs from 'node:fs/promises';
 
-const router = new express.Router();
+import * as LaLiga from './board.js';
 
-const client = new MongoClient('mongodb://localhost:27017');
-const db = client.db('laliga');
-const equipos = db.collection('equipos');
-
+const router = express.Router();
+export default router;
+    
+const upload = multer({ dest: LaLiga.UPLOADS_FOLDER })
 router.get('/', (req, res) => {
     res.redirect('/index/1');
 });
@@ -18,11 +17,10 @@ router.get('/index', (req, res) => {
 });
 
 router.get('/index/:page', async (req, res) => {
-    await client.connect();
     let page = req.params.page;
     let salto = (page - 1) * 6;
-    const equiposList = await equipos.find().sort({ puntos: -1 }).skip(salto).limit(6).toArray();
-    let numPages = await equipos.countDocuments();
+    const equiposList = await LaLiga.getEquipos(salto);
+    let numPages = await LaLiga.getEquiposCount();
     let hayEquipos;
     if (numPages === 0) {
         hayEquipos = false;
@@ -51,11 +49,10 @@ router.get('/formularioEquipo', (req, res) => {
     res.render('formularioEquipo');
 });
 
-router.post('/guardarEquipo', multer({ dest: 'public/uploads/' }).single('imagen'), async (req, res) => {
+router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
     if (!req.file) {
         return res.status(400).send('Debes seleccionar una imagen para el escudo.');
     }
-    await client.connect();
     const nuevoEquipo = {
         nombre: req.body.nombre,
         ciudad: req.body.ciudad,
@@ -67,10 +64,19 @@ router.post('/guardarEquipo', multer({ dest: 'public/uploads/' }).single('imagen
         mejorPosicion: req.body.mejorPosicion ? Number(req.body.mejorPosicion) : null,
         dato: req.body.dato,
         puntos: 0,
-        escudo: `/public/uploads/${req.file.filename}`
+        escudo: req.file?.filename
     };
-    await equipos.insertOne(nuevoEquipo);
+    await LaLiga.addequipo(nuevoEquipo);
     res.redirect('/index/1');
 });
+router.get('/equipo/:id/imagen', async (req, res) => {
+    const equipo = await LaLiga.getEquipo(req.params.id);
 
-export default router;
+    if (!equipo || !equipo.escudo) {
+        return res.status(404).send('Imagen no encontrada');
+    }
+
+    res.sendFile(equipo.escudo, {
+        root: LaLiga.UPLOADS_FOLDER
+    });
+});    

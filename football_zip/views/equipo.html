@@ -32,19 +32,20 @@
 			</div>
 		</div>
 	</section>
+	{{#equipo}}
 	<div id="infoClub" class="container">
 		<div class="row">
 		<div class="col-sm-6">
 			<h3 class="mgt">Información del club</h3>
-			<p>{{equipo.biografia}}</p>
+			<p>{{biografia}}</p>
 			<ul>
-				<li>Presidente: {{equipo.presidente}}</li>
-				<li>Posición en la temporada actual: {{equipo.posicion}}</li>
-				<li>Temporadas del club en LaLiga: {{equipo.temporadas}}</li>
-				<li>Estadio: {{equipo.estadio}}</li>
-				<li>Ligas ganadas: {{equipo.ligas_ganadas}}</li>
-				<li>Mejor posición histórica: {{equipo.mejor_posicion}}</li>
-				<li>Dato curioso: {{equipo.dato_curioso}}</li>
+				<li>Presidente: {{presidente}}</li>
+				<li>Posición en la temporada actual: {{posicion}}</li>
+				<li>Temporadas del club en LaLiga: {{temporadas}}</li>
+				<li>Estadio: {{estadio}}</li>
+				<li>Ligas ganadas: {{ligas}}</li>
+				<li>Mejor posición histórica: {{mejorPosicion}}</li>
+				<li>Dato curioso: {{dato}}</li>
 			</ul>
 		</div>
 		<div class="col-sm-6">
@@ -54,6 +55,7 @@
 		</div>
 		</div>
 	</div>
+	{{/equipo}}
 	<hr>
 
 	<section id="jugadores-anadidos" class="container" aria-labelledby="titulo-jugadores">

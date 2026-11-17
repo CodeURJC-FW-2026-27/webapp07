@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import { ObjectId } from 'mongodb';
 
 import * as LaLiga from './board.js';
+import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 export default router;
@@ -11,6 +12,29 @@ let allEquipos = await LaLiga.equipos.find().toArray();
 let hayEquipos = allEquipos.length !== 0;
     
 const upload = multer({ dest: LaLiga.UPLOADS_FOLDER })
+function readText(value) {
+    return typeof value === 'string' ? value.trim() : '';
+}
+
+function readOptionalNumber(value, defaultValue = 0) {
+    if (value === undefined || value === '') {
+        return defaultValue;
+    }
+
+    return typeof value === 'string' ? Number(value) : NaN;
+}
+
+function isIntegerInRange(value, min, max) {
+    return Number.isInteger(value) && value >= min && value <= max;
+}
+
+function renderFormError(res, message, returnUrl, status = 400) {
+    return res.status(status).render('error', {
+        message,
+        returnUrl,
+        returnLabel: 'Volver al formulario'
+    });
+}
 router.get('/', (req, res) => {
     res.redirect('/index/1');
 });
@@ -65,102 +89,137 @@ router.get('/formularioEquipo', (req, res) => {
 });
 
 router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
-    if (!req.file) {
-        return res.status(400).send('Debes seleccionar una imagen para el escudo.');
-    }
-    const teamName = (req.body.nombre ?? '').trim();
-    const city = (req.body.ciudad ?? '').trim();
-    const president = (req.body.presidente ?? '').trim();
-    const stadium = (req.body.estadio ?? '').trim();
-    const description = (req.body.biografia ?? '').trim();
-    const foundationDate = (req.body.fecha ?? '').trim();
+    async function showError(message, status = 400) {
+        // Remove the uploaded file when validation fails.
+        if (req.file) {
+            await fs.rm(req.file.path, { force: true });
+        }
 
-    const points = Number(req.body.puntos || 0);
-    const seasons = Number(req.body.temporadas || 0);
-    const leagueTitles = Number(req.body.ligas || 0);
-    const bestPosition = req.body.mejorPosicion
-        ? Number(req.body.mejorPosicion)
-        : null;
-
-    const parsedDate = new Date(`${foundationDate}T00:00:00Z`);
-    const today = new Date().toISOString().slice(0, 10);
-    const validDate =
-        /^\d{4}-\d{2}-\d{2}$/.test(foundationDate) &&
-        !Number.isNaN(parsedDate.getTime()) &&
-        parsedDate.toISOString().slice(0, 10) === foundationDate &&
-        foundationDate <= today;
-
-    const isIntegerInRange = (value, min, max) =>
-        Number.isInteger(value) && value >= min && value <= max;
-
-    function showError(message, status = 400) {
-        return res.status(status).render('error', {
+        return renderFormError(
+            res,
             message,
-            returnUrl: '/formularioEquipo',
-            returnLabel: 'Volver al formulario'
-        });
+            '/formularioEquipo',
+            status
+        );
+    }
+
+    const teamName = readText(req.body.nombre);
+    const city = readText(req.body.ciudad);
+    const president = readText(req.body.presidente);
+    const stadium = readText(req.body.estadio);
+    const description = readText(req.body.biografia);
+    const foundationDate = readText(req.body.fecha);
+    const fact = readText(req.body.dato);
+
+    const points = readOptionalNumber(req.body.puntos);
+    const seasons = readOptionalNumber(req.body.temporadas);
+    const leagueTitles = readOptionalNumber(req.body.ligas);
+    const bestPosition = readOptionalNumber(
+        req.body.mejorPosicion,
+        null
+    );
+
+    if (!req.file) {
+        return showError('Selecciona una imagen para el escudo.');
     }
 
     if (!teamName || !city || !president || !stadium || !foundationDate) {
-        return showError('Rellena el nombre, la ciudad, el presidente, el estadio y la fecha.');
+        return showError(
+            'Rellena el nombre, la ciudad, el presidente, el estadio y la fecha.'
+        );
     }
 
     if (!/^\p{Lu}/u.test(teamName)) {
         return showError('El nombre del equipo debe empezar por mayúscula.');
     }
 
+    const parsedDate = new Date(`${foundationDate}T00:00:00Z`);
+    const today = new Date().toISOString().slice(0, 10);
+
+    const validDate =
+        /^\d{4}-\d{2}-\d{2}$/.test(foundationDate) &&
+        !Number.isNaN(parsedDate.getTime()) &&
+        parsedDate.toISOString().slice(0, 10) === foundationDate &&
+        foundationDate <= today;
+
     if (!validDate) {
-        return showError('Introduce una fecha de fundación válida que no sea futura.');
+        return showError(
+            'Introduce una fecha de fundación válida que no sea futura.'
+        );
     }
 
     if (description.length < 10 || description.length > 1000) {
         return showError('La biografía debe tener entre 10 y 1000 caracteres.');
     }
 
-    if (
-        !isIntegerInRange(points, 0, 150) ||
-        !isIntegerInRange(seasons, 0, 200) ||
-        !isIntegerInRange(leagueTitles, 0, 200)
-    ) {
-        return showError('Revisa los puntos (0–150), las temporadas (0–200) y las ligas (0–200).');
+    if (!isIntegerInRange(points, 0, 150)) {
+        return showError('Los puntos deben ser un número entero entre 0 y 150.');
     }
 
-    if (bestPosition !== null && !isIntegerInRange(bestPosition, 1, 20)) {
+    if (!isIntegerInRange(seasons, 0, 200)) {
+        return showError(
+            'Las temporadas deben ser un número entero entre 0 y 200.'
+        );
+    }
+
+    if (!isIntegerInRange(leagueTitles, 0, 200)) {
+        return showError(
+            'Las ligas ganadas deben ser un número entero entre 0 y 200.'
+        );
+    }
+
+    if (
+        bestPosition !== null &&
+        !isIntegerInRange(bestPosition, 1, 20)
+    ) {
         return showError('La mejor posición debe estar entre 1 y 20.');
     }
 
-    const existingTeam = await LaLiga.equipos.findOne({ nombre: teamName });
+    const existingTeam = await LaLiga.equipos.findOne({
+        nombre: teamName
+    });
 
     if (existingTeam) {
         return showError('Ya existe un equipo con ese nombre.', 409);
     }
-        const nuevoEquipo = {
-            nombre: teamName,
-            ciudad: req.body.ciudad,
-            fundacion: req.body.fecha,
-            presidente: req.body.presidente,
-            estadio: req.body.estadio,
-            biografia: req.body.biografia,
-            puntos: Number(req.body.puntos || 0),
-            posicion: 0,
-            temporadas: Number(req.body.temporadas || 0),
-            ligas: Number(req.body.ligas || 0),
-            mejorPosicion: req.body.mejorPosicion ? Number(req.body.mejorPosicion) : null,
-            dato: req.body.dato,
-            escudo: req.file?.filename,
-            jugadores: new Array()
-        };
-        const { insertedId } = await LaLiga.addequipo(nuevoEquipo);
-        const equiposList = await LaLiga.equipos.find().sort({ puntos: -1 }).toArray();
-        for (let i = 0; i < equiposList.length; i++) {
-            await LaLiga.equipos.updateOne({ _id: equiposList[i]._id }, { $set: { posicion: i + 1 } });
-        }
-        res.render('confirmacion', {
-            message: 'El equipo se ha creado correctamente.',
-            returnUrl: `/equipo/${insertedId}`,
-            returnLabel: 'Ver equipo'
-        });
+
+    const newTeam = {
+        nombre: teamName,
+        ciudad: city,
+        fundacion: foundationDate,
+        presidente: president,
+        estadio: stadium,
+        biografia: description,
+        puntos: points,
+        posicion: 0,
+        temporadas: seasons,
+        ligas: leagueTitles,
+        mejorPosicion: bestPosition,
+        dato: fact,
+        escudo: req.file.filename,
+        jugadores: []
+    };
+
+    const { insertedId } = await LaLiga.addequipo(newTeam);
+
+    const teams = await LaLiga.equipos
+        .find()
+        .sort({ puntos: -1, _id: 1 })
+        .toArray();
+
+    for (let index = 0; index < teams.length; index++) {
+        await LaLiga.equipos.updateOne(
+            { _id: teams[index]._id },
+            { $set: { posicion: index + 1 } }
+        );
+    }
+
+    return res.render('confirmacion', {
+        message: 'El equipo se ha creado correctamente.',
+        returnUrl: `/equipo/${insertedId}`,
+        returnLabel: 'Ver equipo'
     });
+});
 router.get('/equipo/:id/imagen', async (req, res) => {
     const equipo = await LaLiga.getEquipo(req.params.id);
 
@@ -195,4 +254,31 @@ router.post('/nuevoJugador/:id', async (req, res) => {
     await LaLiga.equipos.updateOne({ _id: req.params.id }, { $push: { jugadores: jugador } });
     const equipo = await LaLiga.getEquipo(req.params.id);
     res.redirect('/equipo/' + req.params.id, {equipo: equipo, allEquipos: allEquipos, hayEquipos: hayEquipos});
+});
+
+router.use((error, req, res, next) => {
+    if (res.headersSent) {
+        return next(error);
+    }
+
+    console.error(error);
+
+    const returnUrl = req.path.startsWith('/nuevoJugador/')
+        ? '/index/1'
+        : '/formularioEquipo';
+
+    if (error instanceof multer.MulterError) {
+        return renderFormError(
+            res,
+            'No se ha podido procesar el archivo. Revisa el campo del escudo.',
+            returnUrl
+        );
+    }
+
+    return renderFormError(
+        res,
+        'Ha ocurrido un error al procesar la petición. Comprueba los datos e inténtalo de nuevo.',
+        returnUrl,
+        500
+    );
 });

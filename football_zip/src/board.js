@@ -7,8 +7,7 @@ export default router;
 const client = new MongoClient('mongodb://localhost:27017');
 
 const db = client.db('LaLiga');
-const equipos = db.collection('equipos');
-const jugadores = db.collection('jugadores');
+export const equipos = db.collection('equipos');
 
 export const UPLOADS_FOLDER = './uploads';
 

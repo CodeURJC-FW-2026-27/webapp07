@@ -50,14 +50,35 @@
   {{#hayEquipos}}
   <div style="text-align: center; margin-top: 20px;">
     <ul class="pagination">
+      {{#hasPrevious}}
+      <li>
+          <a href="/index/{{previousPage}}" aria-label="Página anterior">
+              Anterior
+          </a>
+      </li>
+      {{/hasPrevious}}
+
       {{#pages}}
-        {{^activa}}
-        <li><a href="/{{numero}}">{{numero}}</a></li>
-        {{/activa}}
-        {{#activa}}
-        <li class="active"><span aria-current="page">{{numero}}</span></li>
-        {{/activa}}
+          {{#active}}
+          <li class="active">
+              <span aria-current="page">{{number}}</span>
+          </li>
+          {{/active}}
+
+          {{^active}}
+          <li>
+              <a href="/index/{{number}}">{{number}}</a>
+          </li>
+          {{/active}}
       {{/pages}}
+
+      {{#hasNext}}
+      <li>
+          <a href="/index/{{nextPage}}" aria-label="Página siguiente">
+              Siguiente
+          </a>
+      </li>
+      {{/hasNext}}
     </ul>
   </div>
   {{/hayEquipos}}

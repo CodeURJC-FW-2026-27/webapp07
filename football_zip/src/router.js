@@ -19,25 +19,44 @@ router.get('/index', (req, res) => {
 });
 
 router.get('/index/:page', async (req, res) => {
-    let page = req.params.page;
-    let salto = (page - 1) * 6;
-    const equiposList = await LaLiga.getEquipos(salto);
-    let numPages = await LaLiga.getEquiposCount();
-    if (numPages % 6 !== 0) {
-        numPages = numPages / 6 + 1;
+    const pageSize = 6;
+    const requestedPage = Number(req.params.page);
+
+    if (!Number.isSafeInteger(requestedPage) || requestedPage < 1) {
+        return res.redirect('/index/1');
     }
-    else if (numPages === 0) {
-        numPages = 1;
+
+    const totalTeams = await LaLiga.getEquiposCount();
+    const totalPages = Math.max(1, Math.ceil(totalTeams / pageSize));
+    const currentPage = Math.min(requestedPage, totalPages);
+
+    if (requestedPage !== currentPage) {
+        return res.redirect(`/index/${currentPage}`);
     }
-    else
-        numPages = numPages / 6;
-    let pages = [numPages];
-    let i = 0;
-    while (pages[i]) {
-        pages[i] = { numero: i + 1, activa: i + 1 === Number(page) };
-        i++;
+
+    const offset = (currentPage - 1) * pageSize;
+    const teams = await LaLiga.getEquipos(offset);
+    const menuTeams = await LaLiga.equipos.find().toArray();
+
+    const pages = [];
+
+    for (let number = 1; number <= totalPages; number++) {
+        pages.push({
+            number,
+            active: number === currentPage
+        });
     }
-    res.render('index', { allEquipos: allEquipos, equipos: equiposList, hayEquipos: hayEquipos, page: page, pages: pages });
+
+    res.render('index', {
+        equipos: teams,
+        allEquipos: menuTeams,
+        hayEquipos: totalTeams > 0,
+        pages,
+        hasPrevious: currentPage > 1,
+        previousPage: currentPage - 1,
+        hasNext: currentPage < totalPages,
+        nextPage: currentPage + 1
+    });
 });
 
 router.get('/formularioEquipo', (req, res) => {

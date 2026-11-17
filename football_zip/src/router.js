@@ -59,14 +59,19 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         fundacion: req.body.fecha,
         estadio: req.body.estadio,
         biografia: req.body.biografia,
+        puntos: Number(req.body.puntos || 0),
+        posicion: 0,
         temporadas: Number(req.body.temporadas || 0),
         ligas: Number(req.body.ligas || 0),
         mejorPosicion: req.body.mejorPosicion ? Number(req.body.mejorPosicion) : null,
         dato: req.body.dato,
-        puntos: 0,
         escudo: req.file?.filename
     };
     await LaLiga.addequipo(nuevoEquipo);
+    const equiposList = await LaLiga.equipos.find().sort({ puntos: -1 }).toArray();
+    for (let i = 0; i < equiposList.length; i++) {
+        await LaLiga.equipos.updateOne({ _id: equiposList[i]._id }, { $set: { posicion: i + 1 } });
+    }
     res.redirect('/index/1');
 });
 router.get('/equipo/:id/imagen', async (req, res) => {
@@ -80,3 +85,11 @@ router.get('/equipo/:id/imagen', async (req, res) => {
         root: LaLiga.UPLOADS_FOLDER
     });
 });    
+
+router.get('/equipo/:id', async (req, res) => {
+    const equipo = await LaLiga.getEquipo(req.params.id);
+    if (!equipo) {
+        return res.status(404).send('Equipo no encontrado');
+    }
+    res.render('equipo', { equipo: equipo });
+});

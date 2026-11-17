@@ -86,6 +86,116 @@
 		font-family: 'Mukta', sans-serif;
 		align-items: center;
 	}
+/* Tarjetas de jugadores: estilos limitados a esta sección. */
 #jugadores-anadidos {
-  max-width: 1000px;
+  margin-top: 24px;
+  margin-bottom: 36px;
+}
+
+#jugadores-anadidos > .row {
+  margin: 0;
+  padding: 0;
+}
+
+#jugadores-anadidos .fichas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+#jugadores-anadidos .fichas > li {
+  float: none;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#jugadores-anadidos .panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #dce3e8;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(20, 40, 60, 0.07);
+}
+
+#jugadores-anadidos .panel-heading {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e2e8ee;
+  background: #f3f6f9;
+}
+
+#jugadores-anadidos .panel-heading h4 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+#jugadores-anadidos .panel-body {
+  flex: 1;
+  padding: 16px 20px;
+}
+
+#jugadores-anadidos .panel-body ul {
+  margin: 0;
+  padding: 0;
+}
+
+#jugadores-anadidos .panel-body li {
+  padding: 7px 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+#jugadores-anadidos .panel-body li + li {
+  border-top: 1px solid #edf0f3;
+}
+
+#jugadores-anadidos .panel-body strong {
+  margin-right: 5px;
+}
+
+#jugadores-anadidos .panel-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #fff;
+  border-top: 1px solid #e2e8ee;
+}
+
+#jugadores-anadidos .panel-footer .btn {
+  flex: 1;
+  margin: 0;
+  border-radius: 6px;
+}
+
+@media (max-width: 991px) {
+  #jugadores-anadidos .fichas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  #jugadores-anadidos .fichas {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Espacio alrededor del formulario de nuevo jugador. */
+form[aria-labelledby="titulo-formulario-jugador"] {
+  width: calc(100% - 40px);
+  max-width: 1170px;
+  margin: 28px auto !important;
+  padding: 24px;
 }

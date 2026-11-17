@@ -139,7 +139,9 @@
 	<div class="actions">	
 		<button type="submit" class="btn btn-primary">Editar</button>
 		<a href="index.html" class="btn btn-primary">Cancelar</a>
-		<button type="reset" class="btn btn-danger">Borrar</button>
+		<form action="/equipo/{{equipo._id}}/borrar" method="post">
+    		<button type="submit" class="btn btn-danger">Borrar equipo</button>
+</form>
 	</div>
 	<br>
 <!-- Pie común -->

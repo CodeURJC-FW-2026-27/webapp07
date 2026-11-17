@@ -4,7 +4,7 @@ import fs from 'node:fs/promises';
 import { ObjectId } from 'mongodb';
 
 import * as LaLiga from './board.js';
-import { ObjectId } from 'mongodb';
+
 
 const router = express.Router();
 export default router;
@@ -90,7 +90,6 @@ router.get('/formularioEquipo', (req, res) => {
 
 router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
     async function showError(message, status = 400) {
-        // Remove the uploaded file when validation fails.
         if (req.file) {
             await fs.rm(req.file.path, { force: true });
         }
@@ -254,6 +253,35 @@ router.post('/nuevoJugador/:id', async (req, res) => {
     await LaLiga.equipos.updateOne({ _id: req.params.id }, { $push: { jugadores: jugador } });
     const equipo = await LaLiga.getEquipo(req.params.id);
     res.redirect('/equipo/' + req.params.id, {equipo: equipo, allEquipos: allEquipos, hayEquipos: hayEquipos});
+});
+
+router.post('/equipo/:id/borrar', async (req, res) => {
+    const equipo = await LaLiga.deleteequipo(req.params.id);
+
+    if (!equipo) {
+        return res.status(404).render('error', {
+            message: 'El equipo no existe.',
+            returnUrl: '/index/1',
+            returnLabel: 'Volver al listado'
+        });
+    }
+
+    if (equipo.escudo) {
+        await fs.rm(`${LaLiga.UPLOADS_FOLDER}/${equipo.escudo}`, {
+            force: true
+        });
+    }
+
+    allEquipos = await LaLiga.equipos.find().toArray();
+    hayEquipos = allEquipos.length > 0;
+
+    res.render('confirmacion', {
+        message: 'El equipo se ha eliminado correctamente.',
+        returnUrl: '/index/1',
+        returnLabel: 'Volver al listado',
+        allEquipos,
+        hayEquipos
+    });
 });
 
 router.use((error, req, res, next) => {

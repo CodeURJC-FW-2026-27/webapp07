@@ -327,7 +327,11 @@ router.post('/nuevoJugador/:id', async (req, res) => {
         asistencias: req.body.asistencias
     };
     await LaLiga.equipos.updateOne({ _id: new ObjectId(req.params.id) }, { $push: { jugadores: jugador } });
-    res.redirect(`/equipo/${req.params.id}`);
+    res.render(`confirmacion`, {
+        message: 'El jugador se ha añadido correctamente.',
+        returnUrl: `/equipo/${req.params.id}`,
+        returnLabel: 'Volver al equipo'
+    });
 });
 
 router.post('/equipo/:id/borrar', async (req, res) => {

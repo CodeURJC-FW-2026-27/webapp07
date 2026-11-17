@@ -87,6 +87,30 @@ li {
   padding: 0;
 }
 
+.confirmation-page {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.confirmation-content {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 16px;
+}
+
+.confirmation-content h1 {
+    margin: 0 0 24px;
+    font-size: clamp(24px, 4vw, 40px);
+}
+
 .iw {
   width: 100%;
 }

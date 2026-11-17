@@ -38,9 +38,9 @@
                             aria-haspopup="true">Equipos <span class="caret"></span></a>
                         {{#hayEquipos}}
                             <ul class="dropdown-menu drop_3">
-                            {{#equipos}}
+                            {{#allEquipos}}
                             <li><a href="/equipo/{{_id}}">{{nombre}}</a></li>
-                            {{/equipos}}
+                            {{/allEquipos}}
                         </ul>
                         {{/hayEquipos}}
                         {{^hayEquipos}}

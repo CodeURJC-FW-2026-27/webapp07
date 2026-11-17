@@ -1,16 +1,18 @@
 import express from 'express';
-import multer from 'multer';
-import fs from 'node:fs/promises';
 
 import * as LaLiga from './board.js';
-import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 export default router;
-let allEquipos = await LaLiga.equipos.find().toArray();
-let hayEquipos = allEquipos.length !== 0;
-    
-const upload = multer({ dest: LaLiga.UPLOADS_FOLDER })
+
+async function getMenuData() {
+    const allEquipos = await LaLiga.getAllEquipos();
+    return {
+        allEquipos,
+        hayEquipos: allEquipos.length > 0
+    };
+}
+
 function readText(value) {
     return typeof value === 'string' ? value.trim() : '';
 }
@@ -49,9 +51,7 @@ router.get('/buscar', async (req, res) => {
         return res.redirect('/index/1');
     }
 
-    const equipo = await LaLiga.equipos.findOne({
-        nombre: { $regex: `^${busqueda}$`, $options: 'i' }
-    });
+    const equipo = await LaLiga.findEquipoByName(busqueda);
 
     if (equipo) {
         return res.redirect(`/equipo/${equipo._id}`);
@@ -82,8 +82,7 @@ router.get('/index/:page', async (req, res) => {
 
     const offset = (currentPage - 1) * pageSize;
     const teams = await LaLiga.getEquipos(offset);
-    const menuTeams = await LaLiga.equipos.find().toArray();
-
+    const menuTeams = await LaLiga.getAllEquipos();
     const pages = [];
 
     for (let number = 1; number <= totalPages; number++) {
@@ -93,7 +92,7 @@ router.get('/index/:page', async (req, res) => {
         });
     }
 
-    res.render('index', {
+    return res.render('index', {
         equipos: teams,
         allEquipos: menuTeams,
         hayEquipos: totalTeams > 0,
@@ -104,9 +103,9 @@ router.get('/index/:page', async (req, res) => {
         nextPage: currentPage + 1
     });
 });
-
-router.get('/formularioEquipo', (req, res) => {
+router.get('/formularioEquipo', async (req, res) => {
     const positions = [];
+    const menuData = await getMenuData();
 
     for (let number = 1; number <= 20; number++) {
         positions.push({ number, selected: false });
@@ -114,17 +113,16 @@ router.get('/formularioEquipo', (req, res) => {
 
     res.render('formularioEquipo', {
         positions,
-        allEquipos,
-        hayEquipos
+        ...menuData
     });
 });
 
-router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
+router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) => {
     const teamId = readText(req.body.id);
     let previousTeam = null;
     async function showError(message, status = 400) {
         if (req.file) {
-            await fs.rm(req.file.path, { force: true });
+            await LaLiga.discardUploadedImage(req.file);
         }
 
         return renderFormError(
@@ -221,13 +219,7 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         return showError('La mejor posición debe estar entre 1 y 20.');
     }
 
-    const nameFilter = { nombre: teamName };
-
-    if (previousTeam) {
-        nameFilter._id = { $ne: previousTeam._id };
-    }
-
-    const existingTeam = await LaLiga.equipos.findOne(nameFilter);
+    const existingTeam = await LaLiga.findEquipoByName(teamName, teamId);
 
     if (existingTeam) {
         return showError('Ya existe otro equipo con ese nombre.', 409);
@@ -249,40 +241,13 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         escudo: req.file?.filename ?? previousTeam?.escudo,
     };
 
-    let savedId;
+    const savedId = await LaLiga.saveEquipo(newTeam, teamId || undefined);
 
-    if (previousTeam) {
-        const result = await LaLiga.equipos.updateOne(
-            { _id: previousTeam._id },
-            { $set: newTeam }
-        );
-
-        if (result.matchedCount === 0) {
-            return showError('El equipo ya no existe.', 404);
-        }
-
-        savedId = previousTeam._id;
-    } else {
-        newTeam.jugadores = [];
-
-        const result = await LaLiga.addequipo(newTeam);
-        savedId = result.insertedId;
+    if (!savedId) {
+        return showError('El equipo ya no existe.', 404);
     }
 
-    const teams = await LaLiga.equipos
-        .find()
-        .sort({ puntos: -1, _id: 1 })
-        .toArray();
-
-    for (let index = 0; index < teams.length; index++) {
-        await LaLiga.equipos.updateOne(
-            { _id: teams[index]._id },
-            { $set: { posicion: index + 1 } }
-        );
-    }
-
-    allEquipos = await LaLiga.equipos.find().toArray();
-    hayEquipos = allEquipos.length > 0;
+    const menuData = await getMenuData();
 
     return res.render('confirmacion', {
         message: previousTeam
@@ -290,8 +255,7 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
             : 'El equipo se ha creado correctamente.',
         returnUrl: `/equipo/${savedId}`,
         returnLabel: 'Ver equipo',
-        allEquipos,
-        hayEquipos
+        ...menuData
     });
 });
 router.get('/equipo/:id/imagen', async (req, res) => {
@@ -311,13 +275,17 @@ router.get('/equipo/:id', async (req, res) => {
     if (!equipo) {
         return res.status(404).send('Equipo no encontrado');
     }
-    let hayJugadores = equipo.jugadores.length !== 0;
-    res.render('equipo', { equipo: equipo, allEquipos: allEquipos, hayEquipos: hayEquipos, hayJugadores: hayJugadores });
+    const hayJugadores = equipo.jugadores.length !== 0;
+    const menuData = await getMenuData();
+    res.render('equipo', {
+        equipo,
+        ...menuData,
+        hayJugadores
+    });
 });
 
 router.post('/nuevoJugador/:id', async (req, res) => {
-    let jugador = {
-        _id: new ObjectId(),
+    const jugador = {
         nombre: req.body.nombre,
         nacionalidad: req.body.nacionalidad,
         edad: req.body.edad,
@@ -326,7 +294,7 @@ router.post('/nuevoJugador/:id', async (req, res) => {
         goles: req.body.goles,
         asistencias: req.body.asistencias
     };
-    await LaLiga.equipos.updateOne({ _id: new ObjectId(req.params.id) }, { $push: { jugadores: jugador } });
+    await LaLiga.addJugador(req.params.id, jugador);
     res.render(`confirmacion`, {
         message: 'El jugador se ha añadido correctamente.',
         returnUrl: `/equipo/${req.params.id}`,
@@ -335,7 +303,7 @@ router.post('/nuevoJugador/:id', async (req, res) => {
 });
 
 router.post('/equipo/:id/borrar', async (req, res) => {
-    const equipo = await LaLiga.deleteequipo(req.params.id);
+    const equipo = await LaLiga.deleteEquipo(req.params.id);
 
     if (!equipo) {
         return res.status(404).render('error', {
@@ -345,21 +313,13 @@ router.post('/equipo/:id/borrar', async (req, res) => {
         });
     }
 
-    if (equipo.escudo) {
-        await fs.rm(`${LaLiga.UPLOADS_FOLDER}/${equipo.escudo}`, {
-            force: true
-        });
-    }
-
-    allEquipos = await LaLiga.equipos.find().toArray();
-    hayEquipos = allEquipos.length > 0;
+    const menuData = await getMenuData();
 
     res.render('confirmacion', {
         message: 'El equipo se ha eliminado correctamente.',
         returnUrl: '/index/1',
         returnLabel: 'Volver al listado',
-        allEquipos,
-        hayEquipos
+        ...menuData
     });
 });
 
@@ -392,12 +352,12 @@ router.get('/equipo/:id/editar', async (req, res) => {
         });
     }
 
+    const menuData = await getMenuData();
     res.render('formularioEquipo', {
         equipo: team,
         editing: true,
         positions,
-        allEquipos,
-        hayEquipos
+        ...menuData
     });
 });
 
@@ -412,7 +372,7 @@ router.use((error, req, res, next) => {
         ? '/index/1'
         : '/formularioEquipo';
 
-    if (error instanceof multer.MulterError) {
+    if (LaLiga.isUploadError(error)) {
         return renderFormError(
             res,
             'No se ha podido procesar el archivo. Revisa el campo del escudo.',
@@ -431,10 +391,7 @@ router.use((error, req, res, next) => {
 router.post('/borrarJugador/:equipoId/:jugadorId', async (req, res) => {
     const equipoId = req.params.equipoId;
     const jugadorId = req.params.jugadorId;
-    await LaLiga.equipos.updateOne(
-        { _id: new ObjectId(equipoId) },
-        { $pull: { jugadores: { _id: new ObjectId(jugadorId) } } }
-    );
+    await LaLiga.deleteJugador(equipoId, jugadorId);
     res.render('confirmacion', {
         message: 'El jugador se ha borrado correctamente.',
         returnUrl: `/equipo/${equipoId}`,
@@ -446,31 +403,33 @@ router.post('/formEditarJugador/:equipoId/:jugadorId', async (req, res) => {
     const equipoId = req.params.equipoId;
     const jugadorId = req.params.jugadorId;
     
-    let equipo = await LaLiga.getEquipo(equipoId);
-    let jugador = equipo.jugadores.find(
+    const equipo = await LaLiga.getEquipo(equipoId);
+    const jugador = equipo.jugadores.find(
         jugador => jugador._id.toString() === jugadorId
     );
-    res.render('equipo', { equipo: equipo, allEquipos: allEquipos, hayEquipos: hayEquipos, hayJugadores: true, jugador: jugador, editar: true });
+    const menuData = await getMenuData();
+    res.render('equipo', {
+        equipo,
+        ...menuData,
+        hayJugadores: true,
+        jugador,
+        editar: true
+    });
 });
 
 router.post('/editarJugador/:equipoId/:jugadorId', async (req, res) => {
     const equipoId = req.params.equipoId;
     const jugadorId = req.params.jugadorId;
 
-    await LaLiga.equipos.updateOne(
-        { _id: new ObjectId(equipoId), 'jugadores._id': new ObjectId(jugadorId) },
-        {
-            $set: {
-                'jugadores.$.nombre': req.body.nombre,
-                'jugadores.$.nacionalidad': req.body.nacionalidad,
-                'jugadores.$.edad': req.body.edad,
-                'jugadores.$.posicion': req.body.posicion,
-                'jugadores.$.partidos': req.body.partidos,
-                'jugadores.$.goles': req.body.goles,
-                'jugadores.$.asistencias': req.body.asistencias
-            }
-        }
-    );
+    await LaLiga.updateJugador(equipoId, jugadorId, {
+        nombre: req.body.nombre,
+        nacionalidad: req.body.nacionalidad,
+        edad: req.body.edad,
+        posicion: req.body.posicion,
+        partidos: req.body.partidos,
+        goles: req.body.goles,
+        asistencias: req.body.asistencias
+    });
     res.render('confirmacion', {
         message: 'El jugador se ha editado correctamente.',
         returnUrl: `/equipo/${equipoId}`,

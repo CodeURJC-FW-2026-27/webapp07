@@ -1,68 +1,144 @@
-import express from 'express';
 import { MongoClient, ObjectId } from 'mongodb';
-
-const router = express.Router();
-export default router;
+import multer from 'multer';
+import fs from 'node:fs/promises';
 
 const client = new MongoClient('mongodb://localhost:27017');
-
 const db = client.db('LaLiga');
-export const equipos = db.collection('equipos');
+const equipos = db.collection('equipos');
 
 export const UPLOADS_FOLDER = './uploads';
+export const upload = multer({ dest: UPLOADS_FOLDER });
 
-export async function addequipo(equipo) {
-
-    return await equipos.insertOne(equipo);
+export function isUploadError(error) {
+    return error instanceof multer.MulterError;
 }
 
-export async function deleteequipo(id){
-
-    return await equipos.findOneAndDelete({ _id: new ObjectId(id) });
+function escapeRegex(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-export async function deleteEquipos(){
-
-    return await equipos.deleteMany();
+async function removeImage(filename) {
+    if (filename) {
+        await fs.rm(`${UPLOADS_FOLDER}/${filename}`, { force: true });
+    }
 }
 
-export async function getEquipos(salto){
-
-    return await equipos.find().sort({ puntos: -1 }).skip(salto).limit(6).toArray();
+export async function discardUploadedImage(file) {
+    if (file) {
+        await removeImage(file.filename);
+    }
 }
 
-export async function getEquipo(id){
-
-    return await equipos.findOne({ _id: new ObjectId(id) });
-}
-export async function getEquiposCount(){
-
-    return await equipos.countDocuments();
+export async function getAllEquipos() {
+    return equipos.find().toArray();
 }
 
+export async function findEquipoByName(name, excludedId) {
+    const filter = {
+        nombre: { $regex: `^${escapeRegex(name)}$`, $options: 'i' }
+    };
 
+    if (excludedId) {
+        filter._id = { $ne: new ObjectId(excludedId) };
+    }
 
-export async function addejugador(jugador) {
-
-    return await jugadores.insertOne(jugador);
+    return equipos.findOne(filter);
 }
 
-export async function deletejugador(id){
+export async function saveEquipo(equipo, id) {
+    let savedId;
 
-    return await jugadores.findOneAndDelete({ _id: new ObjectId(id) });
+    if (id) {
+        const previousTeam = await getEquipo(id);
+
+        if (!previousTeam) {
+            return null;
+        }
+
+        const result = await equipos.updateOne(
+            { _id: previousTeam._id },
+            { $set: equipo }
+        );
+
+        if (result.matchedCount === 0) {
+            return null;
+        }
+
+        if (previousTeam.escudo !== equipo.escudo) {
+            await removeImage(previousTeam.escudo);
+        }
+
+        savedId = previousTeam._id;
+    } else {
+        equipo.jugadores = [];
+        const result = await equipos.insertOne(equipo);
+        savedId = result.insertedId;
+    }
+
+    await updateTeamPositions();
+    return savedId;
 }
 
-export async function deleteJugadores(){
+export async function deleteEquipo(id) {
+    const equipo = await equipos.findOneAndDelete({ _id: new ObjectId(id) });
 
-    return await jugadores.deleteMany();
+    if (equipo) {
+        await removeImage(equipo.escudo);
+    }
+
+    return equipo;
 }
 
-export async function getJugadores(){
-
-    return await jugadores.find().toArray();
+export async function getEquipos(salto) {
+    return equipos.find().sort({ puntos: -1 }).skip(salto).limit(6).toArray();
 }
 
-export async function getJugador(id){
+export async function getEquipo(id) {
+    return equipos.findOne({ _id: new ObjectId(id) });
+}
 
-    return await jugadores.findOne({ _id: new ObjectId(id) });
+export async function getEquiposCount() {
+    return equipos.countDocuments();
+}
+
+async function updateTeamPositions() {
+    const teams = await equipos.find().sort({ puntos: -1, _id: 1 }).toArray();
+
+    for (let index = 0; index < teams.length; index++) {
+        await equipos.updateOne(
+            { _id: teams[index]._id },
+            { $set: { posicion: index + 1 } }
+        );
+    }
+}
+
+export async function addJugador(teamId, jugador) {
+    jugador._id = new ObjectId();
+    return equipos.updateOne(
+        { _id: new ObjectId(teamId) },
+        { $push: { jugadores: jugador } }
+    );
+}
+
+export async function deleteJugador(teamId, jugadorId) {
+    return equipos.updateOne(
+        { _id: new ObjectId(teamId) },
+        { $pull: { jugadores: { _id: new ObjectId(jugadorId) } } }
+    );
+}
+
+export async function updateJugador(teamId, jugadorId, jugador) {
+    const fields = {};
+
+    for (const [key, value] of Object.entries(jugador)) {
+        fields[`jugadores.$.${key}`] = value;
+    }
+
+    return equipos.updateOne(
+        {
+            _id: new ObjectId(teamId),
+            'jugadores._id': new ObjectId(jugadorId)
+        },
+        { $set: fields }
+    );
 }

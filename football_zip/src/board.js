@@ -89,6 +89,21 @@ export async function deleteEquipo(id) {
     return equipo;
 }
 
+export async function deleteEquipos() {
+    const teams = await equipos.find({}, { projection: { escudo: 1 } }).toArray();
+    const result = await equipos.deleteMany({});
+
+    await Promise.all(
+        teams
+            .filter(team => typeof team.escudo === 'string')
+            .map(team => removeImage(team.escudo))
+    );
+
+    return result;
+}
+
+
+
 export async function getEquipos(offset, limit = 6, ciudad) {
     const filter = ciudad ? { ciudad } : {};
     return equipos.find(filter).sort({ puntos: -1 }).skip(offset).limit(limit).toArray();

@@ -26,7 +26,7 @@
 			<div class="row">
 				<div class="center_blog1 clearfix">
 					<div class="col-sm-12">
-						<h2 class="mgt">FC BARCELONA</h2>
+						<h2 class="mgt">{{equipo.nombre}}</h2>
 					</div>
 				</div>
 			</div>
@@ -36,16 +36,15 @@
 		<div class="row">
 		<div class="col-sm-6">
 			<h3 class="mgt">Información del club</h3>
-			<p>El Fútbol Club Barcelona, fundado en 1899, es uno de los clubes más laureados, reconocidos y prestigiosos de la historia del fútbol mundial. Con sede en Barcelona y su estadio en el Spotify Camp Nou, el club ha destacado por sus grandes éxitos tanto en competiciones nacionales como internacionales. A lo largo de su historia ha contado con varios de los mejores futbolistas de todos los tiempos y ha construido una identidad inconfundible basada en un estilo de juego vistoso y ofensivo, el talento de su cantera y su célebre lema «Més que un club».
-			</p>
+			<p>{{equipo.biografia}}</p>
 			<ul>
-				<li>Presidente: Joan Laporta</li>
-				<li>Posición en la temporada actual: 1º</li>
-				<li>Temporadas del club en LaLiga: 96</li>
-				<li>Estadio: Spotify Camp Nou</li>
-				<li>Ligas ganadas: 29</li>
-				<li>Mejor posición histórica: 1ª</li>
-				<li>Dato curioso: Su cantera, La Masia, es considerada la mejor del mundo</li>
+				<li>Presidente: {{equipo.presidente}}</li>
+				<li>Posición en la temporada actual: {{equipo.posicion}}</li>
+				<li>Temporadas del club en LaLiga: {{equipo.temporadas}}</li>
+				<li>Estadio: {{equipo.estadio}}</li>
+				<li>Ligas ganadas: {{equipo.ligas_ganadas}}</li>
+				<li>Mejor posición histórica: {{equipo.mejor_posicion}}</li>
+				<li>Dato curioso: {{equipo.dato_curioso}}</li>
 			</ul>
 		</div>
 		<div class="col-sm-6">

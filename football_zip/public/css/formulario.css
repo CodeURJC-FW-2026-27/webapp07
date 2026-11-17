@@ -1,0 +1,71 @@
+#formulario-equipo {
+  padding: 25px 0 40px;
+  background-color: #faf9f7;
+}
+
+#nuevo-equipo {
+  margin-top: 20px;
+}
+
+form.well {
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #e3e6eb;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(35, 45, 60, 0.06);
+}
+
+form.well .form-group {
+  margin-bottom: 20px;
+}
+
+form.well label {
+  display: block;
+  font-size: 18px;
+  color: #263449;
+}
+
+form.well .form-control,
+form.well input[type="file"] {
+  background-color: #fdfdfd;
+  border: 1px solid #d5dce5;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+form.well .form-control {
+  height: 40px;
+  font-size: 16px;
+}
+
+form.well textarea.form-control {
+  height: auto;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+form.well input[type="file"] {
+  width: 100%;
+  padding: 10px;
+}
+
+form.well .form-control:focus {
+  border-color: #b22540;
+  box-shadow: 0 0 0 3px rgba(178, 37, 64, 0.12);
+}
+
+form.well .btn {
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+form.well .btn-primary {
+  background-color: #b22540;
+  border-color: #b22540;
+}
+
+form.well .btn-primary:hover,
+form.well .btn-primary:focus {
+  background-color: #962036;
+  border-color: #962036;
+}

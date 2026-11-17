@@ -37,16 +37,6 @@
 		margin: 5px auto;
 	}
 
-	#infoClub {
-		display: grid;
-		align-items: center;
-		justify-content: center;
-		grid-template-columns: repeat(2, 1fr);
-		grid-template-rows: 1fr;
-		column-gap: 15px;
-		width: 100%;
-		margin: 20px;
-	}
 
 	#tActual h4 {
 		text-align: center;
@@ -96,3 +86,6 @@
 		font-family: 'Mukta', sans-serif;
 		align-items: center;
 	}
+#jugadores-anadidos {
+  max-width: 1000px;
+}

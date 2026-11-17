@@ -89,16 +89,25 @@ export async function deleteEquipo(id) {
     return equipo;
 }
 
-export async function getEquipos(salto) {
-    return equipos.find().sort({ puntos: -1 }).skip(salto).limit(6).toArray();
+export async function getEquipos(offset, limit = 6, ciudad) {
+    const filter = ciudad ? { ciudad } : {};
+    return equipos.find(filter).sort({ puntos: -1 }).skip(offset).limit(limit).toArray();
 }
 
 export async function getEquipo(id) {
     return equipos.findOne({ _id: new ObjectId(id) });
 }
 
-export async function getEquiposCount() {
-    return equipos.countDocuments();
+export async function getEquiposCount(ciudad) {
+    const filter = ciudad ? { ciudad } : {};
+    return equipos.countDocuments(filter);
+}
+
+export async function getCiudades() {
+    const ciudades = await equipos.distinct('ciudad');
+    return ciudades
+        .filter(ciudad => typeof ciudad === 'string' && ciudad.trim() !== '')
+        .sort((a, b) => a.localeCompare(b, 'es'));
 }
 
 async function updateTeamPositions() {

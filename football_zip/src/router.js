@@ -13,6 +13,76 @@ async function getMenuData() {
     };
 }
 
+function getFilteredUrl(ciudad, pagina, paginaOrigen) {
+    const params = new URLSearchParams({
+        ciudad,
+        pagina: String(pagina),
+        paginaOrigen: String(paginaOrigen)
+    });
+    return `/filtrar?${params}`;
+}
+
+async function renderIndex(res, ciudad, requestedPage, paginaOrigen) {
+    const pageSize = 6;
+    const totalTeams = await LaLiga.getEquiposCount(ciudad);
+    const totalPages = Math.max(1, Math.ceil(totalTeams / pageSize));
+    const currentPage = Math.min(requestedPage, totalPages);
+
+    if (requestedPage !== currentPage) {
+        return res.redirect(
+            ciudad
+                ? getFilteredUrl(ciudad, currentPage, paginaOrigen)
+                : `/index/${currentPage}`
+        );
+    }
+
+    const offset = (currentPage - 1) * pageSize;
+    const teams = await LaLiga.getEquipos(offset, pageSize, ciudad);
+    const [menuTeams, cities] = await Promise.all([
+        LaLiga.getAllEquipos(),
+        LaLiga.getCiudades()
+    ]);
+    const pages = [];
+
+    for (let number = 1; number <= totalPages; number++) {
+        pages.push({
+            number,
+            active: number === currentPage,
+            url: ciudad
+                ? getFilteredUrl(ciudad, number, paginaOrigen)
+                : `/index/${number}`
+        });
+    }
+
+    res.render('index', {
+        equipos: teams,
+        allEquipos: menuTeams,
+        hayEquipos: totalTeams > 0,
+        pages,
+        hasPrevious: currentPage > 1,
+        previousPage: currentPage - 1,
+        previousUrl: ciudad
+            ? getFilteredUrl(ciudad, currentPage - 1, paginaOrigen)
+            : `/index/${currentPage - 1}`,
+        hasNext: currentPage < totalPages,
+        nextPage: currentPage + 1,
+        nextUrl: ciudad
+            ? getFilteredUrl(ciudad, currentPage + 1, paginaOrigen)
+            : `/index/${currentPage + 1}`,
+        ciudades: cities.map(value => ({
+            value,
+            selected: value === ciudad
+        })),
+        todasCiudadesSeleccionada: !ciudad,
+        filtroActivo: Boolean(ciudad),
+        ciudadSeleccionada: ciudad || '',
+        paginaOrigen,
+        mensajeSinEquipos: ciudad
+            ? `No hay equipos registrados en ${ciudad}.`
+            : 'No hay equipos registrados.'
+    });
+}
+
 function readText(value) {
     return typeof value === 'string' ? value.trim() : '';
 }
@@ -64,44 +134,35 @@ router.get('/buscar', async (req, res) => {
     });
 });
 
+
 router.get('/index/:page', async (req, res) => {
-    const pageSize = 6;
     const requestedPage = Number(req.params.page);
 
     if (!Number.isSafeInteger(requestedPage) || requestedPage < 1) {
         return res.redirect('/index/1');
     }
 
-    const totalTeams = await LaLiga.getEquiposCount();
-    const totalPages = Math.max(1, Math.ceil(totalTeams / pageSize));
-    const currentPage = Math.min(requestedPage, totalPages);
+    return renderIndex(res, null, requestedPage, requestedPage);
+});
 
-    if (requestedPage !== currentPage) {
-        return res.redirect(`/index/${currentPage}`);
+router.get('/filtrar', async (req, res) => {
+    const ciudad = readText(req.query.ciudad);
+    const requestedPage = Number(req.query.pagina ?? 1);
+    const requestedOriginPage = Number(req.query.paginaOrigen ?? 1);
+    const paginaOrigen =
+        Number.isSafeInteger(requestedOriginPage) && requestedOriginPage > 0
+            ? requestedOriginPage
+            : 1;
+
+    if (!ciudad) {
+        return res.redirect(`/index/${paginaOrigen}`);
     }
 
-    const offset = (currentPage - 1) * pageSize;
-    const teams = await LaLiga.getEquipos(offset);
-    const menuTeams = await LaLiga.getAllEquipos();
-    const pages = [];
-
-    for (let number = 1; number <= totalPages; number++) {
-        pages.push({
-            number,
-            active: number === currentPage
-        });
+    if (!Number.isSafeInteger(requestedPage) || requestedPage < 1) {
+        return res.redirect(getFilteredUrl(ciudad, 1, paginaOrigen));
     }
 
-    return res.render('index', {
-        equipos: teams,
-        allEquipos: menuTeams,
-        hayEquipos: totalTeams > 0,
-        pages,
-        hasPrevious: currentPage > 1,
-        previousPage: currentPage - 1,
-        hasNext: currentPage < totalPages,
-        nextPage: currentPage + 1
-    });
+    return renderIndex(res, ciudad, requestedPage, paginaOrigen);
 });
 router.get('/formularioEquipo', async (req, res) => {
     const positions = [];

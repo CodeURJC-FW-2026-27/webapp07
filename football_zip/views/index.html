@@ -43,16 +43,49 @@
   {{/hayEquipos}}
   {{^hayEquipos}}
   <div style="text-align: center; margin: 100px;">
-    <h5>No hay equipos registrados.</h5>
+    <h5>{{mensajeSinEquipos}}</h5>
+    {{^filtroActivo}}
     <p><a href="/formularioEquipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
+    {{/filtroActivo}}
   </div>
   {{/hayEquipos}}
+  {{#hayEquipos}}
+  <div class="text-right" style="margin-top: 20px;">
+    {{^filtroActivo}}
+    <form action="/filtrar" method="get" class="form-inline">
+      <label for="ciudad">Filtrar por ciudad:</label>
+      <select id="ciudad" name="ciudad" class="form-control">
+        <option value="" {{#todasCiudadesSeleccionada}}selected{{/todasCiudadesSeleccionada}}>Todas las ciudades</option>
+        {{#ciudades}}
+        <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
+        {{/ciudades}}
+      </select>
+      <input type="hidden" name="paginaOrigen" value="{{paginaOrigen}}">
+      <button type="submit" class="btn btn-primary">Filtrar</button>
+    </form>
+    {{/filtroActivo}}
+    {{#filtroActivo}}
+    <p>
+      Filtrado por ciudad: <strong>{{ciudadSeleccionada}}</strong>
+      <a href="/index/{{paginaOrigen}}" class="btn btn-default">Eliminar filtrado</a>
+    </p>
+    {{/filtroActivo}}
+  </div>
+  {{/hayEquipos}}
+  {{#filtroActivo}}
+  {{^hayEquipos}}
+  <div class="text-right" style="margin-top: 20px;">
+    <span>Filtrado por ciudad: <strong>{{ciudadSeleccionada}}</strong></span>
+    <a href="/index/{{paginaOrigen}}" class="btn btn-default">Eliminar filtrado</a>
+  </div>
+  {{/hayEquipos}}
+  {{/filtroActivo}}
   {{#hayEquipos}}
   <div style="text-align: center; margin-top: 20px;">
     <ul class="pagination">
       {{#hasPrevious}}
       <li>
-          <a href="/index/{{previousPage}}" aria-label="Página anterior">
+          <a href="{{previousUrl}}" aria-label="Página anterior">
               Anterior
           </a>
       </li>
@@ -67,14 +100,14 @@
 
           {{^active}}
           <li>
-              <a href="/index/{{number}}">{{number}}</a>
+              <a href="{{url}}">{{number}}</a>
           </li>
           {{/active}}
       {{/pages}}
 
       {{#hasNext}}
       <li>
-          <a href="/index/{{nextPage}}" aria-label="Página siguiente">
+          <a href="{{nextUrl}}" aria-label="Página siguiente">
               Siguiente
           </a>
       </li>

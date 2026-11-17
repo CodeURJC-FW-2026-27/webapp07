@@ -107,10 +107,22 @@ router.get('/index/:page', async (req, res) => {
 });
 
 router.get('/formularioEquipo', (req, res) => {
-    res.render('formularioEquipo', {allEquipos: allEquipos, hayEquipos: hayEquipos});
+    const positions = [];
+
+    for (let number = 1; number <= 20; number++) {
+        positions.push({ number, selected: false });
+    }
+
+    res.render('formularioEquipo', {
+        positions,
+        allEquipos,
+        hayEquipos
+    });
 });
 
 router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
+    const teamId = readText(req.body.id);
+    let previousTeam = null;
     async function showError(message, status = 400) {
         if (req.file) {
             await fs.rm(req.file.path, { force: true });
@@ -119,9 +131,23 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         return renderFormError(
             res,
             message,
-            '/formularioEquipo',
+            previousTeam
+            ? `/equipo/${teamId}/editar`
+            : '/formularioEquipo',
             status
         );
+    }
+
+    if (teamId) {
+        if (!/^[a-f\d]{24}$/i.test(teamId)) {
+            return showError('El identificador del equipo es incorrecto.');
+        }
+
+        previousTeam = await LaLiga.getEquipo(teamId);
+
+        if (!previousTeam) {
+            return showError('El equipo no existe.', 404);
+        }
     }
 
     const teamName = readText(req.body.nombre);
@@ -140,7 +166,7 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         null
     );
 
-    if (!req.file) {
+    if (!req.file && !previousTeam?.escudo) {
         return showError('Selecciona una imagen para el escudo.');
     }
 
@@ -196,12 +222,16 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         return showError('La mejor posición debe estar entre 1 y 20.');
     }
 
-    const existingTeam = await LaLiga.equipos.findOne({
-        nombre: teamName
-    });
+    const nameFilter = { nombre: teamName };
+
+    if (previousTeam) {
+        nameFilter._id = { $ne: previousTeam._id };
+    }
+
+    const existingTeam = await LaLiga.equipos.findOne(nameFilter);
 
     if (existingTeam) {
-        return showError('Ya existe un equipo con ese nombre.', 409);
+        return showError('Ya existe otro equipo con ese nombre.', 409);
     }
 
     const newTeam = {
@@ -217,11 +247,28 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         ligas: leagueTitles,
         mejorPosicion: bestPosition,
         dato: fact,
-        escudo: req.file.filename,
-        jugadores: []
+        escudo: req.file?.filename ?? previousTeam?.escudo,
     };
 
-    const { insertedId } = await LaLiga.addequipo(newTeam);
+    let savedId;
+
+    if (previousTeam) {
+        const result = await LaLiga.equipos.updateOne(
+            { _id: previousTeam._id },
+            { $set: newTeam }
+        );
+
+        if (result.matchedCount === 0) {
+            return showError('El equipo ya no existe.', 404);
+        }
+
+        savedId = previousTeam._id;
+    } else {
+        newTeam.jugadores = [];
+
+        const result = await LaLiga.addequipo(newTeam);
+        savedId = result.insertedId;
+    }
 
     const teams = await LaLiga.equipos
         .find()
@@ -235,10 +282,17 @@ router.post('/guardarEquipo', upload.single('imagen'), async (req, res) => {
         );
     }
 
+    allEquipos = await LaLiga.equipos.find().toArray();
+    hayEquipos = allEquipos.length > 0;
+
     return res.render('confirmacion', {
-        message: 'El equipo se ha creado correctamente.',
-        returnUrl: `/equipo/${insertedId}`,
-        returnLabel: 'Ver equipo'
+        message: previousTeam
+            ? 'El equipo se ha actualizado correctamente.'
+            : 'El equipo se ha creado correctamente.',
+        returnUrl: `/equipo/${savedId}`,
+        returnLabel: 'Ver equipo',
+        allEquipos,
+        hayEquipos
     });
 });
 router.get('/equipo/:id/imagen', async (req, res) => {
@@ -301,6 +355,44 @@ router.post('/equipo/:id/borrar', async (req, res) => {
         message: 'El equipo se ha eliminado correctamente.',
         returnUrl: '/index/1',
         returnLabel: 'Volver al listado',
+        allEquipos,
+        hayEquipos
+    });
+});
+
+router.get('/equipo/:id/editar', async (req, res) => {
+    if (!/^[a-f\d]{24}$/i.test(req.params.id)) {
+        return renderFormError(
+            res,
+            'El identificador del equipo es incorrecto.',
+            '/index/1'
+        );
+    }
+
+    const team = await LaLiga.getEquipo(req.params.id);
+
+    if (!team) {
+        return renderFormError(
+            res,
+            'El equipo no existe.',
+            '/index/1',
+            404
+        );
+    }
+
+    const positions = [];
+
+    for (let number = 1; number <= 20; number++) {
+        positions.push({
+            number,
+            selected: number === Number(team.mejorPosicion)
+        });
+    }
+
+    res.render('formularioEquipo', {
+        equipo: team,
+        editing: true,
+        positions,
         allEquipos,
         hayEquipos
     });

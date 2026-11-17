@@ -43,6 +43,28 @@ router.get('/index', (req, res) => {
     res.redirect('/index/1');
 });
 
+router.get('/buscar', async (req, res) => {
+    const busqueda = (req.query.busqueda ?? '').trim();
+
+    if (!busqueda) {
+        return res.redirect('/index/1');
+    }
+
+    const equipo = await LaLiga.equipos.findOne({
+        nombre: { $regex: `^${busqueda}$`, $options: 'i' }
+    });
+
+    if (equipo) {
+        return res.redirect(`/equipo/${equipo._id}`);
+    }
+
+    return res.status(404).render('error', {
+        message: `No se encontró el equipo "${busqueda}".`,
+        returnUrl: '/index/1',
+        returnLabel: 'Volver al inicio'
+    });
+});
+
 router.get('/index/:page', async (req, res) => {
     const pageSize = 6;
     const requestedPage = Number(req.params.page);

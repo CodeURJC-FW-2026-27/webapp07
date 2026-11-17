@@ -1,13 +1,14 @@
 import express from 'express';
 import multer from 'multer';
 import fs from 'node:fs/promises';
+import { ObjectId } from 'mongodb';
 
 import * as LaLiga from './board.js';
 
 const router = express.Router();
 export default router;
-const allEquipos = await LaLiga.equipos.find().toArray();
-const hayEquipos = allEquipos.length !== 0;
+let allEquipos = await LaLiga.equipos.find().toArray();
+let hayEquipos = allEquipos.length !== 0;
     
 const upload = multer({ dest: LaLiga.UPLOADS_FOLDER })
 router.get('/', (req, res) => {

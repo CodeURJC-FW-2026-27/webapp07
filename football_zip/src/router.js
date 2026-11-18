@@ -478,11 +478,10 @@ router.post('/formEditarJugador/:equipoId/:jugadorId', async (req, res) => {
     });
 });
 
-router.post('/editarJugador/:equipoId/:jugadorId', async (req, res) => {
+router.post(['/guardarJugador/:equipoId/:jugadorId', '/guardarJugador/:equipoId/'], async (req, res) => {
     const equipoId = req.params.equipoId;
     const jugadorId = req.params.jugadorId;
-
-    await LaLiga.updateJugador(equipoId, jugadorId, {
+    let jugador = {
         nombre: req.body.nombre,
         nacionalidad: req.body.nacionalidad,
         edad: req.body.edad,
@@ -490,10 +489,20 @@ router.post('/editarJugador/:equipoId/:jugadorId', async (req, res) => {
         partidos: req.body.partidos,
         goles: req.body.goles,
         asistencias: req.body.asistencias
-    });
-    res.render('confirmacion', {
-        message: 'El jugador se ha editado correctamente.',
-        returnUrl: `/equipo/${equipoId}`,
-        returnLabel: 'Volver al equipo'
-    });
+    };
+    if (jugadorId) {
+    await LaLiga.updateJugador(equipoId, jugadorId, jugador);
+        res.render('confirmacion', {
+            message: 'El jugador se ha editado correctamente.',
+            returnUrl: `/equipo/${equipoId}`,
+            returnLabel: 'Volver al equipo'
+        });
+    } else {
+        await LaLiga.addJugador(equipoId, jugador);
+        res.render('confirmacion', {
+            message: 'El jugador se ha añadido correctamente.',
+            returnUrl: `/equipo/${equipoId}`,
+            returnLabel: 'Volver al equipo'
+        });
+    }
 });

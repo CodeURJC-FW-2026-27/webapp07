@@ -130,10 +130,10 @@
 			<label for="jugador-posicion">Posición *</label>
 			<select id="jugador-posicion" name="posicion" class="form-control" required>
 				<option value="">Selecciona una posición</option>
-				<option value="portero">Portero</option>
-				<option value="defensa">Defensa</option>
-				<option value="centrocampista">Centrocampista</option>
-				<option value="delantero">Delantero</option>
+				<option value="portero" {{#isGoalkeeper}}selected{{/isGoalkeeper}}>Portero</option>
+				<option value="defensa" {{#isDefender}}selected{{/isDefender}}>	Defensa</option>
+				<option value="centrocampista" {{#isMidfielder}}selected{{/isMidfielder}}>Centrocampista</option>
+				<option value="delantero" {{#isForward}}selected{{/isForward}}>Delantero</option>
 			</select>
 		</div>
 	</div>

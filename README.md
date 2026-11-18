@@ -325,7 +325,7 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 1. Creación automatica de archivos con el load data ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/d6dd2c1f7063cce767b5aedd0e81a42a49759647))
 2. Creación y completado del archivo board.js  (Dos commits principales)([ENLACE_AL_COMMIT_2.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/011eb05f3b1c424a310062c7bf7e3d0858e321f2))([ENLACE_AL_COMMIT_2.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/cd48b8831d709a2dcdca776caa6a396d1f160b9f))
-3. Ajuste, edición y simplificación del css global ([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/13c32e51b20598c1d13d9208a907f2fbc9f4055a))
+3. Ajuste, edición y simplificación del css global ([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/0a94e8c0c86e381c0518910f2c3708dbb9411c76))
 4. Filtrado por categoria ([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/792bdc8d5e228abd7680b212dea2440553ae4266))
 5. Ajuste de las dependencias (Dos commits principales) ([ENLACE_AL_COMMIT_5.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/5f7e71b89593df06e4ad96ef77dd0d5194d41f96))([ENLACE_AL_COMMIT_5.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/92618f31aaae24a8f8b02b45eab37d1e6512ba2a))
 

@@ -99,6 +99,37 @@ function isIntegerInRange(value, min, max) {
     return Number.isInteger(value) && value >= min && value <= max;
 }
 
+// Parse the form and return the first validation error, if any.
+function parsePlayerForm(body = {}) {
+    const player = {
+        nombre: readText(body.nombre),
+        nacionalidad: readText(body.nacionalidad),
+        edad: Number(readText(body.edad)),
+        posicion: readText(body.posicion),
+        partidos: readOptionalNumber(body.partidos),
+        goles: readOptionalNumber(body.goles),
+        asistencias: readOptionalNumber(body.asistencias)
+    };
+
+    if (!player.nombre || !player.nacionalidad) {
+        return { error: 'Rellena el nombre y la nacionalidad del jugador.' };
+    }
+    if (!isIntegerInRange(player.edad, 1, 120)) {
+        return { error: 'La edad debe ser un número entero entre 1 y 120.' };
+    }
+    const positions = ['portero', 'defensa', 'centrocampista', 'delantero'];
+    if (!positions.includes(player.posicion)) {
+        return { error: 'Selecciona una posición válida para el jugador.' };
+    }
+    if (![player.partidos, player.goles, player.asistencias].every(
+        value => isIntegerInRange(value, 0, Number.MAX_SAFE_INTEGER)
+    )) {
+        return { error: 'Los partidos, goles y asistencias deben ser números enteros no negativos.' };
+    }
+
+    return { player };
+}
+
 function renderFormError(res, message, returnUrl, status = 400) {
     return res.status(status).render('error', {
         message,
@@ -345,23 +376,7 @@ router.get('/equipo/:id', async (req, res) => {
     });
 });
 
-router.post('/nuevoJugador/:id', async (req, res) => {
-    const jugador = {
-        nombre: req.body.nombre,
-        nacionalidad: req.body.nacionalidad,
-        edad: req.body.edad,
-        posicion: req.body.posicion,
-        partidos: req.body.partidos,
-        goles: req.body.goles,
-        asistencias: req.body.asistencias
-    };
-    await LaLiga.addJugador(req.params.id, jugador);
-    res.render(`confirmacion`, {
-        message: 'El jugador se ha añadido correctamente.',
-        returnUrl: `/equipo/${req.params.id}`,
-        returnLabel: 'Volver al equipo'
-    });
-});
+router.post('/nuevoJugador/:id', savePlayer);
 
 router.post('/equipo/:id/borrar', async (req, res) => {
     const equipo = await LaLiga.deleteEquipo(req.params.id);
@@ -478,22 +493,36 @@ router.post('/formEditarJugador/:equipoId/:jugadorId', async (req, res) => {
     });
 });
 
-router.post('/editarJugador/:equipoId/:jugadorId', async (req, res) => {
-    const equipoId = req.params.equipoId;
-    const jugadorId = req.params.jugadorId;
+async function savePlayer(req, res) {
+    const teamId = req.params.equipoId || req.params.id;
+    const playerId = req.params.jugadorId;
+    const returnUrl = '/equipo/' + teamId;
 
-    await LaLiga.updateJugador(equipoId, jugadorId, {
-        nombre: req.body.nombre,
-        nacionalidad: req.body.nacionalidad,
-        edad: req.body.edad,
-        posicion: req.body.posicion,
-        partidos: req.body.partidos,
-        goles: req.body.goles,
-        asistencias: req.body.asistencias
-    });
-    res.render('confirmacion', {
-        message: 'El jugador se ha editado correctamente.',
-        returnUrl: `/equipo/${equipoId}`,
+    if (!/^[a-f\d]{24}$/i.test(teamId) ||
+        (playerId && !/^[a-f\d]{24}$/i.test(playerId))) {
+        return renderFormError(res, 'El identificador del equipo o jugador es incorrecto.', '/index/1');
+    }
+
+    const { player, error } = parsePlayerForm(req.body);
+    if (error) {
+        return renderFormError(res, error, returnUrl);
+    }
+
+    const result = playerId
+        ? await LaLiga.updateJugador(teamId, playerId, player)
+        : await LaLiga.addJugador(teamId, player);
+
+    if (result.matchedCount === 0) {
+        return renderFormError(res, 'El equipo o jugador ya no existe.', '/index/1', 404);
+    }
+
+    return res.render('confirmacion', {
+        message: playerId
+            ? 'El jugador se ha editado correctamente.'
+            : 'El jugador se ha añadido correctamente.',
+        returnUrl,
         returnLabel: 'Volver al equipo'
     });
-});
+}
+
+router.post(['/guardarJugador/:equipoId/:jugadorId', '/guardarJugador/:equipoId/'], savePlayer);

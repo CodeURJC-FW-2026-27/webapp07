@@ -883,3 +883,10 @@ th {
   font-weight: bold;
   margin-bottom: 16px;
 }
+
+/* Keep the registration button inside its container on small screens. */
+.boardEquipos a.btn[href="/formularioEquipo"] {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}

@@ -104,72 +104,31 @@
 		<h5>No hay jugadores en este equipo.</h5>
 	</div>
 	{{/hayJugadores}}
-{{^editar}}
-<form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="titulo-formulario-jugador" action="/nuevoJugador/{{equipo._id}}" method="post">
-			<h4 id="titulo-formulario-jugador" class="mgt">Añadir jugador</h4>
-			<div class="row">
-				<div class="form-group col-sm-6">
-					<label for="jugador-nombre">Nombre</label>
-					<input type="text" id="jugador-nombre" name="nombre" class="form-control">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="jugador-nacionalidad">Nacionalidad</label>
-					<input type="text" id="jugador-nacionalidad" name="nacionalidad" class="form-control">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="jugador-edad">Edad</label>
-					<input type="number" id="jugador-edad" name="edad" min="1" class="form-control">
-				</div>
-				<div class="form-group col-sm-6">
-					<label for="jugador-posicion">Posición</label>
-					<select id="jugador-posicion" name="posicion" class="form-control">
-						<option value="">Selecciona una posición</option>
-						<option value="portero">Portero</option>
-						<option value="defensa">Defensa</option>
-						<option value="centrocampista">Centrocampista</option>
-						<option value="delantero">Delantero</option>
-					</select>
-				</div>
-			</div>
 
-			<div class="row">
-				<div class="form-group col-sm-4">
-					<label for="jugador-partidos">Partidos jugados</label>
-					<input type="number" id="jugador-partidos" name="partidos" min="0" class="form-control">
-				</div>
-				<div class="form-group col-sm-4">
-					<label for="jugador-goles">Goles</label>
-					<input type="number" id="jugador-goles" name="goles" min="0" class="form-control">
-				</div>
-				<div class="form-group col-sm-4">
-					<label for="jugador-asistencias">Asistencias</label>
-					<input type="number" id="jugador-asistencias" name="asistencias" min="0" class="form-control">
-				</div>
-			</div>
-
-			<button type="submit" class="btn btn-primary">Crear</button>
-</form>
-{{/editar}}
-{{#editar}}
 <form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="titulo-formulario-jugador"
-	action="/editarJugador/{{equipo._id}}/{{jugador._id}}" method="post">
+	action="/guardarJugador/{{equipo._id}}/{{jugador._id}}" method="post">
+	{{#editar}}
 	<h4 id="titulo-formulario-jugador" class="mgt">Editar jugador</h4>
+	{{/editar}}
+	{{^editar}}
+	<h4 id="titulo-formulario-jugador" class="mgt">Nuevo jugador</h4>
+	{{/editar}}
 	<div class="row">
 		<div class="form-group col-sm-6">
-			<label for="jugador-nombre">Nombre</label>
-			<input type="text" id="jugador-nombre" name="nombre" class="form-control" value="{{jugador.nombre}}">
+			<label for="jugador-nombre">Nombre *</label>
+			<input type="text" id="jugador-nombre" name="nombre" class="form-control" value="{{jugador.nombre}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-nacionalidad">Nacionalidad</label>
-			<input type="text" id="jugador-nacionalidad" name="nacionalidad" class="form-control" value="{{jugador.nacionalidad}}">
+			<label for="jugador-nacionalidad">Nacionalidad *</label>
+			<input type="text" id="jugador-nacionalidad" name="nacionalidad" class="form-control" value="{{jugador.nacionalidad}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-edad">Edad</label>
-			<input type="number" id="jugador-edad" name="edad" min="1" class="form-control" value="{{jugador.edad}}">
+			<label for="jugador-edad">Edad *</label>
+			<input type="number" id="jugador-edad" name="edad" min="1" class="form-control" value="{{jugador.edad}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-posicion">Posición</label>
-			<select id="jugador-posicion" name="posicion" class="form-control">
+			<label for="jugador-posicion">Posición *</label>
+			<select id="jugador-posicion" name="posicion" class="form-control" required>
 				<option value="">Selecciona una posición</option>
 				<option value="portero">Portero</option>
 				<option value="defensa">Defensa</option>
@@ -181,22 +140,25 @@
 
 	<div class="row">
 		<div class="form-group col-sm-4">
-			<label for="jugador-partidos">Partidos jugados</label>
-			<input type="number" id="jugador-partidos" name="partidos" min="0" class="form-control" value="{{jugador.partidos}}">
+			<label for="jugador-partidos">Partidos jugados *</label>
+			<input type="number" id="jugador-partidos" name="partidos" min="0" class="form-control" value="{{jugador.partidos}}" required>
 		</div>
 		<div class="form-group col-sm-4">
-			<label for="jugador-goles">Goles</label>
-			<input type="number" id="jugador-goles" name="goles" min="0" class="form-control" value="{{jugador.goles}}">
+			<label for="jugador-goles">Goles *</label>
+			<input type="number" id="jugador-goles" name="goles" min="0" class="form-control" value="{{jugador.goles}}" required>
 		</div>
 		<div class="form-group col-sm-4">
-			<label for="jugador-asistencias">Asistencias</label>
-			<input type="number" id="jugador-asistencias" name="asistencias" min="0" class="form-control" value="{{jugador.asistencias}}">
+			<label for="jugador-asistencias">Asistencias *</label>
+			<input type="number" id="jugador-asistencias" name="asistencias" min="0" class="form-control" value="{{jugador.asistencias}}" required>
 		</div>
 	</div>
-
+	{{#editar}}
 	<button type="submit" class="btn btn-primary">Editar</button>
+	{{/editar}}
+	{{^editar}}
+	<button type="submit" class="btn btn-primary">Crear</button>
+	{{/editar}}
 </form>
-{{/editar}}
 	<!-- Botones -->
 	<div class="actions">	
 		<a href="/equipo/{{equipo._id}}/editar" class="btn btn-primary">Editar equipo</a>

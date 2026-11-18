@@ -485,6 +485,10 @@ router.post('/formEditarJugador/:equipoId/:jugadorId', async (req, res) => {
     );
     const menuData = await getMenuData();
     res.render('equipo', {
+        isGoalkeeper: jugador.posicion === 'portero',
+        isDefender: jugador.posicion === 'defensa',
+        isMidfielder: jugador.posicion === 'centrocampista',
+        isForward: jugador.posicion === 'delantero',
         equipo,
         ...menuData,
         hayJugadores: true,

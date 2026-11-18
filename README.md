@@ -291,18 +291,20 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 - Arreglo de datos de los equipos que no se mostraban debidamente en pantalla.
 - Limpieza de elementos innecesarios como fotos y código que no servía para nada ya que la práctica 1 no se hizo como se debía
 - Implementación del buscador en la cabecera para buscar equipos guardados en la base de datos.
+- Grabación del video explicativo de la funcionalidad de la página
 
-#### 5 commits más significativos
+#### 3 commits más significativos
 
 1. Arreglo de detalles de equipos([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/ad5cdf8cf9299c8fa773cbf80bf6f081a8dc0f1e))
 2. Limpieza de cosas que no servían([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/6d56ab728cda69a8b109356a35dd50fde5cab2c1))
 3. Implementación del buscador([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/a572add6f706f4524a3334602923aff0fe4202d6))
 
-#### 5 ficheros en los que más ha participado
+#### 4 ficheros en los que más ha participado
 
 1. header.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/header.html))
 2. router.js([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/router.js))
 3. team.html([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/team.html))
+4. carpeta img ([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/tree/main/football_zip/public/img))
 
 ---
 

@@ -202,21 +202,21 @@ Para detener la aplicación, pulsa `Ctrl+C` en la terminal donde se ejecuta `npm
 
 Los ficheros creados o modificados por el equipo para implementar la aplicación se organizan así:
 
-- package.json`: dependencias y comandos de ejecución ('npm start' y 'npm run watch').
-app.js`: crea y configura Express, Mustache, los ficheros estáticos, el análisis de formularios y el puerto 3000.
-- router.js: define las rutas, prepara los datos de las vistas y gestiona equipos, jugadores, búsquedas, filtros, formularios y errores.
-- board.js: acceso a MongoDB y operaciones de consulta, creación, edición y borrado de equipos y jugadores; también gestiona las imágenes subidas.
-- load_data.js: crea el directorio de subidas y carga los datos de demostración cuando la base de datos no contiene equipos.
-- views: plantillas Mustache de las páginas y componentes compartidos: index.html, equipo.html, formularioEquipo.html, header.html, footer.html, confirmacion.html y error.html.
-- css: hojas de estilo de la interfaz (global.css, index.css, equipos.css, formulario.css, tarjetas-equipos.css y estilos auxiliares). También contiene Bootstrap y otros estilos de terceros.
-- public: archivos estaticos empleados en la pagina
-- data: Datos de demostracion de añadido inicial referenciados por data.json.
-- uploads: destino de las imágenes  cargadas mediante el formulario.
-- .gitignore: excluye dependencias instaladas e imágenes subidas del control de versiones.
+- **package.json**: dependencias y comandos de ejecución (`npm start` y `npm run watch`).
+- **app.js**: crea y configura Express, Mustache, los ficheros estáticos, el análisis de formularios y el puerto 3000.
+- **router.js**: define las rutas, prepara los datos de las vistas y gestiona equipos, jugadores, búsquedas, filtros, formularios y errores.
+- **board.js**: acceso a MongoDB y operaciones de consulta, creación, edición y borrado de equipos y jugadores; también gestiona las imágenes subidas.
+- **load_data.js**: crea el directorio de subidas y carga los datos de demostración cuando la base de datos no contiene equipos.
+- **/views**: plantillas Mustache de las páginas y componentes compartidos: index.html, equipo.html, formularioEquipo.html, header.html, footer.html, confirmacion.html y error.html.
+- **/css**: hojas de estilo de la interfaz (global.css, index.css, equipos.css, formulario.css, tarjetas-equipos.css y estilos auxiliares). También contiene Bootstrap y otros estilos de terceros.
+- **/public**: archivos estaticos empleados en la pagina
+- **/data**: Datos de demostracion de añadido inicial referenciados por data.json.
+- **/uploads**: destino de las imágenes  cargadas mediante el formulario.
+- **.gitignore**: excluye dependencias instaladas e imágenes subidas del control de versiones.
 
 ## 3. Vídeo demostrativo
 
-Vídeo de YouTube (duración mínima: 1 minuto) mostrando la funcionalidad de la aplicación: **[ENLACE AL VÍDEO]**.
+Vídeo de YouTube (duración mínima: 1 minuto) mostrando la funcionalidad de la aplicación: **[ENLACE AL VÍDEO](https://youtu.be/N9QVDtXqxjc)**.
 
 ## 4. Participación de los miembros del equipo
 

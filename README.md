@@ -178,3 +178,160 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 3. README.md([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/README.md))
 4. global.css([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/global.css))
 5. equipos.css([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/equipos.css))
+
+# Práctica 2
+
+## 1. Instrucciones de ejecución
+
+### Requisitos
+
+- Node.js 20 o superior y npm (incluido con Node.js).
+- MongoDB Community Server instalado y en ejecución, escuchando en `localhost:27017`.
+- Git para clonar el repositorio.
+
+La aplicación se conecta a MongoDB en `mongodb://localhost:27017` y utiliza la base de datos `LaLiga`. No es necesario crear la base de datos ni la colección: MongoDB las crea al guardar los primeros datos. Si la colección está vacía, al arrancar se cargan los equipos y jugadores de demostración incluidos en `football_zip/data`.
+
+### Descargar, instalar y ejecutar
+
+
+Inicia MongoDB. En una instalación local de MongoDB Community Server, normalmente puede hacerse con:
+
+En la terminal de football-zip, instala las dependencias y arranca el servidor web:
+npm install
+npm run watch
+
+
+Abre [http://localhost:3000](http://localhost:3000) en el navegador. 
+Para detener la aplicación, pulsa `Ctrl+C` en la terminal donde se ejecuta `npm run watch`.
+
+## 2. Descripción de ficheros
+
+Los ficheros creados o modificados por el equipo para implementar la aplicación se organizan así:
+
+package.json`: dependencias y comandos de ejecución ('npm start' y 'npm run watch').
+app.js`: crea y configura Express, Mustache, los ficheros estáticos, el análisis de formularios y el puerto 3000.
+router.js: define las rutas, prepara los datos de las vistas y gestiona equipos, jugadores, búsquedas, filtros, formularios y errores.
+board.js: acceso a MongoDB y operaciones de consulta, creación, edición y borrado de equipos y jugadores; también gestiona las imágenes subidas.
+load_data.js: crea el directorio de subidas y carga los datos de demostración cuando la base de datos no contiene equipos.
+views: plantillas Mustache de las páginas y componentes compartidos: index.html, equipo.html, formularioEquipo.html, header.html, footer.html, confirmacion.html y error.html.
+css: hojas de estilo de la interfaz (global.css, index.css, equipos.css, formulario.css, tarjetas-equipos.css y estilos auxiliares). También contiene Bootstrap y otros estilos de terceros.
+public: archivos estaticos empleados en la pagina
+data: Datos de demostracion de añadido inicial referenciados por data.json.
+uploads: destino de las imágenes  cargadas mediante el formulario.
+.gitignore: excluye dependencias instaladas e imágenes subidas del control de versiones.
+
+## 3. Vídeo demostrativo
+
+Vídeo de YouTube (duración mínima: 1 minuto) mostrando la funcionalidad de la aplicación: **[ENLACE AL VÍDEO]**.
+
+## 4. Participación de los miembros del equipo
+
+En este apartado se detalla la contribución individual de cada miembro del equipo durante la Práctica 1.
+
+### 4.1. [Alejandro Herranz de Galdo]
+
+#### Tareas realizadas
+
+- Creación del diseño y de la estructura del contenido de las páginas de la entidad principal (5 equipos de LaLiga EA Sports).
+- Implementación de las fotos de los jugadores de los equipos asignados, así como la integración de los escudos y las imágenes de los estadios.
+- Reestructuración del contenido eliminando páginas redundantes de la anterior plantilla.
+- Colaboración en el diseño de la interfaz.
+- Implementación de los botones "Editar" y "Borrar" específicos del apartado de leyendas.
+
+#### 5 commits más significativos
+
+1. Creación del Atlético de Madrid, tanto la información como las fotos ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/662911dc6336096a878b42e1a4a41648021d0a11))
+2. Creación del FC Barcelona, tanto la información como las fotos([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/81f1fbe920bfae0d6c177c3086d9857d9841187d))
+3. Creación del Málaga FC, tanto la información como las fotos([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/977b4b61161e43b70bad428036d0615930bc9834))
+4. Creación de los botones "Editar" y "Borrar" de todas las leyendas [(ENLACE_AL_COMMIT_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/b08e13d984879ce9acb6e67723b68c7517d62be9)
+5. Borrado de una de las páginas de la anterior plantilla [(ENLACE_AL_COMMIT_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/98799ab8e2f2a507a8924e15befd1da655dbdb99)
+
+#### 5 ficheros en los que más ha participado
+
+1. atm.html [(ENLACE_AL_FICHERO_1)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/atm.html)
+2. barca.html [(ENLACE_AL_FICHERO_2)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/barca.html)
+3. rayo.html [(ENLACE_AL_FICHERO_3)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/rayo.html)
+4. malaga.html [(ENLACE_AL_FICHERO_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/malaga.html)
+5. betis.html [(ENLACE_AL_FICHERO_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/betis.html)
+
+---
+
+### 4.2. [Neyén Alberquilla Velazquez]
+
+#### Tareas realizadas
+
+- Creación de la página de inicio (modificación del carousel original de la plantilla y creación de la tabla de clasificación).
+- Creación de la estructura de la página de equipos (sección de información y "grids" de la plantilla del equipo).
+- Modificación de cabaceras y footers generales.
+- Creación de algunos clubes y leyendas.
+
+#### 5 commits más significativos
+
+1. Creación de la página de equipo([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/905226a2707578b84480355c17e566bebb52c22a))
+2. Modificación de la página de inicio([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/5c0f2b611a15dc25cb53285e6528e0bbed016f6f))
+3. Creación de equipos y leyendas([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/4ac50be7826635a9cc00c688f98585ac41543c8b))
+4. Creación de la tabla de clasificación en inicio([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/e98e5874eb102b8c8cc8f5125c5269c19350fc68))
+5. Header y footer general + últimos equipos y leyendas([ENLACE_AL_COMMIT_5](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/aa7d2d7869c0fae7cb78f5a4ccdf2ebc7da95345))
+
+#### 5 ficheros en los que más ha participado
+
+1. index.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/index.html))
+2. madrid.html([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/madrid.html))
+3. index.css([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/index.css))
+4. equipos.css([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/equipos.css))
+5. elche.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/elche.html))
+
+---
+
+### 4.3. [Ivan Gonzalez Toral]
+
+#### Tareas realizadas
+
+- Modificación y preparación de la cabecera de cada página para que se mantenga la misma estética en todos los archivos de forma que tenga la misma estructura (algunos detalles y funcionalidades que Neyén pulió más adelante).
+- Modificación del archivo about.html haciendo borrado de cosas innecesarias e incluyendo detalles como fotos y huecos para poner el palmarés para crear la plantilla que se va a usar para cada leyenda.
+- Modificación de la plantilla de unos cuantos equipos adecuando cada uno con las fotos de los jugadores, la información relevente y los enlaces a sus respectivas leyendas.
+- Creación de las leyendas de varios clubes rellenando con la información adecuada a cada jugador.
+
+#### 5 commits más significativos
+
+1. Eliminación de elementos irrelevantes en la cabecera([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/3789abf36c1194cfddd9138e3b108913c1323065))
+2. Creación de plantilla del jugador([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/f5b546e5f7394beee3557573fbe37fe1e7722604))
+3. Página de la leyenda pulida con la información de Cristiano Ronaldo([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/459dae56270be606434ff5ccebb87c93db7f8b34))
+4. Creción de varias leyendas de otros equipos([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/90e8d79885b5b8caf2d84be604b3fe1a31a92818))
+5. Inserción de elementos requeridos en cada página([ENLACE_AL_COMMIT_5](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/1ece82427d90ce32d08d1dd444a086571b5ba462))
+
+#### 5 ficheros en los que más ha participado
+
+1. CristianoRonaldo.html([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/CristianoRonaldo.html))
+2. sevilla.html([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/sevilla.html))
+3. FernandoTorres.html([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/css/FernandoTorres.html))
+4. Messi.html([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/Messi.html))
+5. Joaquin.html([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/Joaquin.html))
+
+---
+
+### 4.4. [Javier Martin Martin]
+
+
+#### Tareas realizadas
+
+- Creacion de la base de datos en MongoBD.
+- Carga automatica de archivos con el Load data.
+- Creacion de sistema de filtrado.
+- Ajuste de las dependencias y del npm para el comienzo de la practica
+
+#### 5 commits más significativos
+
+1. Creación automatica de archivos con el load data ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/d6dd2c1f7063cce767b5aedd0e81a42a49759647))
+2. Creación y completado del archivo board.js  (Dos commits principales)([ENLACE_AL_COMMIT_2.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/011eb05f3b1c424a310062c7bf7e3d0858e321f2))([ENLACE_AL_COMMIT_2.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/cd48b8831d709a2dcdca776caa6a396d1f160b9f))
+3. Ajuste, edición y simplificación del css global ([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/13c32e51b20598c1d13d9208a907f2fbc9f4055a))
+4. Filtrado por categoria ([ENLACE_AL_COMMIT_4](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/792bdc8d5e228abd7680b212dea2440553ae4266))
+5. Ajuste de las dependencias (Dos commits principales) ([ENLACE_AL_COMMIT_5.1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/5f7e71b89593df06e4ad96ef77dd0d5194d41f96))([ENLACE_AL_COMMIT_5.2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/92618f31aaae24a8f8b02b45eab37d1e6512ba2a))
+
+#### 5 ficheros en los que más ha participado
+
+1. board.js ([ENLACE_AL_FICHERO_1](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/board.js))
+2. load_data.js ([ENLACE_AL_FICHERO_2](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/load_data.js))
+3. router.js ([ENLACE_AL_FICHERO_3](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/router.js))
+4. data.json ([ENLACE_AL_FICHERO_4](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/data/data.json))
+5. index.html ([ENLACE_AL_FICHERO_5](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/index.html))

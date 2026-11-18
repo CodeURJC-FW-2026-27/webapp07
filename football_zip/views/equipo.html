@@ -54,7 +54,7 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="about_1r clearfix">
-				<img src="/equipo/{{team._id}}/imagen" class="iw" height="420" alt="abc">
+				<img src="/team/{{team._id}}/image" class="iw" height="420" alt="abc">
 			</div>
 		</div>
 		</div>
@@ -86,10 +86,10 @@
 						</ul>
 					</div>
 					<div class="panel-footer">
-						<form action="/formEditarJugador/{{team._id}}/{{_id}}" method="post">
+						<form action="/editPlayerForm/{{team._id}}/{{_id}}" method="post">
 						<button type="submit" class="btn btn-primary">Editar</button>
 						</form>
-						<form action="/borrarJugador/{{team._id}}/{{_id}}" method="post">
+						<form action="/deletePlayer/{{team._id}}/{{_id}}" method="post">
 						<button type="submit" class="btn btn-danger">Borrar</button>
 						</form>
 					</div>
@@ -107,7 +107,7 @@
 	{{/hasPlayers}}
 
 <form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="titulo-formulario-jugador"
-	action="/guardarJugador/{{team._id}}/{{player._id}}" method="post">
+	action="/savePlayer/{{team._id}}/{{player._id}}" method="post">
 	{{#editingPlayer}}
 	<h4 id="titulo-formulario-jugador" class="mgt">Editar jugador</h4>
 	{{/editingPlayer}}
@@ -162,9 +162,9 @@
 </form>
 	<!-- Botones -->
 	<div class="actions">	
-		<a href="/equipo/{{team._id}}/editar" class="btn btn-primary">Editar equipo</a>
+		<a href="/team/{{team._id}}/edit" class="btn btn-primary">Editar equipo</a>
 		<a href="index.html" class="btn btn-primary">Cancelar</a>
-		<form action="/equipo/{{team._id}}/borrar" method="post">
+		<form action="/team/{{team._id}}/delete" method="post">
     		<button type="submit" class="btn btn-danger">Borrar equipo</button>
 		</form>
 	</div>

@@ -14,14 +14,14 @@ async function getMenuData() {
     };
 }
 
-// Preserve the existing public query parameter names and the original page.
+// Build the filter URL using English query parameter names and preserve the original page.
 function getFilteredUrl(city, page, originPage) {
     const params = new URLSearchParams({
-        ciudad: city,
-        pagina: String(page),
-        paginaOrigen: String(originPage)
+        city,
+        page: String(page),
+        originPage: String(originPage)
     });
-    return `/filtrar?${params}`;
+    return `/filter?${params}`;
 }
 
 // Rubric 3, 5, 9: show six teams per page, city filters and detail links.
@@ -151,8 +151,8 @@ router.get('/index', (req, res) => {
 });
 
 // Rubric 4: find a team by name and open its detail page.
-router.get('/buscar', async (req, res) => {
-    const searchTerm = (req.query.busqueda ?? '').trim();
+router.get('/search', async (req, res) => {
+    const searchTerm = (req.query.searchTerm ?? '').trim();
 
     if (!searchTerm) {
         return res.redirect('/index/1');
@@ -161,7 +161,7 @@ router.get('/buscar', async (req, res) => {
     const team = await league.findTeamByName(searchTerm);
 
     if (team) {
-        return res.redirect(`/equipo/${team._id}`);
+        return res.redirect(`/team/${team._id}`);
     }
 
     return res.status(404).render('error', {
@@ -183,10 +183,10 @@ router.get('/index/:page', async (req, res) => {
 });
 
 // Rubric 5: apply the selected city while preserving pagination.
-router.get('/filtrar', async (req, res) => {
-    const city = readText(req.query.ciudad);
-    const requestedPage = Number(req.query.pagina ?? 1);
-    const requestedOriginPage = Number(req.query.paginaOrigen ?? 1);
+router.get('/filter', async (req, res) => {
+    const city = readText(req.query.city);
+    const requestedPage = Number(req.query.page ?? 1);
+    const requestedOriginPage = Number(req.query.originPage ?? 1);
     const originPage =
         Number.isSafeInteger(requestedOriginPage) && requestedOriginPage > 0
             ? requestedOriginPage
@@ -203,7 +203,7 @@ router.get('/filtrar', async (req, res) => {
     return renderIndex(res, city, requestedPage, originPage);
 });
 // Rubric 6, 29: open the shared team form for a new team.
-router.get('/formularioEquipo', async (req, res) => {
+router.get('/teamForm', async (req, res) => {
     const positions = [];
     const menuData = await getMenuData();
 
@@ -218,7 +218,7 @@ router.get('/formularioEquipo', async (req, res) => {
 });
 
 // Rubric 6-7, 13, 19, 20, 27, 29: validate, save and confirm team creation/editing.
-router.post('/guardarEquipo', league.upload.single('image'), async (req, res) => {
+router.post('/saveTeam', league.upload.single('image'), async (req, res) => {
     const teamId = readText(req.body.id);
     let previousTeam = null;
     async function showError(message, status = 400) {
@@ -230,8 +230,8 @@ router.post('/guardarEquipo', league.upload.single('image'), async (req, res) =>
             res,
             message,
             previousTeam
-            ? `/equipo/${teamId}/editar`
-            : '/formularioEquipo',
+            ? `/team/${teamId}/edit`
+            : '/teamForm',
             status
         );
     }
@@ -355,13 +355,13 @@ router.post('/guardarEquipo', league.upload.single('image'), async (req, res) =>
         message: previousTeam
             ? 'El equipo se ha actualizado correctamente.'
             : 'El equipo se ha creado correctamente.',
-        returnUrl: `/equipo/${savedId}`,
+        returnUrl: `/team/${savedId}`,
         returnLabel: 'Ver equipo',
         ...menuData
     });
 });
 // Rubric 10: send the crest associated with the requested team.
-router.get('/equipo/:id/imagen', async (req, res) => {
+router.get('/team/:id/image', async (req, res) => {
     const team = await league.getTeam(req.params.id);
 
     if (!team || !team.escudo) {
@@ -374,7 +374,7 @@ router.get('/equipo/:id/imagen', async (req, res) => {
 });    
 
 // Rubric 9-10, 14: load the team detail and its related players.
-router.get('/equipo/:id', async (req, res) => {
+router.get('/team/:id', async (req, res) => {
     const team = await league.getTeam(req.params.id);
     if (!team) {
         return res.status(404).send('Equipo no encontrado');
@@ -389,10 +389,10 @@ router.get('/equipo/:id', async (req, res) => {
 });
 
 // Rubric 15, 29: reuse the same player-saving handler.
-router.post('/nuevoJugador/:id', savePlayer);
+router.post('/newPlayer/:id', savePlayer);
 
 // Rubric 11, 20: delete the team and show the shared confirmation.
-router.post('/equipo/:id/borrar', async (req, res) => {
+router.post('/team/:id/delete', async (req, res) => {
     const team = await league.deleteTeam(req.params.id);
 
     if (!team) {
@@ -414,7 +414,7 @@ router.post('/equipo/:id/borrar', async (req, res) => {
 });
 
 // Rubric 12, 29: prefill the shared team form and select its current best position.
-router.get('/equipo/:id/editar', async (req, res) => {
+router.get('/team/:id/edit', async (req, res) => {
     if (!/^[a-f\d]{24}$/i.test(req.params.id)) {
         return renderFormError(
             res,
@@ -460,9 +460,9 @@ router.use((error, req, res, next) => {
 
     console.error(error);
 
-    const returnUrl = req.path.startsWith('/nuevoJugador/')
+    const returnUrl = req.path.startsWith('/newPlayer/')
         ? '/index/1'
-        : '/formularioEquipo';
+        : '/teamForm';
 
     if (league.isUploadError(error)) {
         return renderFormError(
@@ -481,19 +481,19 @@ router.use((error, req, res, next) => {
 });
 
 // Rubric 16, 20: delete a player and display confirmation.
-router.post('/borrarJugador/:teamId/:playerId', async (req, res) => {
+router.post('/deletePlayer/:teamId/:playerId', async (req, res) => {
     const teamId = req.params.teamId;
     const playerId = req.params.playerId;
     await league.deletePlayer(teamId, playerId);
     res.render('confirmacion', {
         message: 'El jugador se ha borrado correctamente.',
-        returnUrl: `/equipo/${teamId}`,
+        returnUrl: `/team/${teamId}`,
         returnLabel: 'Volver al equipo'
     });
 });
 
 // Rubric 17, 29: prefill the existing player form within the team detail.
-router.post('/formEditarJugador/:teamId/:playerId', async (req, res) => {
+router.post('/editPlayerForm/:teamId/:playerId', async (req, res) => {
     const teamId = req.params.teamId;
     const playerId = req.params.playerId;
     
@@ -519,7 +519,7 @@ router.post('/formEditarJugador/:teamId/:playerId', async (req, res) => {
 async function savePlayer(req, res) {
     const teamId = req.params.teamId || req.params.id;
     const playerId = req.params.playerId;
-    const returnUrl = '/equipo/' + teamId;
+    const returnUrl = '/team/' + teamId;
 
     if (!/^[a-f\d]{24}$/i.test(teamId) ||
         (playerId && !/^[a-f\d]{24}$/i.test(playerId))) {
@@ -548,4 +548,4 @@ async function savePlayer(req, res) {
     });
 }
 
-router.post(['/guardarJugador/:teamId/:playerId', '/guardarJugador/:teamId/'], savePlayer);
+router.post(['/savePlayer/:teamId/:playerId', '/savePlayer/:teamId/'], savePlayer);

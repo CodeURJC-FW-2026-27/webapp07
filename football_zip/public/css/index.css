@@ -885,7 +885,7 @@ th {
 }
 
 /* Keep the registration button inside its container on small screens. */
-.boardEquipos a.btn[href="/formularioEquipo"] {
+.boardEquipos a.btn[href="/teamForm"] {
   max-width: 100%;
   white-space: normal;
   overflow-wrap: anywhere;

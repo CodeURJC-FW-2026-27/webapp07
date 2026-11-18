@@ -9,9 +9,9 @@
                 <p class="site-title">LaLiga: equipos y leyendas</p>
                 <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
             </div>
-           <form action="/buscar" method="GET" class="site-search" role="search">
+           <form action="/search" method="GET" class="site-search" role="search">
                 <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
-                <input type="text" id="busqueda" name="busqueda" placeholder="Buscar en la web...">
+                <input type="text" id="busqueda" name="searchTerm" placeholder="Buscar en la web...">
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -40,7 +40,7 @@
                         {{#hasTeams}}
                             <ul class="dropdown-menu drop_3">
                             {{#allTeams}}
-                            <li><a href="/equipo/{{_id}}">{{nombre}}</a></li>
+                            <li><a href="/team/{{_id}}">{{nombre}}</a></li>
                             {{/allTeams}}
                         </ul>
                         {{/hasTeams}}
@@ -50,7 +50,7 @@
                             </ul>
                         {{/hasTeams}}
                     </li>
-                    <li><a class="m_tag" href="/formularioEquipo">Formulario de equipo</a></li>
+                    <li><a class="m_tag" href="/teamForm">Formulario de equipo</a></li>
                 </ul>
             </div>
         </div>

@@ -28,12 +28,12 @@
 
 <section class="boardEquipos" style="margin-top: 20px; text-align: center;">
   {{#hasTeams}}
-  <p class="text-right"><a href="/formularioEquipo" class="btn btn-primary">Inscribe tu equipo ahora</a></p>
+  <p class="text-right"><a href="/teamForm" class="btn btn-primary">Inscribe tu equipo ahora</a></p>
   <div class="row">
     {{#teams}}
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <a class="equipo" href="/equipo/{{_id}}">
-        <img src="/equipo/{{_id}}/imagen" alt="Escudo de {{nombre}}" width="112" height="112">
+      <a class="equipo" href="/team/{{_id}}">
+        <img src="/team/{{_id}}/image" alt="Escudo de {{nombre}}" width="112" height="112">
         <h3>{{nombre}}</h3>
         <p>Posición: {{posicion}}</p>
         <p>Puntos: {{puntos}}</p>
@@ -46,22 +46,22 @@
   <div style="text-align: center; margin: 100px;">
     <h5>{{emptyTeamsMessage}}</h5>
     {{^filterActive}}
-    <p><a href="/formularioEquipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
+    <p><a href="/teamForm" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
     {{/filterActive}}
   </div>
   {{/hasTeams}}
   {{#hasTeams}}
   <div class="text-right" style="margin-top: 20px;">
     {{^filterActive}}
-    <form action="/filtrar" method="get" class="form-inline">
+    <form action="/filter" method="get" class="form-inline">
       <label for="ciudad">Filtrar por ciudad:</label>
-      <select id="ciudad" name="ciudad" class="form-control">
+      <select id="ciudad" name="city" class="form-control">
         <option value="" {{#allCitiesSelected}}selected{{/allCitiesSelected}}>Todas las ciudades</option>
         {{#cities}}
         <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
         {{/cities}}
       </select>
-      <input type="hidden" name="paginaOrigen" value="{{originPage}}">
+      <input type="hidden" name="originPage" value="{{originPage}}">
       <button type="submit" class="btn btn-primary">Filtrar</button>
     </form>
     {{/filterActive}}

@@ -76,27 +76,29 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 #### Tareas realizadas
 
-- Creación del diseño y de la estructura del contenido de las páginas de la entidad principal (5 equipos de LaLiga EA Sports).
-- Implementación de las fotos de los jugadores de los equipos asignados, así como la integración de los escudos y las imágenes de los estadios.
-- Reestructuración del contenido eliminando páginas redundantes de la anterior plantilla.
-- Colaboración en el diseño de la interfaz.
-- Implementación de los botones "Editar" y "Borrar" específicos del apartado de leyendas.
+- Adaptación de la página de detalle (equipo) para mostrar la información y el escudo del equipo seleccionado mediante su identificador.
+- Arreglo de la organización de los equipos en la página principal, implementando los botones "Siguiente" y "Anterior" cuando supera los 6 equipos.
+- Implementación de la página de error y confirmación, manteniendo el estilo de la web y los enlaces de retorno.
+- Implementación del botón de "Borrar" equipos y de sus imágenes almacenadas en "uploads"
+- Implementación del botón "Editar" equipos reutilizando el formulario de creación, cargando los datos actuales del equipo en el formulario.
+- Traducción de los nombres internos de la práctica a inglés, manteniendo la interfaz en español.
+- Solución de errores.
 
 #### 5 commits más significativos
 
-1. Creación del Atlético de Madrid, tanto la información como las fotos ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/662911dc6336096a878b42e1a4a41648021d0a11))
-2. Creación del FC Barcelona, tanto la información como las fotos([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/81f1fbe920bfae0d6c177c3086d9857d9841187d))
-3. Creación del Málaga FC, tanto la información como las fotos([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/977b4b61161e43b70bad428036d0615930bc9834))
-4. Creación de los botones "Editar" y "Borrar" de todas las leyendas [(ENLACE_AL_COMMIT_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/b08e13d984879ce9acb6e67723b68c7517d62be9)
-5. Borrado de una de las páginas de la anterior plantilla [(ENLACE_AL_COMMIT_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/98799ab8e2f2a507a8924e15befd1da655dbdb99)
+1. Creación del html error y sus funciones. ([ENLACE_AL_COMMIT_1](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/8ad249162015f20474f2cbcc22c7cfe2d8e04929))
+2. Organización de los equipos en la página principal. ([ENLACE_AL_COMMIT_2](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/271cc3e1d13925eabcc9a24b207971ed69695bd8))
+3. Implementación del botón "Borrar".([ENLACE_AL_COMMIT_3](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/95d2f0587bb9a566603cbb4a1241434e509e84df))
+4. Implementación del botón "Editar" ([(ENLACE_AL_COMMIT_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/7c0f7989d192d6b5a5646d091a3b776c4e4e3414))
+5. Traducción a inglés ([(ENLACE_AL_COMMIT_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/commit/e7c7150a0a72a0dd6af1b5f85b7aab7acba7c5fc))
 
 #### 5 ficheros en los que más ha participado
 
-1. atm.html [(ENLACE_AL_FICHERO_1)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/atm.html)
-2. barca.html [(ENLACE_AL_FICHERO_2)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/barca.html)
-3. rayo.html [(ENLACE_AL_FICHERO_3)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/rayo.html)
-4. malaga.html [(ENLACE_AL_FICHERO_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/malaga.html)
-5. betis.html [(ENLACE_AL_FICHERO_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/betis.html)
+1. src/router.js [(ENLACE_AL_FICHERO_1)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/router.js)
+2. src/board.js [(ENLACE_AL_FICHERO_2)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/src/board.js)
+3. views/teamForm.html [(ENLACE_AL_FICHERO_3)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/teamForm.html)
+4. views/error.html [(ENLACE_AL_FICHERO_4)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/error.html)
+5. views/team.html [(ENLACE_AL_FICHERO_5)](https://github.com/CodeURJC-FW-2026-27/webapp07/blob/main/football_zip/views/team.html)
 
 ---
 

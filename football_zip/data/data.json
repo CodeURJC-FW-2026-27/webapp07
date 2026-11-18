@@ -92,4 +92,53 @@
   "dato": "No tiene ninguna Champions League",
   "escudo": "c561d65010cbb66f86f14ad37b0249d9",
   "jugadores": []
-}]
+},
+{
+  "nombre": "Real Madrid",
+  "ciudad": "Madrid",
+  "fundacion": "1902-03-06",
+  "presidente": "Presidente de demostración",
+  "estadio": "Santiago Bernabéu",
+  "biografia": "Equipo de Madrid incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+  "puntos": 16,
+  "posicion": 2,
+  "temporadas": 90,
+  "ligas": 30,
+  "mejorPosicion": 1,
+  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+  "escudo": "demo-real-madrid.png",
+  "jugadores": []
+},
+{
+  "nombre": "Real Betis",
+  "ciudad": "Sevilla",
+  "fundacion": "1907-09-12",
+  "presidente": "Presidente de demostración",
+  "estadio": "Benito Villamarín",
+  "biografia": "Equipo de Sevilla incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+  "puntos": 8,
+  "posicion": 4,
+  "temporadas": 50,
+  "ligas": 1,
+  "mejorPosicion": 1,
+  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+  "escudo": "demo-betis.png",
+  "jugadores": []
+},
+{
+  "nombre": "Real Sociedad",
+  "ciudad": "San Sebastián",
+  "fundacion": "1909-09-07",
+  "presidente": "Presidente de demostración",
+  "estadio": "Anoeta",
+  "biografia": "Equipo de San Sebastián incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+  "puntos": 5,
+  "posicion": 5,
+  "temporadas": 60,
+  "ligas": 2,
+  "mejorPosicion": 1,
+  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+  "escudo": "demo-real-sociedad.png",
+  "jugadores": []
+}
+]

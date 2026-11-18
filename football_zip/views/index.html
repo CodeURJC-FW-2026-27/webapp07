@@ -26,17 +26,17 @@
 	<h3>Consulta los equipos de LaLiga o inscribe un nuevo equipo.</h3>
 </div>
 
-<section class="boardEquipos" style="margin-top: 20px; text-align: center;">
+<section class="teamBoard" style="margin-top: 20px; text-align: center;">
   {{#hasTeams}}
   <p class="text-right"><a href="/teamForm" class="btn btn-primary">Inscribe tu equipo ahora</a></p>
   <div class="row">
     {{#teams}}
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <a class="equipo" href="/team/{{_id}}">
-        <img src="/team/{{_id}}/image" alt="Escudo de {{nombre}}" width="112" height="112">
-        <h3>{{nombre}}</h3>
-        <p>Posición: {{posicion}}</p>
-        <p>Puntos: {{puntos}}</p>
+      <a class="team" href="/team/{{_id}}">
+        <img src="/team/{{_id}}/image" alt="Escudo de {{name}}" width="112" height="112">
+        <h3>{{name}}</h3>
+        <p>Posición: {{position}}</p>
+        <p>Puntos: {{points}}</p>
       </a>
     </div>
     {{/teams}}
@@ -54,8 +54,8 @@
   <div class="text-right" style="margin-top: 20px;">
     {{^filterActive}}
     <form action="/filter" method="get" class="form-inline">
-      <label for="ciudad">Filtrar por ciudad:</label>
-      <select id="ciudad" name="city" class="form-control">
+      <label for="city">Filtrar por ciudad:</label>
+      <select id="city" name="city" class="form-control">
         <option value="" {{#allCitiesSelected}}selected{{/allCitiesSelected}}>Todas las ciudades</option>
         {{#cities}}
         <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>

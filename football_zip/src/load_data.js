@@ -17,13 +17,13 @@ if (await league.getTeamCount() === 0) {
     const demoTeams = JSON.parse(dataString);
 
     for (const demoTeam of demoTeams) {
-        const players = demoTeam.jugadores ?? [];
+        const players = demoTeam.players ?? [];
         const team = { ...demoTeam };
-        delete team.jugadores;
+        delete team.players;
 
         await fs.copyFile(
-            `${DATA_FOLDER}/${team.escudo}`,
-            `${UPLOADS_FOLDER}/${team.escudo}`
+            `${DATA_FOLDER}/${team.crestFilename}`,
+            `${UPLOADS_FOLDER}/${team.crestFilename}`
         );
 
         const teamId = await league.saveTeam(team);

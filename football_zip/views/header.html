@@ -10,8 +10,8 @@
                 <p>Una página sobre los clubes y los jugadores que forman su historia.</p>
             </div>
            <form action="/search" method="GET" class="site-search" role="search">
-                <label for="busqueda" class="sr-only">Buscar equipos o leyendas</label>
-                <input type="text" id="busqueda" name="searchTerm" placeholder="Buscar en la web...">
+                <label for="searchTerm" class="sr-only">Buscar equipos o leyendas</label>
+                <input type="text" id="searchTerm" name="searchTerm" placeholder="Buscar en la web...">
                 <button type="submit">Buscar</button>
             </form>
         </div>
@@ -40,7 +40,7 @@
                         {{#hasTeams}}
                             <ul class="dropdown-menu drop_3">
                             {{#allTeams}}
-                            <li><a href="/team/{{_id}}">{{nombre}}</a></li>
+                            <li><a href="/team/{{_id}}">{{name}}</a></li>
                             {{/allTeams}}
                         </ul>
                         {{/hasTeams}}

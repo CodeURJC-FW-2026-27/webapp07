@@ -9,7 +9,7 @@
   <title>Formulario de equipo | LaLiga</title>
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
-  <link href="/css/formulario.css" rel="stylesheet">
+  <link href="/css/form.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
   <script src="/js/jquery-2.1.1.min.js"></script>
@@ -33,67 +33,67 @@
     </div>
   </section>
 
-  <section id="formulario-equipo">
+  <section id="team-form">
     <div class="container">
       <div class="row">
         <div class="col-md-8">
           <p>Completa los datos del equipo. Los campos con * son obligatorios.</p>
 
-          <form action="/saveTeam" method="POST" enctype="multipart/form-data" id="nuevo-equipo">
+          <form action="/saveTeam" method="POST" enctype="multipart/form-data" id="new-team">
             <input type="hidden" name="id" value="{{team._id}}">
             <div class="form-group">
-              <label for="nombre">Nombre del club *</label>
-              <input type="text" class="form-control" id="nombre" name="name" value="{{team.nombre}}" required>
+              <label for="name">Nombre del club *</label>
+              <input type="text" class="form-control" id="name" name="name" value="{{team.name}}" required>
             </div>
             <div class="form-group">
-              <label for="ciudad">Ciudad *</label>
-              <input type="text" class="form-control" id="ciudad" name="city" value="{{team.ciudad}}" required>
+              <label for="city">Ciudad *</label>
+              <input type="text" class="form-control" id="city" name="city" value="{{team.city}}" required>
             </div>
             <div class="form-group">
-              <label for="fecha">Fecha de fundación *</label>
-              <input type="date" class="form-control" id="fecha" name="foundationDate" value="{{team.fundacion}}" required>
+              <label for="foundationDate">Fecha de fundación *</label>
+              <input type="date" class="form-control" id="foundationDate" name="foundationDate" value="{{team.foundationDate}}" required>
             </div>
             <div class="form-group">
-              <label for="presidente">Presidente *</label>
-              <input type="text" class="form-control" id="presidente" name="president" value="{{team.presidente}}" required>
+              <label for="president">Presidente *</label>
+              <input type="text" class="form-control" id="president" name="president" value="{{team.president}}" required>
             </div>
             <div class="form-group">
-              <label for="imagen">Foto del escudo del club *</label>
-              <input type="file" id="imagen" name="image" {{^editing}}required{{/editing}}>
+              <label for="image">Foto del escudo del club *</label>
+              <input type="file" id="image" name="image" {{^editing}}required{{/editing}}>
 
               {{#editing}}
                 <p>Si no seleccionas otra imagen, se conservará el escudo actual.</p>
-                {{#team.escudo}}
+                {{#team.crestFilename}}
                 <img src="/team/{{team._id}}/image"
                     alt="Escudo actual"
                     width="100">
-                {{/team.escudo}}
+                {{/team.crestFilename}}
               {{/editing}}
             </div>
             <div class="form-group">
-              <label for="estadio">Estadio *</label>
-              <input type="text" class="form-control" id="estadio" name="stadium" value="{{team.estadio}}" required>
+              <label for="stadium">Estadio *</label>
+              <input type="text" class="form-control" id="stadium" name="stadium" value="{{team.stadium}}" required>
             </div>
             <div class="form-group">
-              <label for="biografia">Biografía del club *</label>
-              <textarea class="form-control" id="biografia" name="description" rows="7"
-                placeholder="Cuenta la historia del club, sus orígenes y sus momentos más importantes.">{{team.biografia}}</textarea>
+              <label for="description">Biografía del club *</label>
+              <textarea class="form-control" id="description" name="description" rows="7"
+                placeholder="Cuenta la historia del club, sus orígenes y sus momentos más importantes.">{{team.description}}</textarea>
             </div>
             <div class="form-group">
-              <label for="puntos">Puntos en la temporada actual</label>
-              <input type="number" class="form-control" id="puntos" name="points" value="{{team.puntos}}">
+              <label for="points">Puntos en la temporada actual</label>
+              <input type="number" class="form-control" id="points" name="points" value="{{team.points}}">
             </div>
             <div class="form-group">
-              <label for="temporadas">Temporadas jugadas en primera division</label>
-              <input type="number" class="form-control" id="temporadas" name="seasons" value="{{team.temporadas}}">
+              <label for="seasons">Temporadas jugadas en primera division</label>
+              <input type="number" class="form-control" id="seasons" name="seasons" value="{{team.seasons}}">
             </div>
             <div class="form-group">
-              <label for="ligas">Ligas ganadas</label>
-              <input type="number" class="form-control" id="ligas" name="leagueTitles" value="{{team.ligas}}">
+              <label for="leagueTitles">Ligas ganadas</label>
+              <input type="number" class="form-control" id="leagueTitles" name="leagueTitles" value="{{team.leagueTitles}}">
             </div>
             <div class="form-group">
-              <label for="mejor-posicion">Mejor posicion histórica</label>
-              <select class="form-control" id="mejor-posicion" name="bestPosition">
+              <label for="best-position">Mejor posicion histórica</label>
+              <select class="form-control" id="best-position" name="bestPosition">
                 <option value="">Selecciona una posición</option>
                     {{#positions}}
                     <option value="{{number}}" {{#selected}}selected{{/selected}}>
@@ -103,12 +103,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="dato">Dato curioso</label>
-              <textarea class="form-control" id="dato" name="fact" rows="3"
-                placeholder="Ej.: Tiene 15 Champions League.">{{team.dato}}</textarea>
+              <label for="fact">Dato curioso</label>
+              <textarea class="form-control" id="fact" name="fact" rows="3"
+                placeholder="Ej.: Tiene 15 Champions League.">{{team.fact}}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="crear-equipo">Guardar</button>
+            <button type="submit" class="btn btn-primary" id="save-team">Guardar</button>
             <button type="reset" class="btn btn-default">Limpiar</button>
             <a href="/index/1" class="btn btn-default">Cancelar</a>
           </form>

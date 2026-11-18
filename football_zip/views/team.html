@@ -6,12 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>La Liga</title>
-	<link href="/css/equipos.css" rel="stylesheet">
+	<link href="/css/teams.css" rel="stylesheet">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
 	<link href="/css/global.css" rel="stylesheet">
 	<link href="/css/blog.css" rel="stylesheet">
 	<link href="/css/index.css" rel="stylesheet">
-	<link href="/css/formulario.css" rel="stylesheet">
+	<link href="/css/form.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
 	<link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
 	<script src="/js/jquery-2.1.1.min.js"></script>
@@ -27,29 +27,29 @@
 			<div class="row">
 				<div class="center_blog1 clearfix">
 					<div class="col-sm-12">
-						<h2 class="mgt">{{team.nombre}}</h2>
+						<h2 class="mgt">{{team.name}}</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	{{#team}}
-	<div id="infoClub" class="container">
+	<div id="clubInfo" class="container">
 		<div class="row">
 		<div class="col-sm-6">
 			<h3 class="mgt">Información del club</h3>
-			<p>{{biografia}}</p>
+			<p>{{description}}</p>
 			<ul>
-				<li>Ciudad: {{ciudad}}</li>
-				<li>Presidente: {{presidente}}</li>
-				<li>Posición en la temporada actual: {{posicion}}</li>
-				<li>Fecha de fundación: {{fundacion}}</li>
-				<li>Temporadas del club en LaLiga: {{temporadas}}</li>
-				<li>Estadio: {{estadio}}</li>
-				<li>Ligas ganadas: {{ligas}}</li>
-				<li>Mejor posición histórica: {{mejorPosicion}}</li>
-				<li>Dato curioso: {{dato}}</li>
-				<li>Puntos: {{puntos}}</li>
+				<li>Ciudad: {{city}}</li>
+				<li>Presidente: {{president}}</li>
+				<li>Posición en la temporada actual: {{position}}</li>
+				<li>Fecha de fundación: {{foundationDate}}</li>
+				<li>Temporadas del club en LaLiga: {{seasons}}</li>
+				<li>Estadio: {{stadium}}</li>
+				<li>Ligas ganadas: {{leagueTitles}}</li>
+				<li>Mejor posición histórica: {{bestPosition}}</li>
+				<li>Dato curioso: {{fact}}</li>
+				<li>Puntos: {{points}}</li>
 			</ul>
 		</div>
 		<div class="col-sm-6">
@@ -63,26 +63,26 @@
 	<hr>
 	{{#hasPlayers}}
 	
-	<section id="jugadores-anadidos" class="container" aria-labelledby="titulo-jugadores">
-		<h3 id="titulo-jugadores" style="text-align: left;">Jugadores activos:</h3>
+	<section id="added-players" class="container" aria-labelledby="players-heading">
+		<h3 id="players-heading" style="text-align: left;">Jugadores activos:</h3>
 		<p class="help-block">Fichas de los jugadores del equipo.</p>
 
 		<ul class="row list-unstyled">
-			<container class="fichas">
-			{{#team.jugadores}}
+			<container class="playerCards">
+			{{#team.players}}
 			<li class="col-sm-6">
 				<article class="panel panel-default">
 					<div class="panel-heading">
-						<h4 class="mgt">{{nombre}}</h4>
+						<h4 class="mgt">{{name}}</h4>
 					</div>
 					<div class="panel-body">
 						<ul class="list-unstyled">
-							<li><strong>Nacionalidad:</strong>{{nacionalidad}}</li>
-							<li><strong>Edad:</strong> {{edad}} años</li>
-							<li><strong>Posición:</strong> {{posicion}}</li>
-							<li><strong>Partidos jugados:</strong> {{partidos}}</li>
-							<li><strong>Goles:</strong> {{goles}}</li>
-							<li><strong>Asistencias:</strong> {{asistencias}}</li>
+							<li><strong>Nacionalidad:</strong>{{nationality}}</li>
+							<li><strong>Edad:</strong> {{age}} años</li>
+							<li><strong>Posición:</strong> {{positionLabel}}</li>
+							<li><strong>Partidos jugados:</strong> {{matches}}</li>
+							<li><strong>Goles:</strong> {{goals}}</li>
+							<li><strong>Asistencias:</strong> {{assists}}</li>
 						</ul>
 					</div>
 					<div class="panel-footer">
@@ -95,7 +95,7 @@
 					</div>
 				</article>
 			</li>
-			{{/team.jugadores}}
+			{{/team.players}}
 			</container>
 		</ul>
 	</section>
@@ -106,51 +106,51 @@
 	</div>
 	{{/hasPlayers}}
 
-<form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="titulo-formulario-jugador"
+<form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="player-form-heading"
 	action="/savePlayer/{{team._id}}/{{player._id}}" method="post">
 	{{#editingPlayer}}
-	<h4 id="titulo-formulario-jugador" class="mgt">Editar jugador</h4>
+	<h4 id="player-form-heading" class="mgt">Editar jugador</h4>
 	{{/editingPlayer}}
 	{{^editingPlayer}}
-	<h4 id="titulo-formulario-jugador" class="mgt">Nuevo jugador</h4>
+	<h4 id="player-form-heading" class="mgt">Nuevo jugador</h4>
 	{{/editingPlayer}}
 	<div class="row">
 		<div class="form-group col-sm-6">
-			<label for="jugador-nombre">Nombre *</label>
-			<input type="text" id="jugador-nombre" name="name" class="form-control" value="{{player.nombre}}" required>
+			<label for="player-name">Nombre *</label>
+			<input type="text" id="player-name" name="name" class="form-control" value="{{player.name}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-nacionalidad">Nacionalidad *</label>
-			<input type="text" id="jugador-nacionalidad" name="nationality" class="form-control" value="{{player.nacionalidad}}" required>
+			<label for="player-nationality">Nacionalidad *</label>
+			<input type="text" id="player-nationality" name="nationality" class="form-control" value="{{player.nationality}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-edad">Edad *</label>
-			<input type="number" id="jugador-edad" name="age" min="1" class="form-control" value="{{player.edad}}" required>
+			<label for="player-age">Edad *</label>
+			<input type="number" id="player-age" name="age" min="1" class="form-control" value="{{player.age}}" required>
 		</div>
 		<div class="form-group col-sm-6">
-			<label for="jugador-posicion">Posición *</label>
-			<select id="jugador-posicion" name="position" class="form-control" required>
+			<label for="player-position">Posición *</label>
+			<select id="player-position" name="position" class="form-control" required>
 				<option value="">Selecciona una posición</option>
-				<option value="portero" {{#isGoalkeeper}}selected{{/isGoalkeeper}}>Portero</option>
-				<option value="defensa" {{#isDefender}}selected{{/isDefender}}>	Defensa</option>
-				<option value="centrocampista" {{#isMidfielder}}selected{{/isMidfielder}}>Centrocampista</option>
-				<option value="delantero" {{#isForward}}selected{{/isForward}}>Delantero</option>
+				<option value="goalkeeper" {{#isGoalkeeper}}selected{{/isGoalkeeper}}>Portero</option>
+				<option value="defender" {{#isDefender}}selected{{/isDefender}}>	Defensa</option>
+				<option value="midfielder" {{#isMidfielder}}selected{{/isMidfielder}}>Centrocampista</option>
+				<option value="forward" {{#isForward}}selected{{/isForward}}>Delantero</option>
 			</select>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="form-group col-sm-4">
-			<label for="jugador-partidos">Partidos jugados *</label>
-			<input type="number" id="jugador-partidos" name="matches" min="0" class="form-control" value="{{player.partidos}}" required>
+			<label for="player-matches">Partidos jugados *</label>
+			<input type="number" id="player-matches" name="matches" min="0" class="form-control" value="{{player.matches}}" required>
 		</div>
 		<div class="form-group col-sm-4">
-			<label for="jugador-goles">Goles *</label>
-			<input type="number" id="jugador-goles" name="goals" min="0" class="form-control" value="{{player.goles}}" required>
+			<label for="player-goals">Goles *</label>
+			<input type="number" id="player-goals" name="goals" min="0" class="form-control" value="{{player.goals}}" required>
 		</div>
 		<div class="form-group col-sm-4">
-			<label for="jugador-asistencias">Asistencias *</label>
-			<input type="number" id="jugador-asistencias" name="assists" min="0" class="form-control" value="{{player.asistencias}}" required>
+			<label for="player-assists">Asistencias *</label>
+			<input type="number" id="player-assists" name="assists" min="0" class="form-control" value="{{player.assists}}" required>
 		</div>
 	</div>
 	{{#editingPlayer}}
@@ -160,7 +160,7 @@
 	<button type="submit" class="btn btn-primary">Crear</button>
 	{{/editingPlayer}}
 </form>
-	<!-- Botones -->
+	<!-- Action buttons -->
 	<div class="actions">	
 		<a href="/team/{{team._id}}/edit" class="btn btn-primary">Editar equipo</a>
 		<a href="index.html" class="btn btn-primary">Cancelar</a>
@@ -169,7 +169,7 @@
 		</form>
 	</div>
 	<br>
-<!-- Pie común -->
+<!-- Shared footer -->
 {{> footer}}
 
 </body>

@@ -5,6 +5,24 @@ import * as league from './board.js';
 const router = express.Router();
 export default router;
 
+// Translate stored position codes only when preparing visible player details.
+const POSITION_LABELS = {
+    goalkeeper: 'portero',
+    defender: 'defensa',
+    midfielder: 'centrocampista',
+    forward: 'delantero'
+};
+
+function getTeamView(team) {
+    return {
+        ...team,
+        players: team.players.map(player => ({
+            ...player,
+            positionLabel: POSITION_LABELS[player.position] ?? player.position
+        }))
+    };
+}
+
 // Load the team links shared by the navigation menu.
 async function getMenuData() {
     const allTeams = await league.getAllTeams();
@@ -106,26 +124,26 @@ function isIntegerInRange(value, min, max) {
 // Rubric 7, 15, 18, 25, 29: share player parsing and validation for creation/editing.
 function parsePlayerForm(body = {}) {
     const player = {
-        nombre: readText(body.name),
-        nacionalidad: readText(body.nationality),
-        edad: Number(readText(body.age)),
-        posicion: readText(body.position),
-        partidos: readOptionalNumber(body.matches),
-        goles: readOptionalNumber(body.goals),
-        asistencias: readOptionalNumber(body.assists)
+        name: readText(body.name),
+        nationality: readText(body.nationality),
+        age: Number(readText(body.age)),
+        position: readText(body.position),
+        matches: readOptionalNumber(body.matches),
+        goals: readOptionalNumber(body.goals),
+        assists: readOptionalNumber(body.assists)
     };
 
-    if (!player.nombre || !player.nacionalidad) {
+    if (!player.name || !player.nationality) {
         return { error: 'Rellena el nombre y la nacionalidad del jugador.' };
     }
-    if (!isIntegerInRange(player.edad, 1, 120)) {
+    if (!isIntegerInRange(player.age, 1, 120)) {
         return { error: 'La edad debe ser un número entero entre 1 y 120.' };
     }
-    const positions = ['portero', 'defensa', 'centrocampista', 'delantero'];
-    if (!positions.includes(player.posicion)) {
+    const positions = ['goalkeeper', 'defender', 'midfielder', 'forward'];
+    if (!positions.includes(player.position)) {
         return { error: 'Selecciona una posición válida para el jugador.' };
     }
-    if (![player.partidos, player.goles, player.asistencias].every(
+    if (![player.matches, player.goals, player.assists].every(
         value => isIntegerInRange(value, 0, Number.MAX_SAFE_INTEGER)
     )) {
         return { error: 'Los partidos, goles y asistencias deben ser números enteros no negativos.' };
@@ -211,7 +229,7 @@ router.get('/teamForm', async (req, res) => {
         positions.push({ number, selected: false });
     }
 
-    res.render('formularioEquipo', {
+    res.render('teamForm', {
         positions,
         ...menuData
     });
@@ -264,7 +282,7 @@ router.post('/saveTeam', league.upload.single('image'), async (req, res) => {
         null
     );
 
-    if (!req.file && !previousTeam?.escudo) {
+    if (!req.file && !previousTeam?.crestFilename) {
         return showError('Selecciona una imagen para el escudo.');
     }
 
@@ -326,21 +344,20 @@ router.post('/saveTeam', league.upload.single('image'), async (req, res) => {
         return showError('Ya existe otro equipo con ese nombre.', 409);
     }
 
-    // Keep the existing database field names so previously saved teams still work.
     const newTeam = {
-        nombre: teamName,
-        ciudad: city,
-        fundacion: foundationDate,
-        presidente: president,
-        estadio: stadium,
-        biografia: description,
-        puntos: points,
-        posicion: 0,
-        temporadas: seasons,
-        ligas: leagueTitles,
-        mejorPosicion: bestPosition,
-        dato: fact,
-        escudo: req.file?.filename ?? previousTeam?.escudo,
+        name: teamName,
+        city: city,
+        foundationDate: foundationDate,
+        president: president,
+        stadium: stadium,
+        description: description,
+        points: points,
+        position: 0,
+        seasons: seasons,
+        leagueTitles: leagueTitles,
+        bestPosition: bestPosition,
+        fact: fact,
+        crestFilename: req.file?.filename ?? previousTeam?.crestFilename,
     };
 
     const savedId = await league.saveTeam(newTeam, teamId || undefined);
@@ -351,7 +368,7 @@ router.post('/saveTeam', league.upload.single('image'), async (req, res) => {
 
     const menuData = await getMenuData();
 
-    return res.render('confirmacion', {
+    return res.render('confirmation', {
         message: previousTeam
             ? 'El equipo se ha actualizado correctamente.'
             : 'El equipo se ha creado correctamente.',
@@ -364,11 +381,11 @@ router.post('/saveTeam', league.upload.single('image'), async (req, res) => {
 router.get('/team/:id/image', async (req, res) => {
     const team = await league.getTeam(req.params.id);
 
-    if (!team || !team.escudo) {
+    if (!team || !team.crestFilename) {
         return res.status(404).send('Imagen no encontrada');
     }
 
-    res.sendFile(team.escudo, {
+    res.sendFile(team.crestFilename, {
         root: league.UPLOADS_FOLDER
     });
 });    
@@ -379,10 +396,10 @@ router.get('/team/:id', async (req, res) => {
     if (!team) {
         return res.status(404).send('Equipo no encontrado');
     }
-    const hasPlayers = team.jugadores.length !== 0;
+    const hasPlayers = team.players.length !== 0;
     const menuData = await getMenuData();
-    res.render('equipo', {
-        team,
+    res.render('team', {
+        team: getTeamView(team),
         ...menuData,
         hasPlayers
     });
@@ -405,7 +422,7 @@ router.post('/team/:id/delete', async (req, res) => {
 
     const menuData = await getMenuData();
 
-    res.render('confirmacion', {
+    res.render('confirmation', {
         message: 'El equipo se ha eliminado correctamente.',
         returnUrl: '/index/1',
         returnLabel: 'Volver al listado',
@@ -439,12 +456,12 @@ router.get('/team/:id/edit', async (req, res) => {
     for (let number = 1; number <= 20; number++) {
         positions.push({
             number,
-            selected: number === Number(team.mejorPosicion)
+            selected: number === Number(team.bestPosition)
         });
     }
 
     const menuData = await getMenuData();
-    res.render('formularioEquipo', {
+    res.render('teamForm', {
         team: team,
         editing: true,
         positions,
@@ -485,7 +502,7 @@ router.post('/deletePlayer/:teamId/:playerId', async (req, res) => {
     const teamId = req.params.teamId;
     const playerId = req.params.playerId;
     await league.deletePlayer(teamId, playerId);
-    res.render('confirmacion', {
+    res.render('confirmation', {
         message: 'El jugador se ha borrado correctamente.',
         returnUrl: `/team/${teamId}`,
         returnLabel: 'Volver al equipo'
@@ -498,16 +515,16 @@ router.post('/editPlayerForm/:teamId/:playerId', async (req, res) => {
     const playerId = req.params.playerId;
     
     const team = await league.getTeam(teamId);
-    const player = team.jugadores.find(
+    const player = team.players.find(
         player => player._id.toString() === playerId
     );
     const menuData = await getMenuData();
-    res.render('equipo', {
-        isGoalkeeper: player.posicion === 'portero',
-        isDefender: player.posicion === 'defensa',
-        isMidfielder: player.posicion === 'centrocampista',
-        isForward: player.posicion === 'delantero',
-        team,
+    res.render('team', {
+        isGoalkeeper: player.position === 'goalkeeper',
+        isDefender: player.position === 'defender',
+        isMidfielder: player.position === 'midfielder',
+        isForward: player.position === 'forward',
+        team: getTeamView(team),
         ...menuData,
         hasPlayers: true,
         player,
@@ -539,7 +556,7 @@ async function savePlayer(req, res) {
         return renderFormError(res, 'El equipo o jugador ya no existe.', '/index/1', 404);
     }
 
-    return res.render('confirmacion', {
+    return res.render('confirmation', {
         message: playerId
             ? 'El jugador se ha editado correctamente.'
             : 'El jugador se ha añadido correctamente.',

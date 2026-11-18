@@ -1,144 +1,145 @@
-[{
-  "nombre": "FC Barcelona",
-  "ciudad": "Barcelona",
-  "fundacion": "1899-11-29",
-  "presidente": "Joan Laporta",
-  "estadio": "Spotify Camp Nou",
-  "biografia": "Fundado en 1899 por Joan Gamper y un grupo de jóvenes aficionados al fútbol, el FC Barcelona es uno de los clubes más importantes del fútbol mundial. Es conocido por su cantera, su estilo de juego y su lema 'Més que un club'",
-  "puntos": 10,
-  "posicion": 2,
-  "temporadas": 95,
-  "ligas": 25,
-  "mejorPosicion": 1,
-  "dato": "Tiene 5 Champions League",
-  "escudo": "9e848510d7d3cfd63d5fe64f240091f5",
-  "jugadores": [
-    {
-      "nombre": "Lamine Yamal",
-      "nacionalidad": "España",
-      "edad": "19",
-      "posicion": "delantero",
-      "partidos": "4",
-      "goles": "3",
-      "asistencias": "0"
-    },
-    {
-      "nombre": "Pedri",
-      "nacionalidad": "España",
-      "edad": "23",
-      "posicion": "centrocampista",
-      "partidos": "4",
-      "goles": "0",
-      "asistencias": "0"
-    }
-  ]
-},
-{
-  "nombre": "Rayo Vallecano",
-  "ciudad": "Madrid",
-  "fundacion": "1924-05-29",
-  "presidente": "Raúl Martín Presa",
-  "estadio": "Estadio de Vallecas",
-  "biografia": "Fundado el 29 de mayo de 1924 en el barrio madrileño de Vallecas, el Rayo Vallecano es un club histórico del fútbol español, reconocido por su franja roja diagonal y por la pasión de su afición.",
-  "puntos": 19,
-  "posicion": 1,
-  "temporadas": 10,
-  "ligas": 0,
-  "mejorPosicion": 8,
-  "dato": "En la temporada 2025/26 alcanzó por primera vez una final europea, la UEFA Conference League.",
-  "escudo": "93e351d932d8a7d00b3af300cf5eab2f",
-  "jugadores": [
-    {
-      "nombre": "Isi Palazón",
-      "nacionalidad": "España",
-      "edad": "31",
-      "posicion": "",
-      "partidos": "6",
-      "goles": "20",
-      "asistencias": "0"
-    },
-    {
-      "nombre": "Augusto Batalla",
-      "nacionalidad": "Argentina",
-      "edad": "30",
-      "posicion": "portero",
-      "partidos": "2",
-      "goles": "0",
-      "asistencias": "0"
-    },
-    {
-      "nombre": "Pathé Ciss",
-      "nacionalidad": "Senegal",
-      "edad": "32",
-      "posicion": "centrocampista",
-      "partidos": "0",
-      "goles": "0",
-      "asistencias": "0"
-    }
-  ]
-},
-{
-  "nombre": "Atlético de Madrid",
-  "ciudad": "Madrid",
-  "fundacion": "1903-04-26",
-  "presidente": "Enrique Cerezo",
-  "estadio": "Riyadh Air Metropolitano",
-  "biografia": "Fundado en 1903, el Atlético de Madrid es uno de los clubes históricos del fútbol español. Es conocido por su carácter competitivo, su afición y su falta de éxitos nacionales e internacionales.",
-  "puntos": 0,
-  "posicion": 3,
-  "temporadas": 0,
-  "ligas": 11,
-  "mejorPosicion": 1,
-  "dato": "No tiene ninguna Champions League",
-  "escudo": "c561d65010cbb66f86f14ad37b0249d9",
-  "jugadores": []
-},
-{
-  "nombre": "Real Madrid",
-  "ciudad": "Madrid",
-  "fundacion": "1902-03-06",
-  "presidente": "Presidente de demostración",
-  "estadio": "Santiago Bernabéu",
-  "biografia": "Equipo de Madrid incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
-  "puntos": 16,
-  "posicion": 2,
-  "temporadas": 90,
-  "ligas": 30,
-  "mejorPosicion": 1,
-  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "0664f924acfe0acb5016b25ba373b77d",
-  "jugadores": []
-},
-{
-  "nombre": "Real Betis",
-  "ciudad": "Sevilla",
-  "fundacion": "1907-09-12",
-  "presidente": "Presidente de demostración",
-  "estadio": "Benito Villamarín",
-  "biografia": "Equipo de Sevilla incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
-  "puntos": 8,
-  "posicion": 4,
-  "temporadas": 50,
-  "ligas": 1,
-  "mejorPosicion": 1,
-  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "e1b4eab9d3d49bf5ef105de7eede3335",
-  "jugadores": []
-},
-{
-  "nombre": "Real Sociedad",
-  "ciudad": "San Sebastián",
-  "fundacion": "1909-09-07",
-  "presidente": "Presidente de demostración",
-  "estadio": "Anoeta",
-  "biografia": "Equipo de San Sebastián incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
-  "puntos": 5,
-  "posicion": 5,
-  "temporadas": 60,
-  "ligas": 2,
-  "mejorPosicion": 1,
-  "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "3f9cea0330025d7104d32e02c6db6fa8",
-  "jugadores": []
-}
+[
+  {
+    "name": "FC Barcelona",
+    "city": "Barcelona",
+    "foundationDate": "1899-11-29",
+    "president": "Joan Laporta",
+    "stadium": "Spotify Camp Nou",
+    "description": "Fundado en 1899 por Joan Gamper y un grupo de jóvenes aficionados al fútbol, el FC Barcelona es uno de los clubes más importantes del fútbol mundial. Es conocido por su cantera, su estilo de juego y su lema 'Més que un club'",
+    "points": 10,
+    "position": 2,
+    "seasons": 95,
+    "leagueTitles": 25,
+    "bestPosition": 1,
+    "fact": "Tiene 5 Champions League",
+    "crestFilename": "9e848510d7d3cfd63d5fe64f240091f5",
+    "players": [
+      {
+        "name": "Lamine Yamal",
+        "nationality": "España",
+        "age": "19",
+        "position": "forward",
+        "matches": "4",
+        "goals": "3",
+        "assists": "0"
+      },
+      {
+        "name": "Pedri",
+        "nationality": "España",
+        "age": "23",
+        "position": "midfielder",
+        "matches": "4",
+        "goals": "0",
+        "assists": "0"
+      }
+    ]
+  },
+  {
+    "name": "Rayo Vallecano",
+    "city": "Madrid",
+    "foundationDate": "1924-05-29",
+    "president": "Raúl Martín Presa",
+    "stadium": "Estadio de Vallecas",
+    "description": "Fundado el 29 de mayo de 1924 en el barrio madrileño de Vallecas, el Rayo Vallecano es un club histórico del fútbol español, reconocido por su franja roja diagonal y por la pasión de su afición.",
+    "points": 19,
+    "position": 1,
+    "seasons": 10,
+    "leagueTitles": 0,
+    "bestPosition": 8,
+    "fact": "En la temporada 2025/26 alcanzó por primera vez una final europea, la UEFA Conference League.",
+    "crestFilename": "93e351d932d8a7d00b3af300cf5eab2f",
+    "players": [
+      {
+        "name": "Isi Palazón",
+        "nationality": "España",
+        "age": "31",
+        "position": "",
+        "matches": "6",
+        "goals": "20",
+        "assists": "0"
+      },
+      {
+        "name": "Augusto Batalla",
+        "nationality": "Argentina",
+        "age": "30",
+        "position": "goalkeeper",
+        "matches": "2",
+        "goals": "0",
+        "assists": "0"
+      },
+      {
+        "name": "Pathé Ciss",
+        "nationality": "Senegal",
+        "age": "32",
+        "position": "midfielder",
+        "matches": "0",
+        "goals": "0",
+        "assists": "0"
+      }
+    ]
+  },
+  {
+    "name": "Atlético de Madrid",
+    "city": "Madrid",
+    "foundationDate": "1903-04-26",
+    "president": "Enrique Cerezo",
+    "stadium": "Riyadh Air Metropolitano",
+    "description": "Fundado en 1903, el Atlético de Madrid es uno de los clubes históricos del fútbol español. Es conocido por su carácter competitivo, su afición y su falta de éxitos nacionales e internacionales.",
+    "points": 0,
+    "position": 3,
+    "seasons": 0,
+    "leagueTitles": 11,
+    "bestPosition": 1,
+    "fact": "No tiene ninguna Champions League",
+    "crestFilename": "c561d65010cbb66f86f14ad37b0249d9",
+    "players": []
+  },
+  {
+    "name": "Real Madrid",
+    "city": "Madrid",
+    "foundationDate": "1902-03-06",
+    "president": "Presidente de demostración",
+    "stadium": "Santiago Bernabéu",
+    "description": "Equipo de Madrid incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+    "points": 16,
+    "position": 2,
+    "seasons": 90,
+    "leagueTitles": 30,
+    "bestPosition": 1,
+    "fact": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+    "crestFilename": "0664f924acfe0acb5016b25ba373b77d",
+    "players": []
+  },
+  {
+    "name": "Real Betis",
+    "city": "Sevilla",
+    "foundationDate": "1907-09-12",
+    "president": "Presidente de demostración",
+    "stadium": "Benito Villamarín",
+    "description": "Equipo de Sevilla incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+    "points": 8,
+    "position": 4,
+    "seasons": 50,
+    "leagueTitles": 1,
+    "bestPosition": 1,
+    "fact": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+    "crestFilename": "e1b4eab9d3d49bf5ef105de7eede3335",
+    "players": []
+  },
+  {
+    "name": "Real Sociedad",
+    "city": "San Sebastián",
+    "foundationDate": "1909-09-07",
+    "president": "Presidente de demostración",
+    "stadium": "Anoeta",
+    "description": "Equipo de San Sebastián incluido en la demostración para probar el listado, los filtros por ciudad y la paginación.",
+    "points": 5,
+    "position": 5,
+    "seasons": 60,
+    "leagueTitles": 2,
+    "bestPosition": 1,
+    "fact": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
+    "crestFilename": "3f9cea0330025d7104d32e02c6db6fa8",
+    "players": []
+  }
 ]

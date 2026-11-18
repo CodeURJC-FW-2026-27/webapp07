@@ -2,11 +2,10 @@ import { MongoClient, ObjectId } from 'mongodb';
 import multer from 'multer';
 import fs from 'node:fs/promises';
 
-// Rubric 23-24: English backend identifiers; keep existing MongoDB field names
-// and collection names compatible with the stored data (no schema migration).
+// Rubric 23-24: use English identifiers, document fields and collection names.
 const client = new MongoClient('mongodb://localhost:27017');
 const db = client.db('LaLiga');
-const teamCollection = db.collection('equipos');
+const teamCollection = db.collection('teams');
 
 export const UPLOADS_FOLDER = './uploads';
 export const upload = multer({ dest: UPLOADS_FOLDER });
@@ -39,7 +38,7 @@ export async function getAllTeams() {
 // Rubric 4, 6-7: search by name and exclude the current team during duplicate checks.
 export async function findTeamByName(name, excludedId) {
     const filter = {
-        nombre: { $regex: `^${escapeRegex(name)}$`, $options: 'i' }
+        name: { $regex: `^${escapeRegex(name)}$`, $options: 'i' }
     };
 
     if (excludedId) {
@@ -69,13 +68,13 @@ export async function saveTeam(team, id) {
             return null;
         }
 
-        if (previousTeam.escudo !== team.escudo) {
-            await removeImage(previousTeam.escudo);
+        if (previousTeam.crestFilename !== team.crestFilename) {
+            await removeImage(previousTeam.crestFilename);
         }
 
         savedId = previousTeam._id;
     } else {
-        team.jugadores = [];
+        team.players = [];
         const result = await teamCollection.insertOne(team);
         savedId = result.insertedId;
     }
@@ -90,7 +89,7 @@ export async function deleteTeam(id) {
 
     if (team) {
         await updateTeamPositions();
-        await removeImage(team.escudo);
+        await removeImage(team.crestFilename);
     }
 
     return team;
@@ -98,13 +97,13 @@ export async function deleteTeam(id) {
 
 // Remove all teams and their uploaded crests when explicitly requested.
 export async function deleteTeams() {
-    const teams = await teamCollection.find({}, { projection: { escudo: 1 } }).toArray();
+    const teams = await teamCollection.find({}, { projection: { crestFilename: 1 } }).toArray();
     const result = await teamCollection.deleteMany({});
 
     await Promise.all(
         teams
-            .filter(team => typeof team.escudo === 'string')
-            .map(team => removeImage(team.escudo))
+            .filter(team => typeof team.crestFilename === 'string')
+            .map(team => removeImage(team.crestFilename))
     );
 
     return result;
@@ -114,8 +113,8 @@ export async function deleteTeams() {
 
 // Rubric 3, 5: fetch a sorted page, optionally filtered by city.
 export async function getTeams(offset, limit = 6, city) {
-    const filter = city ? { ciudad: city } : {};
-    return teamCollection.find(filter).sort({ puntos: -1 }).skip(offset).limit(limit).toArray();
+    const filter = city ? { city: city } : {};
+    return teamCollection.find(filter).sort({ points: -1 }).skip(offset).limit(limit).toArray();
 }
 
 // Rubric 9-10: load the complete team using its MongoDB identifier.
@@ -124,13 +123,13 @@ export async function getTeam(id) {
 }
 
 export async function getTeamCount(city) {
-    const filter = city ? { ciudad: city } : {};
+    const filter = city ? { city: city } : {};
     return teamCollection.countDocuments(filter);
 }
 
 // Rubric 5: provide the non-empty city categories used by the filter.
 export async function getCities() {
-    const cities = await teamCollection.distinct('ciudad');
+    const cities = await teamCollection.distinct('city');
     return cities
         .filter(city => typeof city === 'string' && city.trim() !== '')
         .sort((a, b) => a.localeCompare(b, 'es'));
@@ -138,12 +137,12 @@ export async function getCities() {
 
 // Recalculate the ranking after saving or deleting a team.
 async function updateTeamPositions() {
-    const teams = await teamCollection.find().sort({ puntos: -1, _id: 1 }).toArray();
+    const teams = await teamCollection.find().sort({ points: -1, _id: 1 }).toArray();
 
     for (let index = 0; index < teams.length; index++) {
         await teamCollection.updateOne(
             { _id: teams[index]._id },
-            { $set: { posicion: index + 1 } }
+            { $set: { position: index + 1 } }
         );
     }
 }
@@ -153,7 +152,7 @@ export async function addPlayer(teamId, player) {
     player._id = new ObjectId();
     return teamCollection.updateOne(
         { _id: new ObjectId(teamId) },
-        { $push: { jugadores: player } }
+        { $push: { players: player } }
     );
 }
 
@@ -161,7 +160,7 @@ export async function addPlayer(teamId, player) {
 export async function deletePlayer(teamId, playerId) {
     return teamCollection.updateOne(
         { _id: new ObjectId(teamId) },
-        { $pull: { jugadores: { _id: new ObjectId(playerId) } } }
+        { $pull: { players: { _id: new ObjectId(playerId) } } }
     );
 }
 
@@ -170,13 +169,13 @@ export async function updatePlayer(teamId, playerId, player) {
     const fields = {};
 
     for (const [key, value] of Object.entries(player)) {
-        fields[`jugadores.$.${key}`] = value;
+        fields[`players.$.${key}`] = value;
     }
 
     return teamCollection.updateOne(
         {
             _id: new ObjectId(teamId),
-            'jugadores._id': new ObjectId(playerId)
+            'players._id': new ObjectId(playerId)
         },
         { $set: fields }
     );

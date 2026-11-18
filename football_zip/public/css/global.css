@@ -225,7 +225,7 @@ li {
   margin-right: 5px;
 }
 
-/* ==================== Navbar / navegación ==================== */
+/* ==================== Navbar / navigation ==================== */
 .navbar {
   min-height: auto;
   margin-bottom: 0;
@@ -336,7 +336,7 @@ li {
   outline-offset: -3px;
 }
 
-/* ==================== Barra superior ==================== */
+/* ==================== Top bar ==================== */
 #top {
   padding-top: 5px;
   padding-bottom: 5px;
@@ -368,7 +368,7 @@ li {
   line-height: 30px;
 }
 
-/* ==================== Cabecera / marca / buscador ==================== */
+/* ==================== Header / brand / search ==================== */
 #header_t {
   padding-top: 15px;
   padding-bottom: 15px;
@@ -458,7 +458,7 @@ li {
   font-size: 16px;
 }
 
-/* ==================== Componentes comunes ==================== */
+/* ==================== Shared components ==================== */
 .pages {
   margin-top: 20px;
 }
@@ -505,7 +505,7 @@ li {
   content: "";
 }
 
-/* ==================== Redes sociales ==================== */
+/* ==================== Social media ==================== */
 ul.social-network {
   display: block;
   margin-left: 0 !important;
@@ -584,7 +584,7 @@ a.socialIcon:hover,
   color: #fff;
 }
 
-/* ==================== Blog / contenido ==================== */
+/* ==================== Blog / content ==================== */
 .center_blog {
   padding-top: 50px;
   background: #f4f4f4;
@@ -654,15 +654,15 @@ a.socialIcon:hover,
   text-align: center;
 }
 
-/* ==================== Fichas, personas y alineaciones ==================== */
-#infoClub {
+/* ==================== Cards, people and lineups ==================== */
+#clubInfo {
   width: auto;
   max-width: 1170px;
   margin: 25px auto;
   padding: 0 20px;
 }
 
-#infoClub > div {
+#clubInfo > div {
   min-width: 0;
 }
 
@@ -672,7 +672,7 @@ a.socialIcon:hover,
   object-fit: contain;
 }
 
-#infoClub .about_1r img {
+#clubInfo .about_1r img {
   display: block;
   width: 100%;
   max-width: 420px;
@@ -682,36 +682,36 @@ a.socialIcon:hover,
   object-fit: contain;
 }
 
-#entrenadorLeyenda {
+#legendCoach {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 300px));
   column-gap: 40px;
   padding: 0 20px;
 }
 
-.personaI {
+.personCard {
   grid-template-rows: auto auto auto;
   row-gap: 12px;
 }
 
-.personaI h4,
-.personaI h5 {
+.personCard h4,
+.personCard h5 {
   margin: 0;
   text-align: center;
 }
 
-.personaI img {
+.personCard img {
   max-width: 100%;
   object-fit: contain;
 }
 
-.alineacion {
+.lineup {
   display: grid;
   grid-template-rows: repeat(13, 60px);
   justify-content: center;
 }
 
-.suplentes {
+.substitutes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -722,7 +722,7 @@ a.socialIcon:hover,
   padding: 0 15px;
 }
 
-.jugador {
+.player {
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 95px auto auto;
   row-gap: 4px;
@@ -732,22 +732,22 @@ a.socialIcon:hover,
   padding: 0 5px;
 }
 
-.jugador img {
+.player img {
   justify-self: center;
   width: 77px;
   height: 95px;
   object-fit: contain;
 }
 
-.jugador h5 {
+.player h5 {
   margin: 0;
   font-size: 15px;
   line-height: 1.25;
   overflow-wrap: break-word;
 }
 
-/* ==================== Campo / tabla / información ==================== */
-#campo {
+/* ==================== Pitch / standings / information ==================== */
+#pitch {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: auto;
   gap: 20px;
@@ -756,27 +756,27 @@ a.socialIcon:hover,
   padding: 0 20px;
 }
 
-#campo img {
+#pitch img {
   height: 350px !important;
   object-fit: contain;
 }
 
-#campo iframe {
+#pitch iframe {
   width: 100%;
   height: 350px;
 }
 
-#tabla {
+#standings {
   padding: 0 15px;
   overflow-x: auto;
 }
 
-#tabla .tabla {
+#standings .standings {
   min-width: 580px;
   grid-template-rows: repeat(21, minmax(54px, auto));
 }
 
-.tabla img {
+.standings img {
   object-fit: contain;
 }
 
@@ -790,7 +790,7 @@ a.socialIcon:hover,
   margin: 0;
 }
 
-/* ==================== Pie de página ==================== */
+/* ==================== Footer ==================== */
 #footer {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -863,7 +863,7 @@ a.socialIcon:hover,
   font-size: 15px;
 }
 
-/* ==================== Responsive: móvil ==================== */
+/* ==================== Responsive: mobile ==================== */
 @media screen and (max-width: 767px) {
   .space_left {
     padding-left: 15px;
@@ -1033,24 +1033,24 @@ a.socialIcon:hover,
     border: none;
   }
 
-  #entrenadorLeyenda,
-  #campo {
+  #legendCoach,
+  #pitch {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 25px;
   }
 
-  #entrenadorLeyenda > div,
-  #campo > * {
+  #legendCoach > div,
+  #pitch > * {
     grid-column: auto !important;
     grid-row: auto !important;
   }
 
-  #infoClub .about_1r img {
+  #clubInfo .about_1r img {
     max-width: 280px;
     max-height: 280px;
   }
 
-  .alineacion {
+  .lineup {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1058,19 +1058,19 @@ a.socialIcon:hover,
     padding: 0 15px;
   }
 
-  .jugador {
+  .player {
     flex: 0 0 100px;
   }
 
-  #campo img {
+  #pitch img {
     height: 260px !important;
   }
 
-  #campo iframe {
+  #pitch iframe {
     height: 260px;
   }
 
-  .temporada h5 {
+  .season h5 {
     font-size: 13px;
   }
 }
@@ -1120,7 +1120,7 @@ a.socialIcon:hover,
   }
 }
 
-/* ==================== Responsive: escritorio pequeño ==================== */
+/* ==================== Responsive: small desktop ==================== */
 @media (min-width: 992px) and (max-width: 1200px) {
   .container {
     width: 100%;

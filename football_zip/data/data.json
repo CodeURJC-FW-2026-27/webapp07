@@ -106,7 +106,7 @@
   "ligas": 30,
   "mejorPosicion": 1,
   "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "demo-real-madrid.png",
+  "escudo": "0664f924acfe0acb5016b25ba373b77d",
   "jugadores": []
 },
 {
@@ -122,7 +122,7 @@
   "ligas": 1,
   "mejorPosicion": 1,
   "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "demo-betis.png",
+  "escudo": "e1b4eab9d3d49bf5ef105de7eede3335",
   "jugadores": []
 },
 {
@@ -138,7 +138,7 @@
   "ligas": 2,
   "mejorPosicion": 1,
   "dato": "Las estadísticas de esta ficha son datos ficticios para la demostración.",
-  "escudo": "demo-real-sociedad.png",
+  "escudo": "3f9cea0330025d7104d32e02c6db6fa8",
   "jugadores": []
 }
 ]

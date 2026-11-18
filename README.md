@@ -183,22 +183,16 @@ En este apartado se detalla la contribución individual de cada miembro del equi
 
 ## 1. Instrucciones de ejecución
 
-### Requisitos
+### Requisitos previos
 
-- Node.js 20 o superior y npm (incluido con Node.js).
-- MongoDB Community Server instalado y en ejecución, escuchando en `localhost:27017`.
-- Git para clonar el repositorio.
-
-La aplicación se conecta a MongoDB en `mongodb://localhost:27017` y utiliza la base de datos `LaLiga`. No es necesario crear la base de datos ni la colección: MongoDB las crea al guardar los primeros datos. Si la colección está vacía, al arrancar se cargan los equipos y jugadores de demostración incluidos en `football_zip/data`.
-
-### Descargar, instalar y ejecutar
+- Instalar Mongo Bd desde su pagina original
+- En la terminal de football-zip, instala las dependencias: `npm install`
 
 
-Inicia MongoDB. En una instalación local de MongoDB Community Server, normalmente puede hacerse con:
+### Iniciar y finalizar
 
-En la terminal de football-zip, instala las dependencias y arranca el servidor web:
-npm install
-npm run watch
+En la terminal de football-zip arranca el servidor web:
+`npm run watch`
 
 
 Abre [http://localhost:3000](http://localhost:3000) en el navegador. 
@@ -208,17 +202,17 @@ Para detener la aplicación, pulsa `Ctrl+C` en la terminal donde se ejecuta `npm
 
 Los ficheros creados o modificados por el equipo para implementar la aplicación se organizan así:
 
-package.json`: dependencias y comandos de ejecución ('npm start' y 'npm run watch').
+- package.json`: dependencias y comandos de ejecución ('npm start' y 'npm run watch').
 app.js`: crea y configura Express, Mustache, los ficheros estáticos, el análisis de formularios y el puerto 3000.
-router.js: define las rutas, prepara los datos de las vistas y gestiona equipos, jugadores, búsquedas, filtros, formularios y errores.
-board.js: acceso a MongoDB y operaciones de consulta, creación, edición y borrado de equipos y jugadores; también gestiona las imágenes subidas.
-load_data.js: crea el directorio de subidas y carga los datos de demostración cuando la base de datos no contiene equipos.
-views: plantillas Mustache de las páginas y componentes compartidos: index.html, equipo.html, formularioEquipo.html, header.html, footer.html, confirmacion.html y error.html.
-css: hojas de estilo de la interfaz (global.css, index.css, equipos.css, formulario.css, tarjetas-equipos.css y estilos auxiliares). También contiene Bootstrap y otros estilos de terceros.
-public: archivos estaticos empleados en la pagina
-data: Datos de demostracion de añadido inicial referenciados por data.json.
-uploads: destino de las imágenes  cargadas mediante el formulario.
-.gitignore: excluye dependencias instaladas e imágenes subidas del control de versiones.
+- router.js: define las rutas, prepara los datos de las vistas y gestiona equipos, jugadores, búsquedas, filtros, formularios y errores.
+- board.js: acceso a MongoDB y operaciones de consulta, creación, edición y borrado de equipos y jugadores; también gestiona las imágenes subidas.
+- load_data.js: crea el directorio de subidas y carga los datos de demostración cuando la base de datos no contiene equipos.
+- views: plantillas Mustache de las páginas y componentes compartidos: index.html, equipo.html, formularioEquipo.html, header.html, footer.html, confirmacion.html y error.html.
+- css: hojas de estilo de la interfaz (global.css, index.css, equipos.css, formulario.css, tarjetas-equipos.css y estilos auxiliares). También contiene Bootstrap y otros estilos de terceros.
+- public: archivos estaticos empleados en la pagina
+- data: Datos de demostracion de añadido inicial referenciados por data.json.
+- uploads: destino de las imágenes  cargadas mediante el formulario.
+- .gitignore: excluye dependencias instaladas e imágenes subidas del control de versiones.
 
 ## 3. Vídeo demostrativo
 

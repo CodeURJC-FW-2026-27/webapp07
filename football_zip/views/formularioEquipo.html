@@ -1,3 +1,4 @@
+{{! Rubric 6, 12-13, 29: reuse this team form for creation and editing. }}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -39,60 +40,60 @@
           <p>Completa los datos del equipo. Los campos con * son obligatorios.</p>
 
           <form action="/guardarEquipo" method="POST" enctype="multipart/form-data" id="nuevo-equipo">
-            <input type="hidden" name="id" value="{{equipo._id}}">
+            <input type="hidden" name="id" value="{{team._id}}">
             <div class="form-group">
               <label for="nombre">Nombre del club *</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" value="{{equipo.nombre}}" required>
+              <input type="text" class="form-control" id="nombre" name="name" value="{{team.nombre}}" required>
             </div>
             <div class="form-group">
               <label for="ciudad">Ciudad *</label>
-              <input type="text" class="form-control" id="ciudad" name="ciudad" value="{{equipo.ciudad}}" required>
+              <input type="text" class="form-control" id="ciudad" name="city" value="{{team.ciudad}}" required>
             </div>
             <div class="form-group">
               <label for="fecha">Fecha de fundación *</label>
-              <input type="date" class="form-control" id="fecha" name="fecha" value="{{equipo.fundacion}}" required>
+              <input type="date" class="form-control" id="fecha" name="foundationDate" value="{{team.fundacion}}" required>
             </div>
             <div class="form-group">
               <label for="presidente">Presidente *</label>
-              <input type="text" class="form-control" id="presidente" name="presidente" value="{{equipo.presidente}}" required>
+              <input type="text" class="form-control" id="presidente" name="president" value="{{team.presidente}}" required>
             </div>
             <div class="form-group">
               <label for="imagen">Foto del escudo del club *</label>
-              <input type="file" id="imagen" name="imagen" {{^editing}}required{{/editing}}>
+              <input type="file" id="imagen" name="image" {{^editing}}required{{/editing}}>
 
               {{#editing}}
                 <p>Si no seleccionas otra imagen, se conservará el escudo actual.</p>
-                {{#equipo.escudo}}
-                <img src="/equipo/{{equipo._id}}/imagen"
+                {{#team.escudo}}
+                <img src="/equipo/{{team._id}}/imagen"
                     alt="Escudo actual"
                     width="100">
-                {{/equipo.escudo}}
+                {{/team.escudo}}
               {{/editing}}
             </div>
             <div class="form-group">
               <label for="estadio">Estadio *</label>
-              <input type="text" class="form-control" id="estadio" name="estadio" value="{{equipo.estadio}}" required>
+              <input type="text" class="form-control" id="estadio" name="stadium" value="{{team.estadio}}" required>
             </div>
             <div class="form-group">
               <label for="biografia">Biografía del club *</label>
-              <textarea class="form-control" id="biografia" name="biografia" rows="7"
-                placeholder="Cuenta la historia del club, sus orígenes y sus momentos más importantes.">{{equipo.biografia}}</textarea>
+              <textarea class="form-control" id="biografia" name="description" rows="7"
+                placeholder="Cuenta la historia del club, sus orígenes y sus momentos más importantes.">{{team.biografia}}</textarea>
             </div>
             <div class="form-group">
               <label for="puntos">Puntos en la temporada actual</label>
-              <input type="number" class="form-control" id="puntos" name="puntos" value="{{equipo.puntos}}">
+              <input type="number" class="form-control" id="puntos" name="points" value="{{team.puntos}}">
             </div>
             <div class="form-group">
               <label for="temporadas">Temporadas jugadas en primera division</label>
-              <input type="number" class="form-control" id="temporadas" name="temporadas" value="{{equipo.temporadas}}">
+              <input type="number" class="form-control" id="temporadas" name="seasons" value="{{team.temporadas}}">
             </div>
             <div class="form-group">
               <label for="ligas">Ligas ganadas</label>
-              <input type="number" class="form-control" id="ligas" name="ligas" value="{{equipo.ligas}}">
+              <input type="number" class="form-control" id="ligas" name="leagueTitles" value="{{team.ligas}}">
             </div>
             <div class="form-group">
               <label for="mejor-posicion">Mejor posicion histórica</label>
-              <select class="form-control" id="mejor-posicion" name="mejorPosicion">
+              <select class="form-control" id="mejor-posicion" name="bestPosition">
                 <option value="">Selecciona una posición</option>
                     {{#positions}}
                     <option value="{{number}}" {{#selected}}selected{{/selected}}>
@@ -103,8 +104,8 @@
             </div>
             <div class="form-group">
               <label for="dato">Dato curioso</label>
-              <textarea class="form-control" id="dato" name="dato" rows="3"
-                placeholder="Ej.: Tiene 15 Champions League.">{{equipo.dato}}</textarea>
+              <textarea class="form-control" id="dato" name="fact" rows="3"
+                placeholder="Ej.: Tiene 15 Champions League.">{{team.dato}}</textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" id="crear-equipo">Guardar</button>

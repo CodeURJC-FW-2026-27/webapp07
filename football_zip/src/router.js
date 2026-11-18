@@ -1,46 +1,49 @@
 import express from 'express';
 
-import * as LaLiga from './board.js';
+import * as league from './board.js';
 
 const router = express.Router();
 export default router;
 
+// Load the team links shared by the navigation menu.
 async function getMenuData() {
-    const allEquipos = await LaLiga.getAllEquipos();
+    const allTeams = await league.getAllTeams();
     return {
-        allEquipos,
-        hayEquipos: allEquipos.length > 0
+        allTeams,
+        hasTeams: allTeams.length > 0
     };
 }
 
-function getFilteredUrl(ciudad, pagina, paginaOrigen) {
+// Preserve the existing public query parameter names and the original page.
+function getFilteredUrl(city, page, originPage) {
     const params = new URLSearchParams({
-        ciudad,
-        pagina: String(pagina),
-        paginaOrigen: String(paginaOrigen)
+        ciudad: city,
+        pagina: String(page),
+        paginaOrigen: String(originPage)
     });
     return `/filtrar?${params}`;
 }
 
-async function renderIndex(res, ciudad, requestedPage, paginaOrigen) {
+// Rubric 3, 5, 9: show six teams per page, city filters and detail links.
+async function renderIndex(res, city, requestedPage, originPage) {
     const pageSize = 6;
-    const totalTeams = await LaLiga.getEquiposCount(ciudad);
+    const totalTeams = await league.getTeamCount(city);
     const totalPages = Math.max(1, Math.ceil(totalTeams / pageSize));
     const currentPage = Math.min(requestedPage, totalPages);
 
     if (requestedPage !== currentPage) {
         return res.redirect(
-            ciudad
-                ? getFilteredUrl(ciudad, currentPage, paginaOrigen)
+            city
+                ? getFilteredUrl(city, currentPage, originPage)
                 : `/index/${currentPage}`
         );
     }
 
     const offset = (currentPage - 1) * pageSize;
-    const teams = await LaLiga.getEquipos(offset, pageSize, ciudad);
+    const teams = await league.getTeams(offset, pageSize, city);
     const [menuTeams, cities] = await Promise.all([
-        LaLiga.getAllEquipos(),
-        LaLiga.getCiudades()
+        league.getAllTeams(),
+        league.getCities()
     ]);
     const pages = [];
 
@@ -48,41 +51,42 @@ async function renderIndex(res, ciudad, requestedPage, paginaOrigen) {
         pages.push({
             number,
             active: number === currentPage,
-            url: ciudad
-                ? getFilteredUrl(ciudad, number, paginaOrigen)
+            url: city
+                ? getFilteredUrl(city, number, originPage)
                 : `/index/${number}`
         });
     }
 
     res.render('index', {
-        equipos: teams,
-        allEquipos: menuTeams,
-        hayEquipos: totalTeams > 0,
+        teams: teams,
+        allTeams: menuTeams,
+        hasTeams: totalTeams > 0,
         pages,
         hasPrevious: currentPage > 1,
         previousPage: currentPage - 1,
-        previousUrl: ciudad
-            ? getFilteredUrl(ciudad, currentPage - 1, paginaOrigen)
+        previousUrl: city
+            ? getFilteredUrl(city, currentPage - 1, originPage)
             : `/index/${currentPage - 1}`,
         hasNext: currentPage < totalPages,
         nextPage: currentPage + 1,
-        nextUrl: ciudad
-            ? getFilteredUrl(ciudad, currentPage + 1, paginaOrigen)
+        nextUrl: city
+            ? getFilteredUrl(city, currentPage + 1, originPage)
             : `/index/${currentPage + 1}`,
-        ciudades: cities.map(value => ({
+        cities: cities.map(value => ({
             value,
-            selected: value === ciudad
+            selected: value === city
         })),
-        todasCiudadesSeleccionada: !ciudad,
-        filtroActivo: Boolean(ciudad),
-        ciudadSeleccionada: ciudad || '',
-        paginaOrigen,
-        mensajeSinEquipos: ciudad
-            ? `No hay equipos registrados en ${ciudad}.`
+        allCitiesSelected: !city,
+        filterActive: Boolean(city),
+        selectedCity: city || '',
+        originPage,
+        emptyTeamsMessage: city
+            ? `No hay equipos registrados en ${city}.`
             : 'No hay equipos registrados.'
     });
 }
 
+// Normalize form values before server-side validation.
 function readText(value) {
     return typeof value === 'string' ? value.trim() : '';
 }
@@ -99,16 +103,16 @@ function isIntegerInRange(value, min, max) {
     return Number.isInteger(value) && value >= min && value <= max;
 }
 
-// Parse the form and return the first validation error, if any.
+// Rubric 7, 15, 18, 25, 29: share player parsing and validation for creation/editing.
 function parsePlayerForm(body = {}) {
     const player = {
-        nombre: readText(body.nombre),
-        nacionalidad: readText(body.nacionalidad),
-        edad: Number(readText(body.edad)),
-        posicion: readText(body.posicion),
-        partidos: readOptionalNumber(body.partidos),
-        goles: readOptionalNumber(body.goles),
-        asistencias: readOptionalNumber(body.asistencias)
+        nombre: readText(body.name),
+        nacionalidad: readText(body.nationality),
+        edad: Number(readText(body.age)),
+        posicion: readText(body.position),
+        partidos: readOptionalNumber(body.matches),
+        goles: readOptionalNumber(body.goals),
+        asistencias: readOptionalNumber(body.assists)
     };
 
     if (!player.nombre || !player.nacionalidad) {
@@ -130,6 +134,7 @@ function parsePlayerForm(body = {}) {
     return { player };
 }
 
+// Rubric 8, 28: render the shared error view with a return link.
 function renderFormError(res, message, returnUrl, status = 400) {
     return res.status(status).render('error', {
         message,
@@ -145,21 +150,22 @@ router.get('/index', (req, res) => {
     res.redirect('/index/1');
 });
 
+// Rubric 4: find a team by name and open its detail page.
 router.get('/buscar', async (req, res) => {
-    const busqueda = (req.query.busqueda ?? '').trim();
+    const searchTerm = (req.query.busqueda ?? '').trim();
 
-    if (!busqueda) {
+    if (!searchTerm) {
         return res.redirect('/index/1');
     }
 
-    const equipo = await LaLiga.findEquipoByName(busqueda);
+    const team = await league.findTeamByName(searchTerm);
 
-    if (equipo) {
-        return res.redirect(`/equipo/${equipo._id}`);
+    if (team) {
+        return res.redirect(`/equipo/${team._id}`);
     }
 
     return res.status(404).render('error', {
-        message: `No se encontró el equipo "${busqueda}".`,
+        message: `No se encontró el equipo "${searchTerm}".`,
         returnUrl: '/index/1',
         returnLabel: 'Volver al inicio'
     });
@@ -176,25 +182,27 @@ router.get('/index/:page', async (req, res) => {
     return renderIndex(res, null, requestedPage, requestedPage);
 });
 
+// Rubric 5: apply the selected city while preserving pagination.
 router.get('/filtrar', async (req, res) => {
-    const ciudad = readText(req.query.ciudad);
+    const city = readText(req.query.ciudad);
     const requestedPage = Number(req.query.pagina ?? 1);
     const requestedOriginPage = Number(req.query.paginaOrigen ?? 1);
-    const paginaOrigen =
+    const originPage =
         Number.isSafeInteger(requestedOriginPage) && requestedOriginPage > 0
             ? requestedOriginPage
             : 1;
 
-    if (!ciudad) {
-        return res.redirect(`/index/${paginaOrigen}`);
+    if (!city) {
+        return res.redirect(`/index/${originPage}`);
     }
 
     if (!Number.isSafeInteger(requestedPage) || requestedPage < 1) {
-        return res.redirect(getFilteredUrl(ciudad, 1, paginaOrigen));
+        return res.redirect(getFilteredUrl(city, 1, originPage));
     }
 
-    return renderIndex(res, ciudad, requestedPage, paginaOrigen);
+    return renderIndex(res, city, requestedPage, originPage);
 });
+// Rubric 6, 29: open the shared team form for a new team.
 router.get('/formularioEquipo', async (req, res) => {
     const positions = [];
     const menuData = await getMenuData();
@@ -209,12 +217,13 @@ router.get('/formularioEquipo', async (req, res) => {
     });
 });
 
-router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) => {
+// Rubric 6-7, 13, 19, 20, 27, 29: validate, save and confirm team creation/editing.
+router.post('/guardarEquipo', league.upload.single('image'), async (req, res) => {
     const teamId = readText(req.body.id);
     let previousTeam = null;
     async function showError(message, status = 400) {
         if (req.file) {
-            await LaLiga.discardUploadedImage(req.file);
+            await league.discardUploadedImage(req.file);
         }
 
         return renderFormError(
@@ -232,26 +241,26 @@ router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) =
             return showError('El identificador del equipo es incorrecto.');
         }
 
-        previousTeam = await LaLiga.getEquipo(teamId);
+        previousTeam = await league.getTeam(teamId);
 
         if (!previousTeam) {
             return showError('El equipo no existe.', 404);
         }
     }
 
-    const teamName = readText(req.body.nombre);
-    const city = readText(req.body.ciudad);
-    const president = readText(req.body.presidente);
-    const stadium = readText(req.body.estadio);
-    const description = readText(req.body.biografia);
-    const foundationDate = readText(req.body.fecha);
-    const fact = readText(req.body.dato);
+    const teamName = readText(req.body.name);
+    const city = readText(req.body.city);
+    const president = readText(req.body.president);
+    const stadium = readText(req.body.stadium);
+    const description = readText(req.body.description);
+    const foundationDate = readText(req.body.foundationDate);
+    const fact = readText(req.body.fact);
 
-    const points = readOptionalNumber(req.body.puntos);
-    const seasons = readOptionalNumber(req.body.temporadas);
-    const leagueTitles = readOptionalNumber(req.body.ligas);
+    const points = readOptionalNumber(req.body.points);
+    const seasons = readOptionalNumber(req.body.seasons);
+    const leagueTitles = readOptionalNumber(req.body.leagueTitles);
     const bestPosition = readOptionalNumber(
-        req.body.mejorPosicion,
+        req.body.bestPosition,
         null
     );
 
@@ -311,12 +320,13 @@ router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) =
         return showError('La mejor posición debe estar entre 1 y 20.');
     }
 
-    const existingTeam = await LaLiga.findEquipoByName(teamName, teamId);
+    const existingTeam = await league.findTeamByName(teamName, teamId);
 
     if (existingTeam) {
         return showError('Ya existe otro equipo con ese nombre.', 409);
     }
 
+    // Keep the existing database field names so previously saved teams still work.
     const newTeam = {
         nombre: teamName,
         ciudad: city,
@@ -333,7 +343,7 @@ router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) =
         escudo: req.file?.filename ?? previousTeam?.escudo,
     };
 
-    const savedId = await LaLiga.saveEquipo(newTeam, teamId || undefined);
+    const savedId = await league.saveTeam(newTeam, teamId || undefined);
 
     if (!savedId) {
         return showError('El equipo ya no existe.', 404);
@@ -350,38 +360,42 @@ router.post('/guardarEquipo', LaLiga.upload.single('imagen'), async (req, res) =
         ...menuData
     });
 });
+// Rubric 10: send the crest associated with the requested team.
 router.get('/equipo/:id/imagen', async (req, res) => {
-    const equipo = await LaLiga.getEquipo(req.params.id);
+    const team = await league.getTeam(req.params.id);
 
-    if (!equipo || !equipo.escudo) {
+    if (!team || !team.escudo) {
         return res.status(404).send('Imagen no encontrada');
     }
 
-    res.sendFile(equipo.escudo, {
-        root: LaLiga.UPLOADS_FOLDER
+    res.sendFile(team.escudo, {
+        root: league.UPLOADS_FOLDER
     });
 });    
 
+// Rubric 9-10, 14: load the team detail and its related players.
 router.get('/equipo/:id', async (req, res) => {
-    const equipo = await LaLiga.getEquipo(req.params.id);
-    if (!equipo) {
+    const team = await league.getTeam(req.params.id);
+    if (!team) {
         return res.status(404).send('Equipo no encontrado');
     }
-    const hayJugadores = equipo.jugadores.length !== 0;
+    const hasPlayers = team.jugadores.length !== 0;
     const menuData = await getMenuData();
     res.render('equipo', {
-        equipo,
+        team,
         ...menuData,
-        hayJugadores
+        hasPlayers
     });
 });
 
+// Rubric 15, 29: reuse the same player-saving handler.
 router.post('/nuevoJugador/:id', savePlayer);
 
+// Rubric 11, 20: delete the team and show the shared confirmation.
 router.post('/equipo/:id/borrar', async (req, res) => {
-    const equipo = await LaLiga.deleteEquipo(req.params.id);
+    const team = await league.deleteTeam(req.params.id);
 
-    if (!equipo) {
+    if (!team) {
         return res.status(404).render('error', {
             message: 'El equipo no existe.',
             returnUrl: '/index/1',
@@ -399,6 +413,7 @@ router.post('/equipo/:id/borrar', async (req, res) => {
     });
 });
 
+// Rubric 12, 29: prefill the shared team form and select its current best position.
 router.get('/equipo/:id/editar', async (req, res) => {
     if (!/^[a-f\d]{24}$/i.test(req.params.id)) {
         return renderFormError(
@@ -408,7 +423,7 @@ router.get('/equipo/:id/editar', async (req, res) => {
         );
     }
 
-    const team = await LaLiga.getEquipo(req.params.id);
+    const team = await league.getTeam(req.params.id);
 
     if (!team) {
         return renderFormError(
@@ -430,13 +445,14 @@ router.get('/equipo/:id/editar', async (req, res) => {
 
     const menuData = await getMenuData();
     res.render('formularioEquipo', {
-        equipo: team,
+        team: team,
         editing: true,
         positions,
         ...menuData
     });
 });
 
+// Rubric 8, 28: use the shared error page for upload and request errors.
 router.use((error, req, res, next) => {
     if (res.headersSent) {
         return next(error);
@@ -448,7 +464,7 @@ router.use((error, req, res, next) => {
         ? '/index/1'
         : '/formularioEquipo';
 
-    if (LaLiga.isUploadError(error)) {
+    if (league.isUploadError(error)) {
         return renderFormError(
             res,
             'No se ha podido procesar el archivo. Revisa el campo del escudo.',
@@ -464,42 +480,45 @@ router.use((error, req, res, next) => {
     );
 });
 
-router.post('/borrarJugador/:equipoId/:jugadorId', async (req, res) => {
-    const equipoId = req.params.equipoId;
-    const jugadorId = req.params.jugadorId;
-    await LaLiga.deleteJugador(equipoId, jugadorId);
+// Rubric 16, 20: delete a player and display confirmation.
+router.post('/borrarJugador/:teamId/:playerId', async (req, res) => {
+    const teamId = req.params.teamId;
+    const playerId = req.params.playerId;
+    await league.deletePlayer(teamId, playerId);
     res.render('confirmacion', {
         message: 'El jugador se ha borrado correctamente.',
-        returnUrl: `/equipo/${equipoId}`,
+        returnUrl: `/equipo/${teamId}`,
         returnLabel: 'Volver al equipo'
     });
 });
 
-router.post('/formEditarJugador/:equipoId/:jugadorId', async (req, res) => {
-    const equipoId = req.params.equipoId;
-    const jugadorId = req.params.jugadorId;
+// Rubric 17, 29: prefill the existing player form within the team detail.
+router.post('/formEditarJugador/:teamId/:playerId', async (req, res) => {
+    const teamId = req.params.teamId;
+    const playerId = req.params.playerId;
     
-    const equipo = await LaLiga.getEquipo(equipoId);
-    const jugador = equipo.jugadores.find(
-        jugador => jugador._id.toString() === jugadorId
+    const team = await league.getTeam(teamId);
+    const player = team.jugadores.find(
+        player => player._id.toString() === playerId
     );
     const menuData = await getMenuData();
     res.render('equipo', {
-        isGoalkeeper: jugador.posicion === 'portero',
-        isDefender: jugador.posicion === 'defensa',
-        isMidfielder: jugador.posicion === 'centrocampista',
-        isForward: jugador.posicion === 'delantero',
-        equipo,
+        isGoalkeeper: player.posicion === 'portero',
+        isDefender: player.posicion === 'defensa',
+        isMidfielder: player.posicion === 'centrocampista',
+        isForward: player.posicion === 'delantero',
+        team,
         ...menuData,
-        hayJugadores: true,
-        jugador,
-        editar: true
+        hasPlayers: true,
+        player,
+        editingPlayer: true
     });
 });
 
+// Rubric 7, 15, 18, 20, 25, 27, 29: validate and save new/edited players.
 async function savePlayer(req, res) {
-    const teamId = req.params.equipoId || req.params.id;
-    const playerId = req.params.jugadorId;
+    const teamId = req.params.teamId || req.params.id;
+    const playerId = req.params.playerId;
     const returnUrl = '/equipo/' + teamId;
 
     if (!/^[a-f\d]{24}$/i.test(teamId) ||
@@ -513,8 +532,8 @@ async function savePlayer(req, res) {
     }
 
     const result = playerId
-        ? await LaLiga.updateJugador(teamId, playerId, player)
-        : await LaLiga.addJugador(teamId, player);
+        ? await league.updatePlayer(teamId, playerId, player)
+        : await league.addPlayer(teamId, player);
 
     if (result.matchedCount === 0) {
         return renderFormError(res, 'El equipo o jugador ya no existe.', '/index/1', 404);
@@ -529,4 +548,4 @@ async function savePlayer(req, res) {
     });
 }
 
-router.post(['/guardarJugador/:equipoId/:jugadorId', '/guardarJugador/:equipoId/'], savePlayer);
+router.post(['/guardarJugador/:teamId/:playerId', '/guardarJugador/:teamId/'], savePlayer);

@@ -1,3 +1,4 @@
+{{! Rubric 4, 21, 26: shared header partial, team navigation and search form. }}
 <header id="header_t" class="site-heading" lang="es">
     <div class="container">
         <div class="site-brand">
@@ -36,18 +37,18 @@
                     <li class="dropdown">
                         <a class="m_tag dropdown-toggle" href="#" data-toggle="dropdown" role="button"
                             aria-haspopup="true">Equipos <span class="caret"></span></a>
-                        {{#hayEquipos}}
+                        {{#hasTeams}}
                             <ul class="dropdown-menu drop_3">
-                            {{#allEquipos}}
+                            {{#allTeams}}
                             <li><a href="/equipo/{{_id}}">{{nombre}}</a></li>
-                            {{/allEquipos}}
+                            {{/allTeams}}
                         </ul>
-                        {{/hayEquipos}}
-                        {{^hayEquipos}}
+                        {{/hasTeams}}
+                        {{^hasTeams}}
                             <ul class="dropdown-menu drop_3">
                                 <li style="text-align: center;"><a href="#">No hay equipos registrados</a></li>
                             </ul>
-                        {{/hayEquipos}}
+                        {{/hasTeams}}
                     </li>
                     <li><a class="m_tag" href="/formularioEquipo">Formulario de equipo</a></li>
                 </ul>

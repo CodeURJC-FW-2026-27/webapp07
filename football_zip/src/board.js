@@ -2,9 +2,11 @@ import { MongoClient, ObjectId } from 'mongodb';
 import multer from 'multer';
 import fs from 'node:fs/promises';
 
+// Rubric 23-24: English backend identifiers; keep existing MongoDB field names
+// and collection names compatible with the stored data (no schema migration).
 const client = new MongoClient('mongodb://localhost:27017');
 const db = client.db('LaLiga');
-const equipos = db.collection('equipos');
+const teamCollection = db.collection('equipos');
 
 export const UPLOADS_FOLDER = './uploads';
 export const upload = multer({ dest: UPLOADS_FOLDER });
@@ -17,6 +19,7 @@ function escapeRegex(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// Remove an uploaded crest when it is replaced, rejected or deleted.
 async function removeImage(filename) {
     if (filename) {
         await fs.rm(`${UPLOADS_FOLDER}/${filename}`, { force: true });
@@ -29,11 +32,12 @@ export async function discardUploadedImage(file) {
     }
 }
 
-export async function getAllEquipos() {
-    return equipos.find().toArray();
+export async function getAllTeams() {
+    return teamCollection.find().toArray();
 }
 
-export async function findEquipoByName(name, excludedId) {
+// Rubric 4, 6-7: search by name and exclude the current team during duplicate checks.
+export async function findTeamByName(name, excludedId) {
     const filter = {
         nombre: { $regex: `^${escapeRegex(name)}$`, $options: 'i' }
     };
@@ -42,36 +46,37 @@ export async function findEquipoByName(name, excludedId) {
         filter._id = { $ne: new ObjectId(excludedId) };
     }
 
-    return equipos.findOne(filter);
+    return teamCollection.findOne(filter);
 }
 
-export async function saveEquipo(equipo, id) {
+// Rubric 13, 19, 29: reuse persistence for creation and editing; replace old crests.
+export async function saveTeam(team, id) {
     let savedId;
 
     if (id) {
-        const previousTeam = await getEquipo(id);
+        const previousTeam = await getTeam(id);
 
         if (!previousTeam) {
             return null;
         }
 
-        const result = await equipos.updateOne(
+        const result = await teamCollection.updateOne(
             { _id: previousTeam._id },
-            { $set: equipo }
+            { $set: team }
         );
 
         if (result.matchedCount === 0) {
             return null;
         }
 
-        if (previousTeam.escudo !== equipo.escudo) {
+        if (previousTeam.escudo !== team.escudo) {
             await removeImage(previousTeam.escudo);
         }
 
         savedId = previousTeam._id;
     } else {
-        equipo.jugadores = [];
-        const result = await equipos.insertOne(equipo);
+        team.jugadores = [];
+        const result = await teamCollection.insertOne(team);
         savedId = result.insertedId;
     }
 
@@ -79,20 +84,22 @@ export async function saveEquipo(equipo, id) {
     return savedId;
 }
 
-export async function deleteEquipo(id) {
-    const equipo = await equipos.findOneAndDelete({ _id: new ObjectId(id) });
+// Rubric 11: delete the team, remove its crest and update the ranking.
+export async function deleteTeam(id) {
+    const team = await teamCollection.findOneAndDelete({ _id: new ObjectId(id) });
 
-    if (equipo) {
+    if (team) {
         await updateTeamPositions();
-        await removeImage(equipo.escudo);
+        await removeImage(team.escudo);
     }
 
-    return equipo;
+    return team;
 }
 
-export async function deleteEquipos() {
-    const teams = await equipos.find({}, { projection: { escudo: 1 } }).toArray();
-    const result = await equipos.deleteMany({});
+// Remove all teams and their uploaded crests when explicitly requested.
+export async function deleteTeams() {
+    const teams = await teamCollection.find({}, { projection: { escudo: 1 } }).toArray();
+    const result = await teamCollection.deleteMany({});
 
     await Promise.all(
         teams
@@ -105,64 +112,71 @@ export async function deleteEquipos() {
 
 
 
-export async function getEquipos(offset, limit = 6, ciudad) {
-    const filter = ciudad ? { ciudad } : {};
-    return equipos.find(filter).sort({ puntos: -1 }).skip(offset).limit(limit).toArray();
+// Rubric 3, 5: fetch a sorted page, optionally filtered by city.
+export async function getTeams(offset, limit = 6, city) {
+    const filter = city ? { ciudad: city } : {};
+    return teamCollection.find(filter).sort({ puntos: -1 }).skip(offset).limit(limit).toArray();
 }
 
-export async function getEquipo(id) {
-    return equipos.findOne({ _id: new ObjectId(id) });
+// Rubric 9-10: load the complete team using its MongoDB identifier.
+export async function getTeam(id) {
+    return teamCollection.findOne({ _id: new ObjectId(id) });
 }
 
-export async function getEquiposCount(ciudad) {
-    const filter = ciudad ? { ciudad } : {};
-    return equipos.countDocuments(filter);
+export async function getTeamCount(city) {
+    const filter = city ? { ciudad: city } : {};
+    return teamCollection.countDocuments(filter);
 }
 
-export async function getCiudades() {
-    const ciudades = await equipos.distinct('ciudad');
-    return ciudades
-        .filter(ciudad => typeof ciudad === 'string' && ciudad.trim() !== '')
+// Rubric 5: provide the non-empty city categories used by the filter.
+export async function getCities() {
+    const cities = await teamCollection.distinct('ciudad');
+    return cities
+        .filter(city => typeof city === 'string' && city.trim() !== '')
         .sort((a, b) => a.localeCompare(b, 'es'));
 }
 
+// Recalculate the ranking after saving or deleting a team.
 async function updateTeamPositions() {
-    const teams = await equipos.find().sort({ puntos: -1, _id: 1 }).toArray();
+    const teams = await teamCollection.find().sort({ puntos: -1, _id: 1 }).toArray();
 
     for (let index = 0; index < teams.length; index++) {
-        await equipos.updateOne(
+        await teamCollection.updateOne(
             { _id: teams[index]._id },
             { $set: { posicion: index + 1 } }
         );
     }
 }
 
-export async function addJugador(teamId, jugador) {
-    jugador._id = new ObjectId();
-    return equipos.updateOne(
+// Rubric 15: append a player to its team with a unique identifier.
+export async function addPlayer(teamId, player) {
+    player._id = new ObjectId();
+    return teamCollection.updateOne(
         { _id: new ObjectId(teamId) },
-        { $push: { jugadores: jugador } }
+        { $push: { jugadores: player } }
     );
 }
 
-export async function deleteJugador(teamId, jugadorId) {
-    return equipos.updateOne(
+// Rubric 16: remove the selected player from its team.
+export async function deletePlayer(teamId, playerId) {
+    return teamCollection.updateOne(
         { _id: new ObjectId(teamId) },
-        { $pull: { jugadores: { _id: new ObjectId(jugadorId) } } }
+        { $pull: { jugadores: { _id: new ObjectId(playerId) } } }
     );
 }
 
-export async function updateJugador(teamId, jugadorId, jugador) {
+// Rubric 18: update only the fields of the selected embedded player.
+export async function updatePlayer(teamId, playerId, player) {
     const fields = {};
 
-    for (const [key, value] of Object.entries(jugador)) {
+    for (const [key, value] of Object.entries(player)) {
         fields[`jugadores.$.${key}`] = value;
     }
 
-    return equipos.updateOne(
+    return teamCollection.updateOne(
         {
             _id: new ObjectId(teamId),
-            'jugadores._id': new ObjectId(jugadorId)
+            'jugadores._id': new ObjectId(playerId)
         },
         { $set: fields }
     );

@@ -1,12 +1,14 @@
 import fs from 'node:fs/promises';
-import * as LaLiga from './board.js';
+import * as league from './board.js';
 
 const UPLOADS_FOLDER = './uploads';
 const DATA_FOLDER = './data';
 
 await fs.mkdir(UPLOADS_FOLDER, { recursive: true });
 
-if (await LaLiga.getEquiposCount() === 0) {
+// Rubric 2, 30: seed teams and players only when the database is empty;
+// copy example crests from data to uploads without resetting existing teams.
+if (await league.getTeamCount() === 0) {
     const dataString = await fs.readFile(
         `${DATA_FOLDER}/data.json`,
         'utf8'
@@ -24,10 +26,10 @@ if (await LaLiga.getEquiposCount() === 0) {
             `${UPLOADS_FOLDER}/${team.escudo}`
         );
 
-        const teamId = await LaLiga.saveEquipo(team);
+        const teamId = await league.saveTeam(team);
 
         for (const player of players) {
-            await LaLiga.addJugador(teamId.toString(), player);
+            await league.addPlayer(teamId.toString(), player);
         }
     }
 

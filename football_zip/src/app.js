@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import router from './router.js';
 import './load_data.js';
 
+// Configure static files, HTML templates and form parsing.
 const app = express();
 
 app.use(express.static('./public'));
@@ -15,6 +16,7 @@ app.set('views', './views');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Connect the existing application routes.
 app.use('/', router);
 
 app.listen(3000, () => console.log('Web ready in http://localhost:3000/'));

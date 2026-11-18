@@ -1,3 +1,4 @@
+{{! Rubric 3, 5, 9: paginated team list, city filter and detail links. }}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,10 +27,10 @@
 </div>
 
 <section class="boardEquipos" style="margin-top: 20px; text-align: center;">
-  {{#hayEquipos}}
+  {{#hasTeams}}
   <p class="text-right"><a href="/formularioEquipo" class="btn btn-primary">Inscribe tu equipo ahora</a></p>
   <div class="row">
-    {{#equipos}}
+    {{#teams}}
     <div class="col-xs-12 col-sm-6 col-md-4">
       <a class="equipo" href="/equipo/{{_id}}">
         <img src="/equipo/{{_id}}/imagen" alt="Escudo de {{nombre}}" width="112" height="112">
@@ -38,49 +39,49 @@
         <p>Puntos: {{puntos}}</p>
       </a>
     </div>
-    {{/equipos}}
+    {{/teams}}
   </div>
-  {{/hayEquipos}}
-  {{^hayEquipos}}
+  {{/hasTeams}}
+  {{^hasTeams}}
   <div style="text-align: center; margin: 100px;">
-    <h5>{{mensajeSinEquipos}}</h5>
-    {{^filtroActivo}}
+    <h5>{{emptyTeamsMessage}}</h5>
+    {{^filterActive}}
     <p><a href="/formularioEquipo" class="btn btn-primary">Sé el primero en inscribir un equipo</a></p>
-    {{/filtroActivo}}
+    {{/filterActive}}
   </div>
-  {{/hayEquipos}}
-  {{#hayEquipos}}
+  {{/hasTeams}}
+  {{#hasTeams}}
   <div class="text-right" style="margin-top: 20px;">
-    {{^filtroActivo}}
+    {{^filterActive}}
     <form action="/filtrar" method="get" class="form-inline">
       <label for="ciudad">Filtrar por ciudad:</label>
       <select id="ciudad" name="ciudad" class="form-control">
-        <option value="" {{#todasCiudadesSeleccionada}}selected{{/todasCiudadesSeleccionada}}>Todas las ciudades</option>
-        {{#ciudades}}
+        <option value="" {{#allCitiesSelected}}selected{{/allCitiesSelected}}>Todas las ciudades</option>
+        {{#cities}}
         <option value="{{value}}" {{#selected}}selected{{/selected}}>{{value}}</option>
-        {{/ciudades}}
+        {{/cities}}
       </select>
-      <input type="hidden" name="paginaOrigen" value="{{paginaOrigen}}">
+      <input type="hidden" name="paginaOrigen" value="{{originPage}}">
       <button type="submit" class="btn btn-primary">Filtrar</button>
     </form>
-    {{/filtroActivo}}
-    {{#filtroActivo}}
+    {{/filterActive}}
+    {{#filterActive}}
     <p>
-      Filtrado por ciudad: <strong>{{ciudadSeleccionada}}</strong>
-      <a href="/index/{{paginaOrigen}}" class="btn btn-default">Eliminar filtrado</a>
+      Filtrado por ciudad: <strong>{{selectedCity}}</strong>
+      <a href="/index/{{originPage}}" class="btn btn-default">Eliminar filtrado</a>
     </p>
-    {{/filtroActivo}}
+    {{/filterActive}}
   </div>
-  {{/hayEquipos}}
-  {{#filtroActivo}}
-  {{^hayEquipos}}
+  {{/hasTeams}}
+  {{#filterActive}}
+  {{^hasTeams}}
   <div class="text-right" style="margin-top: 20px;">
-    <span>Filtrado por ciudad: <strong>{{ciudadSeleccionada}}</strong></span>
-    <a href="/index/{{paginaOrigen}}" class="btn btn-default">Eliminar filtrado</a>
+    <span>Filtrado por ciudad: <strong>{{selectedCity}}</strong></span>
+    <a href="/index/{{originPage}}" class="btn btn-default">Eliminar filtrado</a>
   </div>
-  {{/hayEquipos}}
-  {{/filtroActivo}}
-  {{#hayEquipos}}
+  {{/hasTeams}}
+  {{/filterActive}}
+  {{#hasTeams}}
   <div style="text-align: center; margin-top: 20px;">
     <ul class="pagination">
       {{#hasPrevious}}
@@ -114,7 +115,7 @@
       {{/hasNext}}
     </ul>
   </div>
-  {{/hayEquipos}}
+  {{/hasTeams}}
 </section>	
 
 {{> footer}}

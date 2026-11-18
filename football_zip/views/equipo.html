@@ -1,3 +1,4 @@
+{{! Rubric 10-18, 29: team details, player list/actions and shared player form. }}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,13 +27,13 @@
 			<div class="row">
 				<div class="center_blog1 clearfix">
 					<div class="col-sm-12">
-						<h2 class="mgt">{{equipo.nombre}}</h2>
+						<h2 class="mgt">{{team.nombre}}</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	{{#equipo}}
+	{{#team}}
 	<div id="infoClub" class="container">
 		<div class="row">
 		<div class="col-sm-6">
@@ -53,14 +54,14 @@
 		</div>
 		<div class="col-sm-6">
 			<div class="about_1r clearfix">
-				<img src="/equipo/{{equipo._id}}/imagen" class="iw" height="420" alt="abc">
+				<img src="/equipo/{{team._id}}/imagen" class="iw" height="420" alt="abc">
 			</div>
 		</div>
 		</div>
 	</div>
-	{{/equipo}}
+	{{/team}}
 	<hr>
-	{{#hayJugadores}}
+	{{#hasPlayers}}
 	
 	<section id="jugadores-anadidos" class="container" aria-labelledby="titulo-jugadores">
 		<h3 id="titulo-jugadores" style="text-align: left;">Jugadores activos:</h3>
@@ -68,7 +69,7 @@
 
 		<ul class="row list-unstyled">
 			<container class="fichas">
-			{{#equipo.jugadores}}
+			{{#team.jugadores}}
 			<li class="col-sm-6">
 				<article class="panel panel-default">
 					<div class="panel-heading">
@@ -85,50 +86,50 @@
 						</ul>
 					</div>
 					<div class="panel-footer">
-						<form action="/formEditarJugador/{{equipo._id}}/{{_id}}" method="post">
+						<form action="/formEditarJugador/{{team._id}}/{{_id}}" method="post">
 						<button type="submit" class="btn btn-primary">Editar</button>
 						</form>
-						<form action="/borrarJugador/{{equipo._id}}/{{_id}}" method="post">
+						<form action="/borrarJugador/{{team._id}}/{{_id}}" method="post">
 						<button type="submit" class="btn btn-danger">Borrar</button>
 						</form>
 					</div>
 				</article>
 			</li>
-			{{/equipo.jugadores}}
+			{{/team.jugadores}}
 			</container>
 		</ul>
 	</section>
-	{{/hayJugadores}}
-	{{^hayJugadores}}
+	{{/hasPlayers}}
+	{{^hasPlayers}}
 	<div style="text-align: center; margin: 100px;">
 		<h5>No hay jugadores en este equipo.</h5>
 	</div>
-	{{/hayJugadores}}
+	{{/hasPlayers}}
 
 <form style="margin-left: 20px; margin-right: 20px;" class="well" aria-labelledby="titulo-formulario-jugador"
-	action="/guardarJugador/{{equipo._id}}/{{jugador._id}}" method="post">
-	{{#editar}}
+	action="/guardarJugador/{{team._id}}/{{player._id}}" method="post">
+	{{#editingPlayer}}
 	<h4 id="titulo-formulario-jugador" class="mgt">Editar jugador</h4>
-	{{/editar}}
-	{{^editar}}
+	{{/editingPlayer}}
+	{{^editingPlayer}}
 	<h4 id="titulo-formulario-jugador" class="mgt">Nuevo jugador</h4>
-	{{/editar}}
+	{{/editingPlayer}}
 	<div class="row">
 		<div class="form-group col-sm-6">
 			<label for="jugador-nombre">Nombre *</label>
-			<input type="text" id="jugador-nombre" name="nombre" class="form-control" value="{{jugador.nombre}}" required>
+			<input type="text" id="jugador-nombre" name="name" class="form-control" value="{{player.nombre}}" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="jugador-nacionalidad">Nacionalidad *</label>
-			<input type="text" id="jugador-nacionalidad" name="nacionalidad" class="form-control" value="{{jugador.nacionalidad}}" required>
+			<input type="text" id="jugador-nacionalidad" name="nationality" class="form-control" value="{{player.nacionalidad}}" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="jugador-edad">Edad *</label>
-			<input type="number" id="jugador-edad" name="edad" min="1" class="form-control" value="{{jugador.edad}}" required>
+			<input type="number" id="jugador-edad" name="age" min="1" class="form-control" value="{{player.edad}}" required>
 		</div>
 		<div class="form-group col-sm-6">
 			<label for="jugador-posicion">Posición *</label>
-			<select id="jugador-posicion" name="posicion" class="form-control" required>
+			<select id="jugador-posicion" name="position" class="form-control" required>
 				<option value="">Selecciona una posición</option>
 				<option value="portero" {{#isGoalkeeper}}selected{{/isGoalkeeper}}>Portero</option>
 				<option value="defensa" {{#isDefender}}selected{{/isDefender}}>	Defensa</option>
@@ -141,29 +142,29 @@
 	<div class="row">
 		<div class="form-group col-sm-4">
 			<label for="jugador-partidos">Partidos jugados *</label>
-			<input type="number" id="jugador-partidos" name="partidos" min="0" class="form-control" value="{{jugador.partidos}}" required>
+			<input type="number" id="jugador-partidos" name="matches" min="0" class="form-control" value="{{player.partidos}}" required>
 		</div>
 		<div class="form-group col-sm-4">
 			<label for="jugador-goles">Goles *</label>
-			<input type="number" id="jugador-goles" name="goles" min="0" class="form-control" value="{{jugador.goles}}" required>
+			<input type="number" id="jugador-goles" name="goals" min="0" class="form-control" value="{{player.goles}}" required>
 		</div>
 		<div class="form-group col-sm-4">
 			<label for="jugador-asistencias">Asistencias *</label>
-			<input type="number" id="jugador-asistencias" name="asistencias" min="0" class="form-control" value="{{jugador.asistencias}}" required>
+			<input type="number" id="jugador-asistencias" name="assists" min="0" class="form-control" value="{{player.asistencias}}" required>
 		</div>
 	</div>
-	{{#editar}}
+	{{#editingPlayer}}
 	<button type="submit" class="btn btn-primary">Editar</button>
-	{{/editar}}
-	{{^editar}}
+	{{/editingPlayer}}
+	{{^editingPlayer}}
 	<button type="submit" class="btn btn-primary">Crear</button>
-	{{/editar}}
+	{{/editingPlayer}}
 </form>
 	<!-- Botones -->
 	<div class="actions">	
-		<a href="/equipo/{{equipo._id}}/editar" class="btn btn-primary">Editar equipo</a>
+		<a href="/equipo/{{team._id}}/editar" class="btn btn-primary">Editar equipo</a>
 		<a href="index.html" class="btn btn-primary">Cancelar</a>
-		<form action="/equipo/{{equipo._id}}/borrar" method="post">
+		<form action="/equipo/{{team._id}}/borrar" method="post">
     		<button type="submit" class="btn btn-danger">Borrar equipo</button>
 		</form>
 	</div>

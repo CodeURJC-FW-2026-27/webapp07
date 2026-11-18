@@ -83,6 +83,7 @@ export async function deleteEquipo(id) {
     const equipo = await equipos.findOneAndDelete({ _id: new ObjectId(id) });
 
     if (equipo) {
+        await updateTeamPositions();
         await removeImage(equipo.escudo);
     }
 
